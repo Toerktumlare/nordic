@@ -111,7 +111,7 @@
                             <goal>yarn</goal>
                         </goals>
                         <configuration>
-                            <arguments>build</arguments>
+                            <arguments>build CI=false</arguments>
                         </configuration>
                     </execution>
                 </executions>
