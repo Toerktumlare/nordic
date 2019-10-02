@@ -1,13 +1,13 @@
 import React from 'react';
-import Textfit from 'react-textfit';
+// import Textfit from 'react-textfit';
 
-const inlineStyle = {
-    height: '500px'
-};
+// const inlineStyle = {
+//     height: '500px'
+// };
 
-const flex = {
-    flex: '1'
-};
+// const flex = {
+//     flex: '1'
+// };
 
 const WorkoutDay = ({className, workouts}) => {
 

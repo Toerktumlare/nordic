@@ -6,9 +6,9 @@ import Header from "./header"
 import WorkoutTypes from '../../constants/WorkoutTypes'
 import Footer from './footer'
 
-const inlineStyle = {
-  flex: '1'
-};
+// const inlineStyle = {
+//   flex: '1'
+// };
 
 class Workout extends React.Component {
     constructor(props) {
