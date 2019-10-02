@@ -1,31 +1,26 @@
 dist: bionic
 sudo: required
-
 language: java
 jdk:
-  - oraclejdk8
-
+- oraclejdk8
 cache:
   directories:
-    - $HOME/.m2
-
+  - "$HOME/.m2"
 jobs:
   include:
-    - stage: compile
-      script: ./mvnw clean package
-    - stage: compile
-      script:
-        - ./mvnw clean package
-        - sudo apt-get -y install python3-pip
-        - python3 -V
-        - pip3 -V
-        - pip3 install requests
-        - nohup java -jar nordic/target/nordic-0.0.1-SNAPSHOT.jar &
-        - scripts/python3 health.py http://localhost:8080/health
-        - sh ci-test.sh
-#    - stage: deploy to production
-#      script: ./mvnw clean package
-#      deploy: &heroku
-#        provider: heroku
-#        app: lift-service
-#        api_key: $HEROKU_AUTH_TOKEN
+  - stage: compile
+    script: "./mvnw clean package"
+  - stage: compile
+    script:
+    - "./mvnw clean package"
+    - sudo apt-get -y install python3-pip
+    - python3 -V
+    - pip3 -V
+    - pip3 install requests
+    - nohup java -jar nordic/target/nordic-0.0.1-SNAPSHOT.jar &
+    - scripts/python3 health.py http://localhost:8080/actuator/health
+    - sh ci-test.sh
+before_install:
+- openssl aes-256-cbc -K $encrypted_22ed6537ee2d_key -iv $encrypted_22ed6537ee2d_iv
+  -in src/main/resources/google-credentials.json.enc -out src/main/resources/google-credentials.json
+  -d
