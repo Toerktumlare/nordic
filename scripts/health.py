@@ -1,27 +1,49 @@
 import requests
 import sys
 import time
+import logging
 
-try:
-    url = sys.argv[1]
-    time.sleep(30)
-    r = requests.get(url)
-except requests.exceptions.ConnectionError as e:
-    print('Could not connect to "%s", reason: "%s"' % (str(sys.argv), str(e)))
-    exit(1)
 
-if r.status_code == 200:
+logging.basicConfig(level=logging.INFO)
+
+logger = logging.getLogger("Health.py")
+logger.info("Starting health check")
+
+
+def parse(r):
     j = r.json()
     try:
         status = j['status']
         if status == 'UP':
-            print("Health check was passed")
+            logger.info("Health check was passed")
             exit(0)
         else:
-            print('Health check did not pass. Current application status: "%s"' % str(status))
+            logger.error('Health check did not pass. Current application status: "%s"' % str(status))
     except KeyError as e:
-        print('Key "%s" not defined in json response: "%s"' % (str(e), str(j)))
+        logger.error('Key "%s" not defined in json response: "%s"' % (str(e), str(j)))
         exit(1)
-else:
-    print('Could not connect to "%s" return status was: "%s"' % (str(sys.argv), str(r.status_code)))
-    exit(1)
+
+
+url = sys.argv[1]
+
+retries = 30
+numRetries = 0
+
+while True:
+    try:
+        r = requests.get(url)
+        if r.status_code == 200:
+            parse(r)
+    except requests.exceptions.ConnectionError as e:
+        logger.debug('Could not connect to "%s", reason: "%s"' % (str(sys.argv), str(e)))
+
+    numRetries += 1
+
+    if numRetries == retries:
+        logger.info("Max retries reached, could not connect.")
+        logger.info("exiting program")
+        exit(1)
+
+    logger.info("retrying...")
+    time.sleep(1)
+
