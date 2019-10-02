@@ -20,4 +20,4 @@ jobs:
     - pip3 -V
     - pip3 install requests
     - nohup java -jar nordic/target/nordic-0.0.1-SNAPSHOT.jar &
-    - scripts/py health.py http://localhost:8080/actuator/health
+    - python3 scripts/health.py http://localhost:8080/actuator/health
