@@ -1,25 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonLeft from './buttonLeft'
-import ButtonRight from './buttonRight'
-import ButtonMenu from './buttonMenu'
+import { MdChevronLeft, MdChevronRight, MdMenu } from 'react-icons/md';
+import Button from './Button';
 
-const Footer = ({className, onForward, onBackward}) => {
+const Footer = ({ className, onForward, onBackward }) => (
+  <footer className={`flex justify-between ${className}`}>
+    <Button onClick={onBackward}>
+      <MdChevronLeft />
+    </Button>
+    <Button>
+      <MdMenu />
+    </Button>
+    <Button onClick={onForward}>
+      <MdChevronRight />
+    </Button>
+  </footer>
+);
 
-    return (
-      <footer className={"flex justify-between"}>
-        <ButtonLeft onClick={onBackward}/>
-        <ButtonMenu />
-        <ButtonRight onClick={onForward} />
-
-      </footer>
-    );
+Footer.defaultProps = {
+  className: '',
 };
 
 Footer.propTypes = {
-  className: PropTypes.string.isRequired,
+  className: PropTypes.string,
   onForward: PropTypes.func.isRequired,
-  onBackward: PropTypes.func.isRequired
-}
+  onBackward: PropTypes.func.isRequired,
+};
 
 export default Footer;

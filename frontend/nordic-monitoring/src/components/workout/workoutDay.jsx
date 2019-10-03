@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 // import Textfit from 'react-textfit';
 
 // const inlineStyle = {
@@ -9,34 +10,31 @@ import React from 'react';
 //     flex: '1'
 // };
 
-const WorkoutDay = ({className, workouts}) => {
+const WorkoutDay = ({ className, workouts }) => {
+  let workoutValue = <div>No workout registered today</div>;
+  if (workouts !== 'undefined') {
+    workoutValue = workouts.map((workout) => workout.split('\n')
+      // eslint-disable-next-line react/no-array-index-key
+      .map((text, j) => <div className="code pb3" key={j}>{text}</div>));
+  }
 
-    var workoutValue = <div>No workout registered today</div>
-    if(workouts !== 'undefined') {
-        workoutValue = workouts.map((workout, i) => 
-        workout.split('\n')
-                .map((text, j) => {
-                    return (
-                            <div className={"code pb3"} key={j}>
-                                {text}
-                            </div>
-                        
-                        )
-                }));
-    }
-
-    return (
-        <div className={`${className}`} >
-          {/* <Textfit max={30} style={inlineStyle} > */}
-            {workoutValue}
-          {/* </Textfit> */}
-        </div>
-    );
+  return (
+    <div className={`${className}`}>
+      {/* <Textfit max={30} style={inlineStyle} > */}
+      {workoutValue}
+      {/* </Textfit> */}
+    </div>
+  );
 };
 
 WorkoutDay.defaultProps = {
-    className: "",
-    workouts: []
-  };
+  className: '',
+  workouts: [],
+};
+
+WorkoutDay.propTypes = {
+  className: PropTypes.string,
+  workouts: PropTypes.arrayOf(PropTypes.string),
+};
 
 export default WorkoutDay;

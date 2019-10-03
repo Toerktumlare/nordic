@@ -1,7 +1,7 @@
-const WorkoutTypes = { 
-    DAGENS_PASS: "Dagens Pass",
-    FITNESS: "Fitness",
-    PERFORMANCE: "Performance"
-}
+const WorkoutTypes = {
+  DAGENS_PASS: 'Dagens Pass',
+  FITNESS: 'Fitness',
+  PERFORMANCE: 'Performance',
+};
 
-export default WorkoutTypes
+export default WorkoutTypes;

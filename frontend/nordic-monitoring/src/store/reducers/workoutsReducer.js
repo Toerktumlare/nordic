@@ -1,18 +1,16 @@
 import {
-    SET_WORKOUTS
-} from '../actions/workoutsActions'
+  SET_WORKOUTS,
+} from '../actions/workoutsActions';
 
 const initialState = {
-    wods: []
+  wods: [],
 };
 
-export function workouts(state = initialState, action) {
-    switch (action.type) {
-        case SET_WORKOUTS:
-            return Object.assign({}, state, {
-                wods: action.payload
-              })
-        default:
-            return state;
-    }
+export default function workouts(state = initialState, action) {
+  switch (action.type) {
+    case SET_WORKOUTS:
+      return { ...state, wods: action.payload };
+    default:
+      return state;
+  }
 }
