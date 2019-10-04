@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const IconButton = ({
-  // eslint-disable-next-line no-unused-vars
   className, children, onClick, disabled, hidden,
 }) => (
   <button

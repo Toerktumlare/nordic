@@ -5,25 +5,20 @@ import { MdChevronLeft, MdChevronRight, MdMenu } from 'react-icons/md';
 import Button from './Button';
 
 const Footer = ({
-  // eslint-disable-next-line no-unused-vars
   className, onLeft, onRight, onMenu, hideLeftButton, hideRightButton,
-}) => {
-  console.log(hideRightButton);
-
-  return (
-    <footer className={`flex justify-between ${className}`}>
-      <Button onClick={onLeft} hidden={hideLeftButton}>
-        <MdChevronLeft />
-      </Button>
-      <Button onClick={onMenu}>
-        <MdMenu />
-      </Button>
-      <Button onClick={onRight} hidden={hideRightButton}>
-        <MdChevronRight />
-      </Button>
-    </footer>
-  );
-};
+}) => (
+  <footer className={`flex justify-between ${className}`}>
+    <Button onClick={onLeft} hidden={hideLeftButton}>
+      <MdChevronLeft />
+    </Button>
+    <Button onClick={onMenu}>
+      <MdMenu />
+    </Button>
+    <Button onClick={onRight} hidden={hideRightButton}>
+      <MdChevronRight />
+    </Button>
+  </footer>
+);
 
 Footer.defaultProps = {
   className: '',
