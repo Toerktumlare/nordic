@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React from 'react';
 import { MdChevronLeft, MdChevronRight, MdMenu } from 'react-icons/md';
 import { action } from '@storybook/addon-actions';
