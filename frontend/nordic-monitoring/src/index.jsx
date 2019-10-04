@@ -2,16 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/store';
+import Root from './components/routing/root';
 
 const store = configureStore();
 window.store = store;
 
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Root />
   </Provider>,
   document.getElementById('root'),
 );

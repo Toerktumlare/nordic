@@ -1,3 +1,4 @@
+/*eslint-disable */
 import React from 'react';
 import { MdChevronLeft, MdChevronRight, MdMenu } from 'react-icons/md';
 import { action } from '@storybook/addon-actions';
@@ -6,6 +7,7 @@ import InfoBar from '../components/infoBar/infoBar';
 import Workout from '../components/workout/workout';
 import Footer from '../components/workout/footer';
 import Button from '../components/workout/Button';
+import SelectionMenu from '../components/selectionMenu/selectionMenu';
 
 
 export default {
@@ -30,5 +32,7 @@ export const button = () => (
     </Button>
   </div>
 )
+export const selectionMenu = () => <SelectionMenu />
+
 export const footer = () => <Footer />;
 

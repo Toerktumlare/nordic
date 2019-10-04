@@ -43,7 +43,7 @@ public class WorkoutRoutes {
 
     @Bean
     public RouterFunction<ServerResponse> htmlRouter(@Value("classpath:/public/index.html") Resource html) {
-            return route(GET("/"), request -> ok()
+            return route(GET("/*"), request -> ok()
                     .contentType(MediaType.TEXT_HTML)
                     .syncBody(html)
         );

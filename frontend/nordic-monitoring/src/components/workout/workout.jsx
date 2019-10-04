@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import moment from 'moment';
 import { getWorkouts } from '../../store/actions/workoutsActions';
 import WorkoutDay from './workoutDay';
@@ -63,6 +64,12 @@ class Workout extends React.Component {
     this.setState((prevState) => ({ currentIndex: prevState.currentIndex - 1 }));
   }
 
+  handleMenuClick = (e) => {
+    e.preventDefault();
+    const { history } = this.props;
+    history.push('/');
+  }
+
   render() {
     const { className } = this.props;
     const { workoutWeek, currentIndex } = this.state;
@@ -78,6 +85,7 @@ class Workout extends React.Component {
           className="flex-0"
           onForward={this.handleForwardClick}
           onBackward={this.handleBackwardClick}
+          onMenu={this.handleMenuClick}
         />
       </div>
     );
@@ -89,6 +97,8 @@ Workout.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   currentIndex: PropTypes.number,
   fetchWorkouts: PropTypes.func,
+  // eslint-disable-next-line react/forbid-prop-types
+  history: PropTypes.any,
 };
 
 Workout.defaultProps = {
@@ -96,6 +106,7 @@ Workout.defaultProps = {
   data: [],
   currentIndex: moment().isoWeekday() - 1,
   fetchWorkouts: () => {},
+  history: {},
 };
 
 function mapStateToProps(state) {
@@ -108,7 +119,7 @@ const mapDispatchToProps = (dispatch) => ({
   fetchWorkouts: () => dispatch(getWorkouts()),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Workout);
+)(Workout));
