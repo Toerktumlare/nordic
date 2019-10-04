@@ -77,15 +77,19 @@ class Workout extends React.Component {
     if (workoutWeek.length !== 0) {
       selectedWorkoutDay = workoutWeek[currentIndex];
     }
+    const isLeftHidden = currentIndex === 0;
+    const isRightHidden = currentIndex === workoutWeek.length - 1;
 
     return (
       <div className={`bg-white flex flex-column justify-between ba bw3 b--yellow h-100 ${className}`}>
         {selectedWorkoutDay}
         <Footer
           className="flex-0"
-          onForward={this.handleForwardClick}
-          onBackward={this.handleBackwardClick}
+          onRight={this.handleForwardClick}
+          onLeft={this.handleBackwardClick}
           onMenu={this.handleMenuClick}
+          hideLeftButton={isLeftHidden}
+          hideRightButton={isRightHidden}
         />
       </div>
     );
