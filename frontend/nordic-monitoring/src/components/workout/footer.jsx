@@ -19,12 +19,14 @@ const Footer = ({ className, onForward, onBackward }) => (
 
 Footer.defaultProps = {
   className: '',
+  onForward: () => {},
+  onBackward: () => {},
 };
 
 Footer.propTypes = {
   className: PropTypes.string,
-  onForward: PropTypes.func.isRequired,
-  onBackward: PropTypes.func.isRequired,
+  onForward: PropTypes.func,
+  onBackward: PropTypes.func,
 };
 
 export default Footer;

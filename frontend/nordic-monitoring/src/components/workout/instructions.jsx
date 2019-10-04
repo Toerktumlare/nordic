@@ -23,7 +23,7 @@ Instructions.defaultProps = {
 
 Instructions.propTypes = {
   className: PropTypes.string,
-  values: PropTypes.arrayOf,
+  values: PropTypes.arrayOf(PropTypes.string),
 };
 
 export default Instructions;

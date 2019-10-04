@@ -10,23 +10,25 @@ import WorkoutTypes from '../../constants/WorkoutTypes';
 import Footer from './footer';
 
 class Workout extends React.Component {
-  static genWorkoutDays = (weeklyWorkouts) => weeklyWorkouts.flatMap((workoutWeek) => {
-    const { name, workoutDays } = workoutWeek;
-    const workoutName = WorkoutTypes[name];
+  static genWorkoutDays(weeklyWorkouts) {
+    return weeklyWorkouts.flatMap((workoutWeek) => {
+      const { name, workoutDays } = workoutWeek;
+      const workoutName = WorkoutTypes[name];
 
-    return workoutDays.map((workoutDay) => {
-      const { instructions, workouts, date } = workoutDay;
-      return (
-        <>
-          <div className="flex flex-column justify-between overflow-auto h-100">
-            <Header className="pl4" name={workoutName} timestamp={date} />
-            <WorkoutDay className="pl4 pr4" workouts={workouts} />
-            <Instructions className="pl4 pb2 pr4" values={instructions} />
-          </div>
-        </>
-      );
+      return workoutDays.map((workoutDay) => {
+        const { instructions, workouts, date } = workoutDay;
+        return (
+          <>
+            <div className="flex flex-column justify-between overflow-auto h-100">
+              <Header className="pl4" name={workoutName} timestamp={date} />
+              <WorkoutDay className="pl4 pr4" workouts={workouts} />
+              <Instructions className="pl4 pb2 pr4" values={instructions} />
+            </div>
+          </>
+        );
+      });
     });
-  });
+  }
 
   constructor(props) {
     super(props);
@@ -62,8 +64,8 @@ class Workout extends React.Component {
   }
 
   render() {
-    const { className, currentIndex } = this.props;
-    const { workoutWeek } = this.state;
+    const { className } = this.props;
+    const { workoutWeek, currentIndex } = this.state;
     let selectedWorkoutDay;
     if (workoutWeek.length !== 0) {
       selectedWorkoutDay = workoutWeek[currentIndex];
