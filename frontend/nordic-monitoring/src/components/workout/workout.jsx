@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
-import { getWorkouts } from '../../store/actions/workoutsActions';
+import { setWorkouts } from '../../store/actions/workoutsActions';
 import WorkoutDay from './workoutDay';
 import Instructions from './instructions';
 import Header from './header';
@@ -41,18 +41,30 @@ class Workout extends React.Component {
     this.state = {
       currentIndex,
       workoutWeek,
+      workoutEvents: new EventSource('http://localhost:8080/api/workouts/subscribe'),
     };
   }
 
   componentDidMount() {
-    const { fetchWorkouts } = this.props;
-    fetchWorkouts();
+    const { workoutEvents } = this.state;
+    workoutEvents.addEventListener('message', this.handleWorkoutsEvent);
+  }
+
+  componentWillUnmount() {
+    const { workoutEvents } = this.state;
+    workoutEvents.removeEventListener('message', this.handleWorkoutsEvent);
   }
 
   static getDerivedStateFromProps(nextProps) {
     return {
       workoutWeek: Workout.genWorkoutDays(nextProps.data),
     };
+  }
+
+  handleWorkoutsEvent = (e) => {
+    const { addWorkouts } = this.props;
+    const data = JSON.parse(e.data);
+    addWorkouts(data);
   }
 
   handleForwardClick = (e) => {
@@ -101,16 +113,17 @@ Workout.propTypes = {
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object),
   currentIndex: PropTypes.number,
-  fetchWorkouts: PropTypes.func,
-  // eslint-disable-next-line react/forbid-prop-types
-  history: PropTypes.any,
+  addWorkouts: PropTypes.func,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }),
 };
 
 Workout.defaultProps = {
   className: '',
   data: [],
   currentIndex: moment().isoWeekday() - 1,
-  fetchWorkouts: () => {},
+  addWorkouts: () => {},
   history: {},
 };
 
@@ -121,7 +134,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchWorkouts: () => dispatch(getWorkouts()),
+  addWorkouts: (workouts) => dispatch(setWorkouts(workouts)),
 });
 
 export default withRouter(connect(

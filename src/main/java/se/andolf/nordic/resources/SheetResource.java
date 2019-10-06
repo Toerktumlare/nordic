@@ -29,7 +29,8 @@ public class SheetResource {
                     .batchGet(id)
                     .setRanges(ranges)
                     .setKey("AIzaSyDeNtz65wuxX6WT-vFxQrI2DscSv6ElacQ")
-                    .execute().getValueRanges()).doOnSuccess(System.out::println);
+                    .execute()
+                    .getValueRanges());
         } catch (IOException e) {
             throw new ResponseStatusException(HttpStatus.I_AM_A_TEAPOT);
         }

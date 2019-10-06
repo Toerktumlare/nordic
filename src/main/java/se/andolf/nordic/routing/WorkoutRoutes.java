@@ -17,8 +17,7 @@ import se.andolf.nordic.models.response.WorkoutResponse;
 
 import java.util.List;
 
-import static org.springframework.web.reactive.function.server.RequestPredicates.*;
-import static org.springframework.web.reactive.function.server.RouterFunctions.nest;
+import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
@@ -35,10 +34,13 @@ public class WorkoutRoutes {
 
     @Bean
     public RouterFunction<ServerResponse> workouts() {
-        return nest(path("/api/workouts"), route().GET("/", accept(MediaType.APPLICATION_JSON_UTF8),
-                req -> ok().body(workoutHandler.get(), new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
-                .build());
-
+        return route().path("/api/workouts", builder -> builder
+                .GET("", request -> ok().body(workoutHandler.get(),
+                        new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
+                .GET("/subscribe",request -> ok()
+                        .contentType(MediaType.TEXT_EVENT_STREAM)
+                        .body(workoutHandler.getMany(), new ParameterizedTypeReference<List<WorkoutResponse>>(){})))
+                .build();
     }
 
     @Bean

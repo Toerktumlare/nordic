@@ -1,7 +1,13 @@
 package se.andolf.nordic.handlers;
 
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import reactor.core.publisher.Flux;
+import reactor.core.publisher.FluxSink;
 import reactor.core.publisher.Mono;
+import reactor.core.publisher.ReplayProcessor;
 import se.andolf.nordic.models.Sheet;
 import se.andolf.nordic.models.WorkoutType;
 import se.andolf.nordic.models.response.WorkoutDay;
@@ -9,6 +15,7 @@ import se.andolf.nordic.models.response.WorkoutResponse;
 import se.andolf.nordic.resources.SheetResource;
 import se.andolf.nordic.utils.DateUtils;
 
+import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
@@ -18,12 +25,24 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Component
+@Slf4j
 public class WorkoutHandler {
 
     private final SheetResource sheetResource;
+    private final ReplayProcessor<List<WorkoutResponse>> replayProcessor;
+    private final FluxSink<List<WorkoutResponse>> sink;
 
-    public WorkoutHandler(SheetResource sheetResource){
+    @Autowired
+    public WorkoutHandler(SheetResource sheetResource, ReplayProcessor<List<WorkoutResponse>> replayProcessor){
         this.sheetResource = sheetResource;
+        this.replayProcessor = replayProcessor;
+        sink = replayProcessor.sink();
+    }
+
+    @PostConstruct
+    public void init() {
+        log.info("Fetching data from google sheets and filling ReplayProcessor");
+        fetchSheet();
     }
 
     public Mono<List<WorkoutResponse>> get() {
@@ -89,5 +108,15 @@ public class WorkoutHandler {
 
                     return Mono.just(workoutResponses);
                 });
+    }
+
+    public Flux<List<WorkoutResponse>> getMany() {
+        return replayProcessor;
+
+    }
+
+    @Scheduled(fixedDelay = 10000)
+    private void fetchSheet() {
+        get().doOnNext(sink::next).subscribe();
     }
 }
