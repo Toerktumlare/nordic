@@ -7,8 +7,13 @@ import reactor.core.publisher.ReplayProcessor;
 @Configuration
 public class ReplayProcessorConfig {
 
-    @Bean
-    public ReplayProcessor replayProcessor() {
+    @Bean("workoutsReplayProcessor")
+    public ReplayProcessor workoutsReplayProcessor() {
+        return ReplayProcessor.cacheLast();
+    }
+
+    @Bean("attendeesReplayProcessor")
+    public ReplayProcessor attendeeReplayProcessor() {
         return ReplayProcessor.cacheLast();
     }
 }

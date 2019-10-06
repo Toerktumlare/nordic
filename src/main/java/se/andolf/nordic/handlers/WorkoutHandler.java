@@ -2,6 +2,7 @@ package se.andolf.nordic.handlers;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
@@ -33,7 +34,7 @@ public class WorkoutHandler {
     private final FluxSink<List<WorkoutResponse>> sink;
 
     @Autowired
-    public WorkoutHandler(SheetResource sheetResource, ReplayProcessor<List<WorkoutResponse>> replayProcessor){
+    public WorkoutHandler(SheetResource sheetResource, @Qualifier("workoutsReplayProcessor") ReplayProcessor<List<WorkoutResponse>> replayProcessor){
         this.sheetResource = sheetResource;
         this.replayProcessor = replayProcessor;
         sink = replayProcessor.sink();
