@@ -2,16 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/store';
-import Root from './components/routing/root';
+import SelectionMenu from './components/selectionMenu/selectionMenu';
+import App from './App';
 
 const store = configureStore();
 window.store = store;
 
 ReactDOM.render(
   <Provider store={store}>
-    <Root />
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/" component={SelectionMenu} />
+        <Route path="/daily" component={App} />
+      </Switch>
+    </BrowserRouter>
   </Provider>,
   document.getElementById('root'),
 );

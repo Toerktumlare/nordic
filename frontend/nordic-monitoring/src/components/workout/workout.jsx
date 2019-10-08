@@ -94,10 +94,9 @@ class Workout extends React.Component {
     const isRightHidden = currentIndex === workoutWeek.length - 1;
 
     return (
-      <div className={`bg-white flex flex-column justify-between ba bw3 b--yellow h-100 ${className}`}>
+      <div className={`bg-white flex flex-column justify-between ba bw3 b--yellow ${className}`}>
         {selectedWorkoutDay}
         <Footer
-          className="flex-0"
           onRight={this.handleForwardClick}
           onLeft={this.handleBackwardClick}
           onMenu={this.handleMenuClick}

@@ -18,8 +18,9 @@ SelectionMenu.defaultProps = {
 };
 
 SelectionMenu.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  history: PropTypes.any,
+  history: PropTypes.shape({
+    push: PropTypes.func,
+  }),
 };
 
 export default withRouter(SelectionMenu);

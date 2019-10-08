@@ -24,11 +24,11 @@ class Clock extends React.Component {
   }
 
   render() {
-    const { className } = this.props;
+    const { className, style } = this.props;
     const { time } = this.state;
     return (
-      <div className={`bg-black tc ${className}`}>
-        <h3 className="code white v-btm ma0 pt5 pb5 f-subheadline">
+      <div className={`flex items-center justify-center bg-black tc pa4 ${className}`} style={style}>
+        <h3 className="code white v-btm ma0 f-subheadline">
           { time.toLocaleTimeString() }
         </h3>
       </div>
@@ -38,10 +38,12 @@ class Clock extends React.Component {
 
 Clock.propTypes = {
   className: PropTypes.string,
+  style: PropTypes.shape({}),
 };
 
 Clock.defaultProps = {
   className: '',
+  style: {},
 };
 
 export default Clock;

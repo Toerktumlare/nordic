@@ -4,26 +4,30 @@
 import React from 'react';
 import './App.css';
 import Clock from './components/clock/clock';
-import InfoBar from './components/infoBar/infoBar';
+import Attendees from './components/attendees/attendees';
 import Workout from './components/workout/workout';
 
-const body = {
-  backgroundColor: '#737373',
+const workoutClass = { name: 'DAGENS_PASS', timestamp: 1570341600, attendees: [{ firstname: 'Jimmy', lastname: 'Bergqvist' }, { firstname: 'Torvald', lastname: 'Turesson' }, { firstname: 'Göta', lastname: 'Ringdahl' }, { firstname: 'Blenda', lastname: 'Blixt' }, { firstname: 'Olov', lastname: 'Selberg' }, { firstname: 'Nikolaus', lastname: 'Granström' }, { firstname: 'Henrietta', lastname: 'Söder' }, { firstname: 'Inga-Lisa', lastname: 'Berlin' }, { firstname: 'Eva-Lena', lastname: 'Stenström' }, { firstname: 'Ragnar', lastname: 'Jacobsson' }, { firstname: 'Cathrine', lastname: 'Mellberg' }, { firstname: 'Erna', lastname: 'Sonesson' }, { firstname: 'Elof', lastname: 'Wennberg' }, { firstname: 'Elving', lastname: 'Bergendahl' }, { firstname: 'Roger', lastname: 'Ekberg' }, { firstname: 'Olga', lastname: 'Asplund' }, { firstname: 'Thyra', lastname: 'Engdahl' }, { firstname: 'Monica', lastname: 'Sundin' }, { firstname: 'Annie', lastname: 'Müller' }, { firstname: 'Steve', lastname: 'Nylund' }, { firstname: 'Inga', lastname: 'Lindblom' }, { firstname: 'Marion', lastname: 'Blad' }, { firstname: 'Viktoria', lastname: 'Sjöstrand' }, { firstname: 'Ellen', lastname: 'Sandberg' }, { firstname: 'Håkan', lastname: 'Schmidt' }, { firstname: 'Beata', lastname: 'Schröder' }, { firstname: 'Olga', lastname: 'Enström' }, { firstname: 'Ulla-Britta', lastname: 'Sundkvist' }, { firstname: 'Vendela', lastname: 'Rosberg' }] };
+
+const inlineStyle = {
+  container: {
+    position: 'absolute',
+    backgroundColor: '#737373',
+  },
+  clock: {
+    flex: 1,
+  },
+  attendees: {
+    flex: 4,
+  },
 };
 
 const App = () => (
-  <div className="fl w-100 h-100" style={body}>
-    <div className="fl w-70 h-100">
-      <Workout />
-    </div>
-    <div className="fl w-30 h-100 pa1">
-      <div className="flex flex-column">
-        <Clock className="mb2" />
-        <InfoBar className="mb2" text="Dagens Pass - 07:00" />
-        <div className="mr2">
-          Attendee component
-        </div>
-      </div>
+  <div className="w-100 h-100 flex pa2" style={inlineStyle.container}>
+    <Workout className="pr2" />
+    <div className="flex flex-column justify-around content-stretch pl2">
+      <Clock className="mb2" style={inlineStyle.clock} />
+      <Attendees data={workoutClass} style={inlineStyle.attendees} />
     </div>
   </div>
 );

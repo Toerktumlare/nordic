@@ -2,14 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // import Textfit from 'react-textfit';
 
-// const inlineStyle = {
-//     height: '500px'
-// };
-
-// const flex = {
-//     flex: '1'
-// };
-
 const WorkoutDay = ({ className, workouts }) => {
   let workoutValue = <div>No workout registered today</div>;
   if (workouts !== 'undefined') {
