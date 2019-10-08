@@ -27,7 +27,7 @@ class Clock extends React.Component {
     const { className, style } = this.props;
     const { time } = this.state;
     return (
-      <div className={`flex items-center justify-center bg-black tc pa4 ${className}`} style={style}>
+      <div className={`flex items-center justify-center bg-black tc pl4 pr4 pb5 pt5 ${className}`} style={style}>
         <h3 className="code white v-btm ma0 f-subheadline">
           { time.toLocaleTimeString() }
         </h3>

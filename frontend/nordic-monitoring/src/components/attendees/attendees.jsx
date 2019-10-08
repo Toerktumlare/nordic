@@ -9,8 +9,8 @@ const inlineStyles = {
   infoBar: {
     flex: 1,
   },
-  big: {
-    AttendeesList: 12,
+  AttendeesList: {
+    flex: 12,
   },
 };
 
@@ -19,21 +19,18 @@ const Attendees = ({ data, style }) => {
   const localDateTime = moment(timestamp).format('HH:mm');
   const className = WorkoutTypes[name];
 
-  let attendeeListLeft = [];
+  let attendeeListLeft = attendees;
   let attendeeListRight = [];
 
-  if (attendees.length < 12) {
-    attendeeListLeft = attendees;
-  } else if (attendees.length > 12) {
-    const mid = Math.ceil(attendees.length / 2);
-    attendeeListLeft = attendees.splice(0, mid);
+  if (attendees.length > 17) {
+    attendeeListLeft = attendees.splice(0, 17);
     attendeeListRight = attendees.splice(0);
   }
 
   return (
     <div className="flex flex-column" style={style}>
-      <InfoBar className="mb2 pa2" text={`${className} - ${localDateTime}`} style={inlineStyles.infoBar} />
-      <div className="flex " style={inlineStyles.AttendeesList}>
+      <InfoBar className="mb2 pa1" text={`${className} - ${localDateTime}`} style={inlineStyles.infoBar} />
+      <div className="flex" style={inlineStyles.AttendeesList}>
         <AttendeesList className="mr1 w-100" data={attendeeListLeft} />
         <AttendeesList className="ml1 w-100" data={attendeeListRight} />
       </div>

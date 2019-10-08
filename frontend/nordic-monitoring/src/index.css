@@ -2,3 +2,17 @@
   height: 100%;
   width: 100%;
 }
+
+@font-face {
+  font-family: 'futura';
+  src: local('futura'), url(./fonts/futura-md-bt-medium.ttf) format('ttf');
+}
+
+.futura { 
+  font-family: 'futura' ;
+}
+
+.futura-thin { 
+  font-family: 'futura';
+  font-weight: 200;
+}

@@ -6,7 +6,7 @@ const Instructions = ({ className, values, hidden }) => {
   if (values !== undefined && !hidden) {
     instructions = values.map((value) => value.split('\n')
       // eslint-disable-next-line react/no-array-index-key
-      .map((object, j) => <div className="pr2 pb1 f7" key={j}>{object}</div>));
+      .map((object, j) => <div className="georgia pr2 pb1 f7" key={j}>{object}</div>));
   }
 
   return (

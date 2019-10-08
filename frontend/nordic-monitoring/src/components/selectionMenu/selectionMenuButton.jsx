@@ -10,7 +10,7 @@ const SelectionMenuButton = ({
     onClick={onClick}
     disabled={disabled}
   >
-    <h1 className={`center code ttu tracked-mega bold ${disabled ? 'light-gray' : ''}`}>
+    <h1 className={`center futura ttu tracked-mega bold ${disabled ? 'light-gray' : ''}`}>
       {text}
     </h1>
   </button>

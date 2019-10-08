@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 const AttendeesList = ({ className, data, style }) => (
   <div className={`bg-blue ${className}`} style={style}>
     {data.map((attendee) => (
-      <p className="code f7 white">
+      <p className="futura f7 pl2 white">
         {`${attendee.firstname} ${attendee.lastname}`}
       </p>
     ))}

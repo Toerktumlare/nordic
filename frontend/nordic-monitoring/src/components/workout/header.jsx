@@ -9,11 +9,8 @@ const Header = ({ className, name, timestamp }) => {
 
   return (
     <div className={`${className}`}>
-      <h1 className="code pt1 pb2">
-        {name}
-        -
-        {weekday}
-        {formattedDate}
+      <h1 className="futura pt1 pb2">
+        {`${name} - ${weekday} ${formattedDate}`}
       </h1>
     </div>
   );

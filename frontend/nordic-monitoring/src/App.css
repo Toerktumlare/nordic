@@ -11,14 +11,6 @@ body {
   background-color: '#737373';
 }
 
-.flex-1 {
-  flex: 1;
-}
-
-.flex-0 {
-  flex: 0;
-}
-
 a:focus {
   outline: none;
   -moz-outline-style: none;
