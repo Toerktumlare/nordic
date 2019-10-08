@@ -41,7 +41,7 @@ class Workout extends React.Component {
     this.state = {
       currentIndex,
       workoutWeek,
-      workoutEvents: new EventSource('http://localhost:8080/api/workouts/subscribe'),
+      workoutEvents: new EventSource('http://localhost:8080/api/workouts'),
     };
   }
 

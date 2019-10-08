@@ -35,11 +35,11 @@ public class WorkoutRoutes {
     @Bean
     public RouterFunction<ServerResponse> workouts() {
         return route().path("/api/workouts", builder -> builder
-                .GET("", request -> ok().body(workoutHandler.get(),
-                        new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
-                .GET("/subscribe",request -> ok()
+                .GET("", request -> ok()
                         .contentType(MediaType.TEXT_EVENT_STREAM)
                         .body(workoutHandler.getMany(), new ParameterizedTypeReference<List<WorkoutResponse>>(){})))
+                .GET("", request -> ok().body(workoutHandler.get(),
+                        new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
                 .build();
     }
 
