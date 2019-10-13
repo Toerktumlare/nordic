@@ -18,8 +18,8 @@ public class DateUtils {
         return LocalDate.now().get(weekFields.weekOfWeekBasedYear());
     }
 
-    public static List<LocalDate> datesListOfCalendarWeek(int year, long calendarWeek) {
-        LocalDate start = LocalDate.ofYearDay(year,1)
+    public static List<LocalDate> getDatesForWeek(long calendarWeek) {
+        LocalDate start = LocalDate.ofYearDay(LocalDate.now().getYear(),1)
                 .with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, calendarWeek)
                 .with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
 

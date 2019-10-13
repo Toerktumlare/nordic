@@ -12,7 +12,6 @@ import se.andolf.nordic.models.response.ListResponse;
 import se.andolf.nordic.models.response.WorkoutClass;
 import se.andolf.nordic.resources.AttendeeResource;
 
-import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -26,7 +25,7 @@ public class AttendeeHandler {
     private final FluxSink<ListResponse<WorkoutClass>> sink;
     private final AttendeeResource attendeeResource;
     private final Random random;
-    final List<Long> timestamps;
+    private final List<Long> timestamps;
 
     @Autowired
     public AttendeeHandler(AttendeeResource attendeeResource, @Qualifier("attendeesReplayProcessor") ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor){
@@ -42,11 +41,6 @@ public class AttendeeHandler {
         timestamps.add(1570383000L);
         timestamps.add(1570386600L);
         timestamps.add(1570390200L);
-
-    }
-
-    @PostConstruct
-    public void init() {
 
     }
 
