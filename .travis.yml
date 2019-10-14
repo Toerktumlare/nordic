@@ -11,8 +11,6 @@ before_install:
 jobs:
   include:
   - stage: compile
-    script: "./mvnw clean package"
-  - stage: compile
     script:
     - "./mvnw clean package"
     - sudo apt-get -y install python3-pip
@@ -21,3 +19,10 @@ jobs:
     - pip3 install requests
     - nohup java -jar target/nordic-0.0.1-SNAPSHOT.jar &
     - python3 scripts/health.py http://localhost:8080/actuator/health
+  - stage: deploy to production
+    script: "./mvnw clean package"
+    deploy: &heroku
+      provider: heroku
+      app: nordic-monitoring
+      api_key: $HEROKU_AUTH_TOKEN
+
