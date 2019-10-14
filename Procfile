@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/nordic-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=staging --google_auth_token=$GOOGLE_AUTH_TOKEN
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/nordic-0.0.1-SNAPSHOT.jar -Dspring.profiles.active=prod --google_auth_token=$GOOGLE_AUTH_TOKEN
