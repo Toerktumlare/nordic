@@ -6,7 +6,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.reactive.CorsWebFilter;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
-import java.util.Arrays;
+import java.util.Collections;
 
 @Configuration
 public class CorsConfig {
@@ -15,7 +15,7 @@ public class CorsConfig {
     public CorsWebFilter corsWebFilter() {
         // TODO: externalize cors allowed origins config
         final CorsConfiguration corsConfig = new CorsConfiguration();
-        corsConfig.setAllowedOrigins(Arrays.asList("http://localhost:3000", "http://localhost:8080"));
+        corsConfig.setAllowedOrigins(Collections.singletonList("*"));
         corsConfig.setMaxAge(8000L);
         corsConfig.addAllowedMethod("GET");
 
