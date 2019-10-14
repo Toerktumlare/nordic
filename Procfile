@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -Dserver.port=$PORT -jar nordic/target/nordic-0.0.1-SNAPSHOT.jar --environment=prod --google_auth_token=$GOOGLE_AUTH_TOKEN
+web: java $JAVA_OPTS -Dserver.port=$PORT -jar target/nordic-0.0.1-SNAPSHOT.jar --environment=prod --google_auth_token=$GOOGLE_AUTH_TOKEN
