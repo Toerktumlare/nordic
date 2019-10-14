@@ -13,4 +13,5 @@ import org.springframework.context.annotation.Configuration;
 public class SheetConnectionProperties {
 
     private String filename;
+    private String value;
 }

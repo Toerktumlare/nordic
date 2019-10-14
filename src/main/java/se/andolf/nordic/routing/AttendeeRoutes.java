@@ -32,8 +32,8 @@ public class AttendeeRoutes {
                         }))
                 .GET("/subscribe", request -> ok()
                         .contentType(MediaType.TEXT_EVENT_STREAM)
-                        .body(attendeeHandler.getMany(), new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {
-                        })))
+                        .body(attendeeHandler.getMany(), new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {}))
+                        .build())
                 .build();
     }
 }

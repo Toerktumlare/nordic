@@ -37,9 +37,10 @@ public class WorkoutRoutes {
         return route().path("/api/workouts", builder -> builder
                 .GET("", request -> ok()
                         .contentType(MediaType.TEXT_EVENT_STREAM)
-                        .body(workoutHandler.getMany(), new ParameterizedTypeReference<List<WorkoutResponse>>(){})))
+                        .body(workoutHandler.getMany(), new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
                 .GET("", request -> ok().body(workoutHandler.get(),
                         new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
+                                                .build())
                 .build();
     }
 

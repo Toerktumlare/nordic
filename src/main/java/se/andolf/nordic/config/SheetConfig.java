@@ -16,12 +16,12 @@ import org.springframework.beans.factory.BeanCreationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 import se.andolf.nordic.config.properties.SheetConnectionProperties;
 import se.andolf.nordic.utils.FileUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URISyntaxException;
 import java.security.GeneralSecurityException;
 import java.util.Collections;
 
@@ -36,16 +36,28 @@ public class SheetConfig {
     }
 
     @Bean
-    public Sheets sheets() throws URISyntaxException {
+    @Profile("prod")
+    public Sheets prodSheets() {
+        final InputStream credentialStream = FileUtils.readAsString(sheetConnectionProperties.getValue());
+        return createSheets(credentialStream);
+    }
+
+    @Bean
+    @Profile("!prod")
+    public Sheets devSheets() {
+        final InputStream credentialStream = FileUtils.read(sheetConnectionProperties.getFilename());
+        return createSheets(credentialStream);
+    }
+
+    private Sheets createSheets(InputStream credentialStream) {
         try {
-            final InputStream credentialStream = FileUtils.read(sheetConnectionProperties.getFilename());
             final GoogleCredentials credentials = ServiceAccountCredentials.fromStream(credentialStream).createScoped(Collections.singleton(SheetsScopes.SPREADSHEETS_READONLY));
 
             final HttpRequestInitializer httpRequestInitializer = new HttpCredentialsAdapter(credentials);
             return new Sheets.Builder(GoogleNetHttpTransport.newTrustedTransport(),
-                        JacksonFactory.getDefaultInstance(), httpRequestInitializer)
-                        .setSheetsRequestInitializer(new SheetsRequestInitializer("AIzaSyDeNtz65wuxX6WT-vFxQrI2DscSv6ElacQ"))
-                        .build();
+                    JacksonFactory.getDefaultInstance(), httpRequestInitializer)
+                    .setSheetsRequestInitializer(new SheetsRequestInitializer("AIzaSyDeNtz65wuxX6WT-vFxQrI2DscSv6ElacQ"))
+                    .build();
         } catch (GeneralSecurityException | IOException e) {
             throw new BeanCreationException("Could not create Sheets bean", e);
         }

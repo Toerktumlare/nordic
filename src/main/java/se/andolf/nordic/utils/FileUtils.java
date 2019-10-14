@@ -3,6 +3,7 @@ package se.andolf.nordic.utils;
 import org.apache.commons.io.IOUtils;
 import org.springframework.core.io.ClassPathResource;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.Charset;
@@ -27,5 +28,9 @@ public class FileUtils {
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
+    }
+
+    public static InputStream readAsString(String value) {
+        return new ByteArrayInputStream(value.getBytes(Charset.forName("UTF-8")));
     }
 }
