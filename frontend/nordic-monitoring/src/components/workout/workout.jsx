@@ -128,7 +128,7 @@ Workout.defaultProps = {
 
 function mapStateToProps(state) {
   return {
-    data: state.wods,
+    data: state.workouts.wods,
   };
 }
 

@@ -60,7 +60,7 @@ public class AttendeeHandler {
         return replayProcessor;
     }
 
-    @Scheduled(fixedDelay = 1000)
+    @Scheduled(fixedDelay = 10000)
     private void fetchAttendees() {
         get().doOnNext(sink::next).subscribe();
     }

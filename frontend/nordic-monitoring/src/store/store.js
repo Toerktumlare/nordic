@@ -1,12 +1,15 @@
 import { combineReducers, applyMiddleware, createStore } from 'redux';
 import { logger } from 'redux-logger';
 import thunk from 'redux-thunk';
-import Workouts from './reducers/workoutsReducer';
+import workoutsReducer from './reducers/workoutsReducer';
+import attendeesReducer from './reducers/attendeesReducer';
+
 
 export const rootReducer = combineReducers({
-  Workouts,
+  workouts: workoutsReducer,
+  attendees: attendeesReducer,
 });
 
 export default function configureStore() {
-  return createStore(Workouts, applyMiddleware(thunk, logger));
+  return createStore(rootReducer, applyMiddleware(thunk, logger));
 }
