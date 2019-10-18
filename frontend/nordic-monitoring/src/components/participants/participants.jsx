@@ -44,19 +44,29 @@ const Participants = ({ style, data, addParticipant }) => {
   const className = WorkoutTypes[n];
 
   let participantsListLeft = participantList;
-  let participanstListRight = [];
+  let participantsListCenter = [];
+  let participantsListRight = [];
 
-  if (participantList.length > 17) {
+  const participantListComponents = [];
+  if (participantList.length <= 34) {
     participantsListLeft = participantList.splice(0, 17);
-    participanstListRight = participantList.splice(0);
+    participantsListCenter = participantList.splice(0);
+    participantListComponents[0] = <ParticipantsList className="mr1 w-100" data={participantsListLeft} />;
+    participantListComponents[1] = <ParticipantsList className="ml1 w-100" data={participantsListCenter} />;
+  } else if ((participantList.length > 34)) {
+    participantsListLeft = participantList.splice(0, 17);
+    participantsListCenter = participantList.splice(0, 17);
+    participantsListRight = participantList.splice(0);
+    participantListComponents[0] = <ParticipantsList className="mr1 w-100" data={participantsListLeft} />;
+    participantListComponents[1] = <ParticipantsList className="ml1 w-100" data={participantsListCenter} />;
+    participantListComponents[2] = <ParticipantsList className="ml1 w-100" data={participantsListRight} />;
   }
 
   return (
     <div className="flex flex-column" style={style}>
       <InfoBar className="mb2 pa1" text={`${className} - ${localDateTime}`} style={inlineStyles.infoBar} />
       <div className="flex" style={inlineStyles.AttendeesList}>
-        <ParticipantsList className="mr1 w-100" data={participantsListLeft} />
-        <ParticipantsList className="ml1 w-100" data={participanstListRight} />
+        {participantListComponents}
       </div>
     </div>
   );
