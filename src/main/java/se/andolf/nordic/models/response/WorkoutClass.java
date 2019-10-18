@@ -12,5 +12,5 @@ public class WorkoutClass {
 
     private WorkoutType name;
     private long timestamp;
-    private List<Attendee> attendees;
+    private List<Participant> participants;
 }

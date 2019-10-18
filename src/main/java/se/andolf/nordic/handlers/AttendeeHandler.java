@@ -10,29 +10,25 @@ import reactor.core.publisher.ReplayProcessor;
 import se.andolf.nordic.models.WorkoutType;
 import se.andolf.nordic.models.response.ListResponse;
 import se.andolf.nordic.models.response.WorkoutClass;
-import se.andolf.nordic.resources.AttendeeResource;
+import se.andolf.nordic.resources.ActivityResource;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 
 @Component
 public class AttendeeHandler {
 
     private final ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor;
     private final FluxSink<ListResponse<WorkoutClass>> sink;
-    private final AttendeeResource attendeeResource;
-    private final Random random;
+    private final ActivityResource activityResource;
     private final List<Long> timestamps;
 
     @Autowired
-    public AttendeeHandler(AttendeeResource attendeeResource, @Qualifier("attendeesReplayProcessor") ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor){
-        this.attendeeResource = attendeeResource;
+    public AttendeeHandler(@Qualifier("DummyActivityResource") ActivityResource activityResource, @Qualifier("attendeesReplayProcessor") ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor){
+        this.activityResource = activityResource;
         this.replayProcessor = replayProcessor;
         sink = replayProcessor.sink();
-        this.random = new Random();
         timestamps = new ArrayList<>();
         timestamps.add(1570341600L);
         timestamps.add(1570345200L);
@@ -45,15 +41,16 @@ public class AttendeeHandler {
     }
 
     public Mono<ListResponse<WorkoutClass>> get() {
-        return Mono.just(ListResponse.<WorkoutClass>builder()
-                .data(IntStream.range(0, 7)
-                        .mapToObj((i) -> WorkoutClass.builder()
-                                .name(WorkoutType.DAGENS_PASS)
-                                .attendees(attendeeResource.getNames(random.nextInt(56)))
-                                .timestamp(timestamps.get(i))
-                                .build())
-                        .collect(Collectors.toList()))
-                .build());
+        return activityResource.getActivities().flatMap(activities -> {
+            final List<WorkoutClass> workoutClasses = activities.stream()
+                    .map(activity -> WorkoutClass.builder()
+                            .name(WorkoutType.from(activity.getProduct()))
+                            .timestamp(activity.getStart().getTimePoint().getTimestamp())
+                            .participants(activity.getParticipants())
+                            .build())
+                    .collect(Collectors.toList());
+            return Mono.just(ListResponse.<WorkoutClass>builder().data(workoutClasses).build());
+        });
     }
 
     public ReplayProcessor<ListResponse<WorkoutClass>> getMany() {

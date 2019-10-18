@@ -1,26 +1,26 @@
 import React from 'react';
 import { PropTypes } from 'prop-types';
 
-const AttendeesList = ({ className, data, style }) => (
+const ParticipantsList = ({ className, data, style }) => (
   <div className={`bg-blue ${className}`} style={style}>
-    {data.map((attendee) => (
+    {data.map((participant) => (
       <p className="futura f7 pl2 white">
-        {`${attendee.firstname} ${attendee.lastname}`}
+        {`${participant.firstname} ${participant.lastname}`}
       </p>
     ))}
   </div>
 );
 
-AttendeesList.propTypes = {
+ParticipantsList.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   className: PropTypes.string,
   style: PropTypes.shape({}),
 };
 
-AttendeesList.defaultProps = {
+ParticipantsList.defaultProps = {
   data: [],
   className: PropTypes.string,
   style: {},
 };
 
-export default AttendeesList;
+export default ParticipantsList;

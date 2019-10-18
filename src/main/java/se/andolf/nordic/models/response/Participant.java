@@ -5,7 +5,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public class Attendee {
+public class Participant {
 
     public String firstname;
     public String lastname;

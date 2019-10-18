@@ -26,7 +26,7 @@ public class AttendeeRoutes {
 
     @Bean
     public RouterFunction<ServerResponse> attendees() {
-        return route().path("/api/attendees", builder -> builder
+        return route().path("/api/participants", builder -> builder
                 .GET("", request -> ok().body(attendeeHandler.get(),
                         new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {
                         }))

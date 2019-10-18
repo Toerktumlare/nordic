@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
 import InfoBar from './infoBar';
-import AttendeesList from './attendeesList';
+import ParticipantsList from './participantsList';
 import WorkoutTypes from '../../constants/WorkoutTypes';
-import { setAttendees } from '../../store/actions/attendeeActions';
+import { setParticipants } from '../../store/actions/participantsActions';
 
 const inlineStyles = {
   infoBar: {
@@ -16,62 +16,62 @@ const inlineStyles = {
   },
 };
 
-const Attendees = ({ style, data, addAttendees }) => {
-  const [attendeeEvents] = useState(new EventSource('http://localhost:8080/api/attendees/subscribe'));
+const Participants = ({ style, data, addParticipant }) => {
+  const [participantsEvents] = useState(new EventSource('http://localhost:8080/api/participants/subscribe'));
 
   let n = '';
   let t = '';
-  let a = [];
+  let participantList = [];
 
   useEffect(() => {
-    function handleAttendeeEvent(e) {
-      addAttendees(JSON.parse(e.data));
+    function handleParticipantsEvent(e) {
+      addParticipant(JSON.parse(e.data));
     }
 
-    attendeeEvents.addEventListener('message', handleAttendeeEvent);
+    participantsEvents.addEventListener('message', handleParticipantsEvent);
   });
 
   // eslint-disable-next-line react/prop-types
   if (data.length !== 0) {
     // eslint-disable-next-line prefer-destructuring
-    const { name, timestamp, attendees } = data[0];
+    const { name, timestamp, participants } = data[0];
     n = name;
     t = timestamp;
-    a = attendees;
+    participantList = participants;
   }
 
   const localDateTime = moment(t).format('HH:mm');
   const className = WorkoutTypes[n];
 
-  let attendeeListLeft = a;
-  let attendeeListRight = [];
+  let participantsListLeft = participantList;
+  let participanstListRight = [];
 
-  if (a.length > 17) {
-    attendeeListLeft = a.splice(0, 17);
-    attendeeListRight = a.splice(0);
+  if (participantList.length > 17) {
+    participantsListLeft = participantList.splice(0, 17);
+    participanstListRight = participantList.splice(0);
   }
 
   return (
     <div className="flex flex-column" style={style}>
       <InfoBar className="mb2 pa1" text={`${className} - ${localDateTime}`} style={inlineStyles.infoBar} />
       <div className="flex" style={inlineStyles.AttendeesList}>
-        <AttendeesList className="mr1 w-100" data={attendeeListLeft} />
-        <AttendeesList className="ml1 w-100" data={attendeeListRight} />
+        <ParticipantsList className="mr1 w-100" data={participantsListLeft} />
+        <ParticipantsList className="ml1 w-100" data={participanstListRight} />
       </div>
     </div>
   );
 };
 
-Attendees.propTypes = {
+Participants.propTypes = {
   data: [],
   style: PropTypes.shape({}),
-  addAttendees: PropTypes.func,
+  addParticipant: PropTypes.func,
 };
 
-Attendees.defaultProps = {
+Participants.defaultProps = {
   data: [],
   style: {},
-  addAttendees: () => {},
+  addParticipant: () => {},
 };
 
 function mapStateToProps(state) {
@@ -81,10 +81,10 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  addAttendees: (attendees) => dispatch(setAttendees(attendees)),
+  addParticipant: (attendees) => dispatch(setParticipants(attendees)),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Attendees);
+)(Participants);
