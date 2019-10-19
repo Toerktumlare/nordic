@@ -44,7 +44,7 @@ const Participants = ({ style, data, addParticipant }) => {
     participantList = participants;
   }
 
-  const localDateTime = moment(t).format('HH:mm');
+  const localDateTime = moment.unix(t).format('HH:mm');
   const className = WorkoutTypes[n];
 
   let participantsListLeft = participantList;
