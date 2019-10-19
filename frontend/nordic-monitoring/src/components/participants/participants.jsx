@@ -29,7 +29,11 @@ const Participants = ({ style, data, addParticipant }) => {
     }
 
     participantsEvents.addEventListener('message', handleParticipantsEvent);
-  });
+
+    return () => {
+      participantsEvents.removeEventListener('message', handleParticipantsEvent);
+    };
+  }, []);
 
   // eslint-disable-next-line react/prop-types
   if (data.length !== 0) {
@@ -58,7 +62,7 @@ const Participants = ({ style, data, addParticipant }) => {
     participantsListCenter = participantList.splice(0, 17);
     participantsListRight = participantList.splice(0);
     participantListComponents[0] = <ParticipantsList className="mr1 w-100" data={participantsListLeft} />;
-    participantListComponents[1] = <ParticipantsList className="ml1 w-100" data={participantsListCenter} />;
+    participantListComponents[1] = <ParticipantsList className="ml1 mr1 w-100" data={participantsListCenter} />;
     participantListComponents[2] = <ParticipantsList className="ml1 w-100" data={participantsListRight} />;
   }
 
