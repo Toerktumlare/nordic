@@ -1,24 +1,40 @@
-import React from 'react';
+/* eslint-disable prefer-destructuring */
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-// import Textfit from 'react-textfit';
 
-// const inlineStyle = {
-//   height: '400px',
-// };
+const getFontSize = (workouts) => {
+  let rows = 0;
+  workouts.forEach((section) => {
+    rows += section.split('\n').length;
+  });
+
+  if (rows < 8) return 'f2';
+  if (rows < 9) return 'f3';
+  if (rows < 14) return 'f3';
+  return 'f5';
+};
 
 const WorkoutDay = ({ className, workouts }) => {
+  let [currentFontSize] = useState('f7');
   let workoutValue = <div>No workout registered today</div>;
+
+  currentFontSize = getFontSize(workouts);
+
   if (workouts !== 'undefined') {
-    workoutValue = workouts.map((workout) => workout.split('\n')
-      // eslint-disable-next-line react/no-array-index-key
-      .map((text, j) => <div className="georgia pb3" key={j}>{text}</div>));
+    workoutValue = workouts.map((workout) => (
+      <div className="pb3">
+        {
+          workout.split('\n')
+            // eslint-disable-next-line react/no-array-index-key
+            .map((text, j) => <div className={`georgia pb1 ${currentFontSize}`} key={j}>{text}</div>)
+        }
+      </div>
+    ));
   }
 
   return (
     <div className={`${className}`}>
-      {/* <Textfit max={30} style={inlineStyle}> */}
       {workoutValue}
-      {/* </Textfit> */}
     </div>
   );
 };
