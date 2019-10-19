@@ -12,7 +12,6 @@ import se.andolf.nordic.models.response.ListResponse;
 import se.andolf.nordic.models.response.WorkoutClass;
 import se.andolf.nordic.resources.ActivityResource;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -22,21 +21,13 @@ public class AttendeeHandler {
     private final ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor;
     private final FluxSink<ListResponse<WorkoutClass>> sink;
     private final ActivityResource activityResource;
-    private final List<Long> timestamps;
 
     @Autowired
     public AttendeeHandler(@Qualifier("DummyActivityResource") ActivityResource activityResource, @Qualifier("attendeesReplayProcessor") ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor){
         this.activityResource = activityResource;
         this.replayProcessor = replayProcessor;
         sink = replayProcessor.sink();
-        timestamps = new ArrayList<>();
-        timestamps.add(1570341600L);
-        timestamps.add(1570345200L);
-        timestamps.add(1570361400L);
-        timestamps.add(1570379400L);
-        timestamps.add(1570383000L);
-        timestamps.add(1570386600L);
-        timestamps.add(1570390200L);
+
 
     }
 

@@ -8,6 +8,7 @@ import se.andolf.nordic.models.activities.TimePoint;
 import se.andolf.nordic.models.response.Participant;
 import se.andolf.nordic.utils.FileUtils;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -22,12 +23,21 @@ public class DummyActivityResource implements ActivityResource {
 
     private List<String> firstNames;
     private List<String> lastNames;
-    final Random random;
+    private final Random random;
+    private final List<Long> timestamps;
 
     public DummyActivityResource() {
         this.firstNames = FileUtils.readAsList(FIRST_NAMES_FILENAME);
         this.lastNames = FileUtils.readAsList(LAST_NAMES_FILENAME);
         random = new Random();
+        timestamps = new ArrayList<>();
+        timestamps.add(1571464800L);
+        timestamps.add(1571468400L);
+        timestamps.add(1571484600L);
+        timestamps.add(1571502600L);
+        timestamps.add(1571506200L);
+        timestamps.add(1571509800L);
+        timestamps.add(1571513400L);
     }
 
     @Override
@@ -36,7 +46,7 @@ public class DummyActivityResource implements ActivityResource {
                 .product("Dagens Pass")
                 .start(Start.builder()
                         .timePoint(TimePoint.builder()
-                                .timestamp(1571420500L)
+                                .timestamp(timestamps.get(random.nextInt(7)))
                                 .build())
                         .build())
                 .participants(getParticipants())
