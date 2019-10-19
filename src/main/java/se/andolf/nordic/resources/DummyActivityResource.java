@@ -58,7 +58,7 @@ public class DummyActivityResource implements ActivityResource {
                 .firstname(firstNames.get(random.nextInt(firstNames.size())))
                 .lastname(lastNames.get(random.nextInt(lastNames.size())))
                 .build())
-                .limit(random.nextInt(56))
+                .limit(random.nextInt(52))
                 .collect(Collectors.toList());
     }
 }
