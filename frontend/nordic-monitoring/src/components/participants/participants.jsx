@@ -17,7 +17,7 @@ const inlineStyles = {
 };
 
 const Participants = ({ style, data, addParticipant }) => {
-  const [participantsEvents] = useState(new EventSource('http://localhost:8080/api/participants/subscribe'));
+  const [participantsEvents] = useState(new EventSource('http://localhost:8080/api/participants'));
 
   let n = '';
   let t = '';

@@ -8,7 +8,6 @@ import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.MediaType;
-import org.springframework.web.reactive.config.EnableWebFlux;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.RouterFunctions;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -17,12 +16,14 @@ import se.andolf.nordic.models.response.WorkoutResponse;
 
 import java.util.List;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.http.MediaType.TEXT_EVENT_STREAM;
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
+import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
 @Configuration
-@EnableWebFlux
 public class WorkoutRoutes {
 
     private WorkoutHandler workoutHandler;
@@ -34,13 +35,14 @@ public class WorkoutRoutes {
 
     @Bean
     public RouterFunction<ServerResponse> workouts() {
-        return route().path("/api/workouts", builder -> builder
-                .GET("", request -> ok()
-                        .contentType(MediaType.TEXT_EVENT_STREAM)
-                        .body(workoutHandler.getMany(), new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
-                .GET("", request -> ok().body(workoutHandler.get(),
-                        new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
-                                                .build())
+        return route()
+                .path("/api/workouts", builder -> builder
+                    .GET("", accept(TEXT_EVENT_STREAM), request -> ok()
+                            .contentType(MediaType.TEXT_EVENT_STREAM)
+                            .body(workoutHandler.getMany(), new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
+                    .GET("", accept(APPLICATION_JSON), request -> ok()
+                            .body(workoutHandler.get(), new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
+                    .build())
                 .build();
     }
 

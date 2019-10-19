@@ -11,6 +11,9 @@ import se.andolf.nordic.handlers.AttendeeHandler;
 import se.andolf.nordic.models.response.ListResponse;
 import se.andolf.nordic.models.response.WorkoutClass;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON;
+import static org.springframework.http.MediaType.TEXT_EVENT_STREAM;
+import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
 import static org.springframework.web.reactive.function.server.RouterFunctions.route;
 import static org.springframework.web.reactive.function.server.ServerResponse.ok;
 
@@ -26,14 +29,15 @@ public class AttendeeRoutes {
 
     @Bean
     public RouterFunction<ServerResponse> attendees() {
-        return route().path("/api/participants", builder -> builder
-                .GET("", request -> ok().body(attendeeHandler.get(),
-                        new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {
-                        }))
-                .GET("/subscribe", request -> ok()
-                        .contentType(MediaType.TEXT_EVENT_STREAM)
-                        .body(attendeeHandler.getMany(), new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {}))
-                        .build())
+        return route()
+                .path("/api/participants", builder -> builder
+                    .GET("", accept(TEXT_EVENT_STREAM), request -> ok()
+                            .contentType(TEXT_EVENT_STREAM)
+                            .body(attendeeHandler.getMany(), new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {}))
+                    .GET("", accept(APPLICATION_JSON), request -> ok()
+                            .contentType(MediaType.APPLICATION_JSON_UTF8)
+                            .body(attendeeHandler.get(), new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {}))
+                    .build())
                 .build();
     }
 }
