@@ -7,12 +7,13 @@ import { MdChevronLeft, MdChevronRight, MdMenu } from 'react-icons/md';
 import configureStore from '../store/store';
 import { action } from '@storybook/addon-actions';
 import Clock from '../components/clock/clock';
-import InfoBar from '../components/attendees/infoBar';
+import InfoBar from '../components/participants/infoBar';
 import Workout from '../components/workout/workout';
 import Footer from '../components/workout/footer';
-import Button from '../components/workout/Button';
+import Button from '../components/workout/IconButton';
 import SelectionMenu from '../components/selectionMenu/selectionMenu';
-import Attendees from '../components/attendees/attendees';
+import Participants from '../components/participants/participants';
+import Timer from '../components/timer/timer'
 
 const store = configureStore();
 
@@ -54,5 +55,6 @@ export const selectionMenu = () => <SelectionMenu />
 export const footer = () => <Footer />;
 
 const workoutClass = {"name":"DAGENS_PASS","timestamp":1570341600,"attendees":[{"firstname":"Jimmy","lastname":"Bergqvist"},{"firstname":"Torvald","lastname":"Turesson"},{"firstname":"Göta","lastname":"Ringdahl"},{"firstname":"Blenda","lastname":"Blixt"},{"firstname":"Olov","lastname":"Selberg"},{"firstname":"Nikolaus","lastname":"Granström"},{"firstname":"Henrietta","lastname":"Söder"},{"firstname":"Inga-Lisa","lastname":"Berlin"},{"firstname":"Eva-Lena","lastname":"Stenström"},{"firstname":"Ragnar","lastname":"Jacobsson"},{"firstname":"Cathrine","lastname":"Mellberg"},{"firstname":"Erna","lastname":"Sonesson"},{"firstname":"Elof","lastname":"Wennberg"},{"firstname":"Elving","lastname":"Bergendahl"},{"firstname":"Roger","lastname":"Ekberg"},{"firstname":"Olga","lastname":"Asplund"},{"firstname":"Thyra","lastname":"Engdahl"},{"firstname":"Monica","lastname":"Sundin"},{"firstname":"Annie","lastname":"Müller"},{"firstname":"Steve","lastname":"Nylund"},{"firstname":"Inga","lastname":"Lindblom"},{"firstname":"Marion","lastname":"Blad"},{"firstname":"Viktoria","lastname":"Sjöstrand"},{"firstname":"Ellen","lastname":"Sandberg"},{"firstname":"Håkan","lastname":"Schmidt"},{"firstname":"Beata","lastname":"Schröder"},{"firstname":"Olga","lastname":"Enström"},{"firstname":"Ulla-Britta","lastname":"Sundkvist"},{"firstname":"Vendela","lastname":"Rosberg"}]}
-export const attendees = () => <Attendees data={workoutClass}/>;
+export const attendees = () => <Participants data={workoutClass}/>;
 
+export const timer = () => <Timer />

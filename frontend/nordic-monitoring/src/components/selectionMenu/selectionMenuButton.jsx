@@ -6,7 +6,7 @@ const SelectionMenuButton = ({
 }) => (
   <button
     type="button"
-    className={`"ba b--black shadow-1 no-underline near-black ma2 tc pa br3 ${className} ${disabled ? '' : 'dim'}`}
+    className={`ba b--black shadow-1 no-underline near-black ma2 tc pa br3 ${className} ${disabled ? '' : 'dim'}`}
     onClick={onClick}
     disabled={disabled}
   >

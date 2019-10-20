@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { MdChevronLeft, MdChevronRight, MdMenu } from 'react-icons/md';
-import Button from './Button';
+import Button from './IconButton';
 
 const Footer = ({
   className, onLeft, onRight, onMenu, hideLeftButton, hideRightButton,

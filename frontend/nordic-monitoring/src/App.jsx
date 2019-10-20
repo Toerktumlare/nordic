@@ -3,7 +3,8 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import './App.css';
-import Clock from './components/clock/clock';
+// import Clock from './components/clock/clock';
+import Timer from './components/timer/timer';
 import Participants from './components/participants/participants';
 import Workout from './components/workout/workout';
 
@@ -15,7 +16,8 @@ const inlineStyle = {
     backgroundColor: '#737373',
   },
   clock: {
-    flex: 1,
+    width: '450px',
+    height: '248px',
   },
   participants: {
     flex: 4,
@@ -26,7 +28,8 @@ const App = () => (
   <div className="w-100 h-100 flex pa2" style={inlineStyle.container}>
     <Workout className="pr2" />
     <div className="flex flex-column justify-around content-stretch pl2">
-      <Clock className="mb2" style={inlineStyle.clock} />
+      <Timer className="mb2" style={inlineStyle.clock} />
+      {/* <Clock className="mb2" style={inlineStyle.clock} /> */}
       <Participants data={workoutClass} style={inlineStyle.participants} />
     </div>
   </div>

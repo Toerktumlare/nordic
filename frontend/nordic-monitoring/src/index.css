@@ -4,15 +4,34 @@
 }
 
 @font-face {
-  font-family: 'futura';
-  src: local('futura'), url(./fonts/futura-md-bt-medium.ttf) format('ttf');
+  font-family: 'Futura';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Futura'), url(./fonts/futura-md-bt-medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'FuturaLight';
+  font-style: normal;
+  font-weight: 200;
+  src: local('Futura'), url(./fonts/futura-md-bt-medium.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Digital';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Digital'), url(./fonts/digital-7-mono.ttf) format('truetype');
 }
 
 .futura { 
-  font-family: 'futura' ;
+  font-family: 'Futura';
+}
+
+.digital { 
+  font-family: 'Digital', sans-serif;
 }
 
 .futura-thin { 
-  font-family: 'futura';
-  font-weight: 200;
+  font-family: 'FuturaLight';
 }

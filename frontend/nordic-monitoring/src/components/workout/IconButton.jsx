@@ -6,7 +6,7 @@ const IconButton = ({
 }) => (
   <button
     type="button"
-    className={`no-underline near-black bg-animate hover-bg-gray inline-flex items-center ma2 tc br2 pa2 ${className}`}
+    className={`no-underline near-black bg-animate hover-bg-gray inline-flex items-center ma2 tc br2 pa2 bw0 ${className}`}
     onClick={onClick}
     disabled={disabled}
     style={{ visibility: hidden ? 'hidden' : 'visible' }}
