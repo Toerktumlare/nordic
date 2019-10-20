@@ -18,22 +18,26 @@ const Timer = ({ className, style }) => {
   const countRef = useRef(absTime);
   countRef.current = absTime;
 
+  const stop = () => {
+    setRunning(false);
+  };
+
   const start = () => {
     if (absTime === 0) {
       setAbsTime(-10);
       setInCountdown(true);
     }
     setIntervalId(setInterval(() => {
-      if (countRef.current === 0) setInCountdown(false);
+      if (countRef.current === -1) setInCountdown(false);
+      if (countRef.current === 9) setRunning(false);
       setAbsTime(countRef.current + 1);
     }, 1000));
     setRunning(true);
   };
-  const stop = () => {
-    clearInterval(intervalId);
-    setRunning(false);
-  };
+
   const clear = () => setAbsTime(0);
+
+  if (!running) clearInterval(intervalId);
 
   const seconds = getSeconds(absTime);
   const minutes = getMinutes(absTime);
@@ -46,9 +50,11 @@ const Timer = ({ className, style }) => {
   const time = `${minutesString}:${secondsString}`;
   return (
     <div className={`flex flex-column items-center justify-center bg-black tc ${className}`} style={style}>
-      <div className="w-100">
-        <h3 className="digital white ma0 fw2" style={{ fontSize: '150px' }}>
-          {inCountdown ? '-' : ''}
+      <div className="w-100 flex">
+        <h3 className={`digital ma0 fw2 pt4 pl2 ${inCountdown ? 'dark-red' : 'white'}`} style={{ fontSize: '150px', visibility: inCountdown ? 'visible' : 'hidden' }}>
+          -
+        </h3>
+        <h3 className={`digital white ma0 fw2 pt4 pr5 ${inCountdown ? 'dark-red' : 'white'}`} style={{ fontSize: '150px' }}>
           {time}
         </h3>
       </div>

@@ -16,8 +16,7 @@ const inlineStyle = {
     backgroundColor: '#737373',
   },
   clock: {
-    width: '450px',
-    height: '248px',
+    flex: 1,
   },
   participants: {
     flex: 4,

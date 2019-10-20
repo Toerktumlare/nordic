@@ -1,23 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { MdPlayArrow, MdPause, MdClear } from 'react-icons/md';
-import Button from '../workout/IconButton';
+import Button from './LinedButton';
 
 const Controls = ({
   className, style, onPlay, onPause, onReset, running,
 }) => (
-  <div className={`flex justify-end w-100 ${className}`} style={style}>
+  <div className={`flex w-100 ${className}`} style={style}>
     {running ? (
-      <Button onClick={onPause}>
-        <MdPause />
+      <Button className="w-100" onClick={onPause}>
+        PAUSE
       </Button>
     ) : (
-      <Button onClick={onPlay}>
-        <MdPlayArrow />
+      <Button className="w-100" onClick={onPlay}>
+        PLAY
       </Button>
     )}
-    <Button className={`${running ? 'light-gray' : ''}`} onClick={onReset} disabled={running}>
-      <MdClear />
+    <Button className="w-100" onClick={onReset} disabled={running}>
+      RESET
     </Button>
   </div>
 );
