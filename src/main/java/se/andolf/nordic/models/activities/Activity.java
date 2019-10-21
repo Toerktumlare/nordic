@@ -10,7 +10,7 @@ import java.util.List;
 @Builder
 public class Activity {
 
-    private String product;
+    private Product product;
     private List<Participant> participants;
     private Start start;
 }

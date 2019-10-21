@@ -5,7 +5,7 @@ import lombok.Value;
 
 @Value
 @Builder
-public class Start {
+public class ActivityResponse {
 
-    private TimePoint timepoint;
+    private Activities activities;
 }

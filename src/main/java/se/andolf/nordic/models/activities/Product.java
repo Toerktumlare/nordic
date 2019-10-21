@@ -5,7 +5,8 @@ import lombok.Value;
 
 @Value
 @Builder
-public class Start {
+public class Product {
 
-    private TimePoint timepoint;
+    private String name;
+    private String number;
 }

@@ -8,7 +8,13 @@ public enum WorkoutType {
     UNKNOWN;
 
     public static WorkoutType from(String value) {
-        if("Dagens Pass".equals(value))
+        if("322".equals(value))
+            return WorkoutType.DAGENS_PASS;
+        else if("326".equals(value))
+            return WorkoutType.DAGENS_PASS;
+        else if("4".equals(value))
+            return WorkoutType.DAGENS_PASS;
+        else if("321".equals(value))
             return WorkoutType.DAGENS_PASS;
         return WorkoutType.UNKNOWN;
     }

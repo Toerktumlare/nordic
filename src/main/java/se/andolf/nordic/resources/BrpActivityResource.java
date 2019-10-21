@@ -1,37 +1,35 @@
 package se.andolf.nordic.resources;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
-import se.andolf.nordic.models.activities.Activity;
-import se.andolf.nordic.models.activities.Start;
-import se.andolf.nordic.models.activities.TimePoint;
-import se.andolf.nordic.models.response.Participant;
+import se.andolf.nordic.models.activities.ActivityResponse;
 
-import java.util.Collections;
-import java.util.List;
+import java.time.LocalDate;
 
+@Service
 public class BrpActivityResource implements ActivityResource {
 
+    private final WebClient webClient;
+
+    @Autowired
+    public BrpActivityResource(WebClient webClient) {
+        this.webClient = webClient;
+    }
 
     @Override
-    public Mono<List<Activity>> getActivities() {
-
-        final Start start = Start.builder()
-                .timePoint(TimePoint.builder()
-                        .timestamp(1571420500L)
+    public Mono<ActivityResponse> getActivities() {
+        return webClient.get()
+                .uri(uriBuilder -> uriBuilder.path("/brponline/api/ver2/activities.json")
+                        .queryParam("apikey", "d4014f9a17d54896b680ae1341029923")
+                        .queryParam("startdate", LocalDate.now().toString())
+                        .queryParam("enddate", LocalDate.now().plusDays(1).toString())
+                        .queryParam("businessunitids", "1")
                         .build())
-                .build();
-
-        final Participant participant = Participant.builder()
-                .firstname("John")
-                .lastname("Doe")
-                .build();
-
-        final Activity activity = Activity.builder()
-                .product("Dagens Pass")
-                .start(start)
-                .participants(Collections.singletonList(participant))
-                .build();
-
-        return Mono.just(Collections.singletonList(activity));
+                .accept(MediaType.APPLICATION_JSON)
+                .exchange()
+                .flatMap(clientResponse -> clientResponse.bodyToMono(ActivityResponse.class));
     }
 }

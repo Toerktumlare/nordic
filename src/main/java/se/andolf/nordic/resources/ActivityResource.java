@@ -1,11 +1,9 @@
 package se.andolf.nordic.resources;
 
 import reactor.core.publisher.Mono;
-import se.andolf.nordic.models.activities.Activity;
-
-import java.util.List;
+import se.andolf.nordic.models.activities.ActivityResponse;
 
 public interface ActivityResource {
 
-    Mono<List<Activity>> getActivities();
+    Mono<ActivityResponse> getActivities();
 }

@@ -23,7 +23,7 @@ public class AttendeeHandler {
     private final ActivityResource activityResource;
 
     @Autowired
-    public AttendeeHandler(@Qualifier("DummyActivityResource") ActivityResource activityResource, @Qualifier("attendeesReplayProcessor") ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor){
+    public AttendeeHandler(@Qualifier("BrpActivityResource") ActivityResource activityResource, @Qualifier("attendeesReplayProcessor") ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor){
         this.activityResource = activityResource;
         this.replayProcessor = replayProcessor;
         sink = replayProcessor.sink();
@@ -33,12 +33,13 @@ public class AttendeeHandler {
 
     public Mono<ListResponse<WorkoutClass>> get() {
         return activityResource.getActivities().flatMap(activities -> {
-            final List<WorkoutClass> workoutClasses = activities.stream()
+            final List<WorkoutClass> workoutClasses = activities.getActivities().getActivity().stream()
                     .map(activity -> WorkoutClass.builder()
-                            .name(WorkoutType.from(activity.getProduct()))
-                            .timestamp(activity.getStart().getTimePoint().getTimestamp())
+                            .name(WorkoutType.from(activity.getProduct().getNumber()))
+                            .timestamp(activity.getStart().getTimepoint().getTimestamp())
                             .participants(activity.getParticipants())
                             .build())
+                    .filter(workoutClass -> !workoutClass.getName().equals(WorkoutType.UNKNOWN))
                     .collect(Collectors.toList());
             return Mono.just(ListResponse.<WorkoutClass>builder().data(workoutClasses).build());
         });
