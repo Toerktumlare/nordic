@@ -4,11 +4,12 @@ import { withRouter } from 'react-router-dom';
 import SelectionMenuButton from './selectionMenuButton';
 
 const SelectionMenu = ({ history }) => (
-  <div className="fl w-100 h-100 flex items-center">
-    <div className="w-100 flex justify-center">
-      <SelectionMenuButton className="fl w-30" text="Dagens Pass" onClick={() => { history.push('/daily'); }} />
-      <SelectionMenuButton className="fl w-30" text="Fitness" disabled />
-      <SelectionMenuButton className="fl w-30" text="Performance" disabled />
+
+  <div className="flex justify-center items-center h-100">
+    <div className="flex flex-column flex-row-ns justify-center justify-center-ns item-stretch item-center-ns flex-grow-1">
+      <SelectionMenuButton className="flex-grow-1-ns" text="Dagens Pass" onClick={() => { history.push('/daily'); }} />
+      <SelectionMenuButton className="flex-grow-1-ns" text="Fitness" disabled />
+      <SelectionMenuButton className="flex-grow-1-ns" text="Performance" disabled />
     </div>
   </div>
 );
