@@ -35,11 +35,7 @@ const Participants = ({ style, data, addParticipant }) => {
     };
   }, []);
 
-  const filteredData = data.filter((activity) => {
-    console.log(moment().unix());
-    console.log(activity.timestamp);
-    return activity.timestamp > moment().unix();
-  });
+  const filteredData = data.filter((activity) => activity.timestamp > moment().unix());
 
   // eslint-disable-next-line react/prop-types
   if (filteredData.length !== 0) {

@@ -35,7 +35,11 @@ const Timer = ({ className, style }) => {
     setRunning(true);
   };
 
-  const clear = () => setAbsTime(0);
+  const clear = () => {
+    setRunning(false);
+    setInCountdown(false);
+    setAbsTime(0);
+  };
 
   if (!running) clearInterval(intervalId);
 
