@@ -33,6 +33,7 @@ public class AttendeeRoutes {
                 .path("/api/participants", builder -> builder
                     .GET("", accept(TEXT_EVENT_STREAM), request -> ok()
                             .contentType(TEXT_EVENT_STREAM)
+                            .header("Cache-Control", "no-transform")
                             .body(attendeeHandler.getMany(), new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {}))
                     .GET("", accept(APPLICATION_JSON), request -> ok()
                             .contentType(MediaType.APPLICATION_JSON_UTF8)
