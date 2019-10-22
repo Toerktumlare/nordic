@@ -8,9 +8,9 @@ const getFontSize = (workouts) => {
     rows += section.split('\n').length;
   });
 
-  if (rows < 8) return 'f2';
-  if (rows < 9) return 'f3';
-  if (rows < 14) return 'f3';
+  if (rows < 8) return 'f4 f2-ns';
+  if (rows < 9) return 'f5 f3-ns';
+  if (rows < 14) return 'f5 f3-ns';
   return 'f5';
 };
 
@@ -26,14 +26,14 @@ const WorkoutDay = ({ className, workouts }) => {
         {
           workout.split('\n')
             // eslint-disable-next-line react/no-array-index-key
-            .map((text, j) => <div className={`georgia pb1 ${currentFontSize}`} key={j}>{text}</div>)
+            .map((text, j) => <div className={`georgia lh-title pb2 pb1-ns ${currentFontSize}`} key={j}>{text}</div>)
         }
       </div>
     ));
   }
 
   return (
-    <div className={`${className}`}>
+    <div className={`mb2 ${className}`}>
       {workoutValue}
     </div>
   );

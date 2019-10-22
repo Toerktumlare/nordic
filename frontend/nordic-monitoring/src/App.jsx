@@ -22,7 +22,7 @@ const inlineStyle = {
 };
 
 const App = () => (
-  <div className="h-100-ns flex flex-column-reverse flex-row-ns pa2-ns" style={inlineStyle.container}>
+  <div className="h-100-ns flex flex-column flex-row-ns pa2-ns" style={inlineStyle.container}>
     <Workout className="pr2-ns" />
     <div className="flex flex-column justify-around-ns content-stretch-ns pl2-ns">
       <Timer className="mb2 dn" style={inlineStyle.clock} />

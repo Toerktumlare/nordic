@@ -13,8 +13,8 @@
 @font-face {
   font-family: 'FuturaLight';
   font-style: normal;
-  font-weight: 200;
-  src: local('Futura'), url(./fonts/futura-md-bt-medium.ttf) format('truetype');
+  font-weight: 400;
+  src: local('Futura'), url(./fonts/futura-md-bt-light.ttf) format('truetype');
 }
 
 @font-face {
