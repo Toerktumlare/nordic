@@ -16,6 +16,8 @@ public enum WorkoutType {
             return WorkoutType.DAGENS_PASS;
         else if("321".equals(value))
             return WorkoutType.DAGENS_PASS;
+        else if("231".equals(value))
+            return WorkoutType.DAGENS_PASS;
         return WorkoutType.UNKNOWN;
     }
 }
