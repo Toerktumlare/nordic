@@ -35,14 +35,14 @@ const Participants = ({ style, data, addParticipant }) => {
     };
   }, []);
 
-  const filteredData = data.filter((activity) => activity.timestamp > (moment().unix() - 3600));
+  const filteredData = data.filter((activity) => activity.endTime > moment().unix());
 
   // eslint-disable-next-line react/prop-types
   if (filteredData.length !== 0) {
     // eslint-disable-next-line prefer-destructuring
-    const { name, timestamp, participants } = filteredData[0];
+    const { name, startTime, participants } = filteredData[0];
     n = name;
-    t = timestamp;
+    t = startTime;
     participantList = participants;
   }
 

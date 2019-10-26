@@ -11,6 +11,7 @@ import java.util.List;
 public class WorkoutClass {
 
     private WorkoutType name;
-    private long timestamp;
+    private long startTime;
+    private long endTime;
     private List<Participant> participants;
 }

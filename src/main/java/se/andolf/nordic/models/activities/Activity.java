@@ -13,4 +13,5 @@ public class Activity {
     private Product product;
     private List<Participant> participants;
     private Start start;
+    private End end;
 }
