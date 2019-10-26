@@ -15,6 +15,7 @@ import SelectionMenu from '../components/selectionMenu/selectionMenu';
 import Participants from '../components/participants/participants';
 import Timer from '../components/timer/timer'
 import WorkoutScreen from '../components/workout/workoutScreen';
+import PopUpMenu from '../components/popupMenu';
 
 const store = configureStore();
 
@@ -60,3 +61,4 @@ export const attendees = () => <Participants data={workoutClass}/>;
 
 export const timer = () => <Timer />
 export const workoutScreen = () => <WorkoutScreen />
+export const popUpMenu = () => <PopUpMenu />

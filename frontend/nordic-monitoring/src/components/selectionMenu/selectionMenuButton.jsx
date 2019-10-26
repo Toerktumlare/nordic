@@ -11,7 +11,7 @@ const SelectionMenuButton = ({
     disabled={disabled}
     style={{ outline: 0 }}
   >
-    <h1 className={`center futura ttu tracked-mega bold ${disabled ? 'light-gray' : ''}`}>
+    <h1 className={`pa2 center futura ttu tracked-mega bold ${disabled ? 'light-gray' : ''}`}>
       {text}
     </h1>
   </button>
