@@ -20,7 +20,11 @@ const PopUpMenu = ({ className }) => {
       onMouseOver={onHover}
       onMouseOut={outHover}
     >
-      <div className="w-100 relative pa3 futura f6 ">
+      <div
+        className="w-100 relative pa3 futura f6 "
+        onMouseOver={onHover}
+        onMouseOut={outHover}
+      >
         Menu
       </div>
       <div className={`w-100 absolute pa2 z-1 ${hover ? 'db' : 'dn'} ba b--light-gray`}>
