@@ -1,9 +1,7 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
-import { setWorkouts } from '../../store/actions/workoutsActions';
 import WorkoutDay from './workoutDay';
 import Instructions from './instructions';
 import Header from './header';
@@ -35,36 +33,11 @@ class Workout extends React.Component {
   constructor(props) {
     super(props);
 
-    const { currentIndex, data } = this.props;
-    const workoutWeek = Workout.genWorkoutDays(data);
+    const { currentIndex } = this.props;
 
     this.state = {
       currentIndex,
-      workoutWeek,
-      workoutEvents: new EventSource('/api/workouts'),
     };
-  }
-
-  componentDidMount() {
-    const { workoutEvents } = this.state;
-    workoutEvents.addEventListener('message', this.handleWorkoutsEvent);
-  }
-
-  componentWillUnmount() {
-    const { workoutEvents } = this.state;
-    workoutEvents.removeEventListener('message', this.handleWorkoutsEvent);
-  }
-
-  static getDerivedStateFromProps(nextProps) {
-    return {
-      workoutWeek: Workout.genWorkoutDays(nextProps.data),
-    };
-  }
-
-  handleWorkoutsEvent = (e) => {
-    const { addWorkouts } = this.props;
-    const data = JSON.parse(e.data);
-    addWorkouts(data);
   }
 
   handleForwardClick = (e) => {
@@ -84,17 +57,19 @@ class Workout extends React.Component {
   }
 
   render() {
-    const { className } = this.props;
-    const { workoutWeek, currentIndex } = this.state;
+    const { className, data } = this.props;
+    const { currentIndex } = this.state;
+    const dayComponents = Workout.genWorkoutDays(data);
+
     let selectedWorkoutDay;
-    if (workoutWeek.length !== 0) {
-      selectedWorkoutDay = workoutWeek[currentIndex];
+    if (dayComponents.length !== 0) {
+      selectedWorkoutDay = dayComponents[currentIndex];
     }
     const isLeftHidden = currentIndex === 0;
-    const isRightHidden = currentIndex === workoutWeek.length - 1;
+    const isRightHidden = currentIndex === dayComponents.length - 1;
 
     return (
-      <div className={`bg-white flex flex-column justify-between ba bw3 b--yellow ${className}`}>
+      <div className={`w-100 h-100 flex flex-column justify-between ${className}`}>
         {selectedWorkoutDay}
         <Footer
           onRight={this.handleForwardClick}
@@ -112,7 +87,6 @@ Workout.propTypes = {
   className: PropTypes.string,
   data: PropTypes.arrayOf(PropTypes.object),
   currentIndex: PropTypes.number,
-  addWorkouts: PropTypes.func,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired,
   }),
@@ -122,21 +96,7 @@ Workout.defaultProps = {
   className: '',
   data: [],
   currentIndex: moment().isoWeekday() - 1,
-  addWorkouts: () => {},
   history: {},
 };
 
-function mapStateToProps(state) {
-  return {
-    data: state.workouts.wods,
-  };
-}
-
-const mapDispatchToProps = (dispatch) => ({
-  addWorkouts: (workouts) => dispatch(setWorkouts(workouts)),
-});
-
-export default withRouter(connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Workout));
+export default withRouter(Workout);

@@ -3,7 +3,7 @@ import {
 } from '../actions/workoutsActions';
 
 const initialState = {
-  wods: [],
+  wods: undefined,
 };
 
 export default function workoutsReducer(state = initialState, action) {

@@ -6,10 +6,10 @@ const LinedButton = ({
 }) => (
   <button
     type="button"
-    className={`no-underline white bg-transparent bg-animate ma1 ba bw1 b--white-70 bw0 ${className} ${disabled ? 'o-50' : ''}`}
+    className={`no-underline white bg-transparent ma1 ba bw1 b--white-70 bw0 ${className} ${disabled ? 'o-50' : ''}`}
     onClick={onClick}
     disabled={disabled}
-    style={{ visibility: hidden ? 'hidden' : 'visible' }}
+    style={{ visibility: hidden ? 'hidden' : 'visible', outline: 0 }}
   >
     <h5 className={`center futura pa1 ma1 ${disabled ? 'o-50' : ''}`}>
       {children}

@@ -7,11 +7,11 @@ const Controls = ({
 }) => (
   <div className={`flex w-100 ${className}`} style={style}>
     {running ? (
-      <Button className="w-100" onClick={onPause}>
+      <Button className="w-100" onClick={onPause} disabled={!running}>
         PAUSE
       </Button>
     ) : (
-      <Button className="w-100" onClick={onPlay}>
+      <Button className="w-100" onClick={onPlay} disabled={running}>
         PLAY
       </Button>
     )}

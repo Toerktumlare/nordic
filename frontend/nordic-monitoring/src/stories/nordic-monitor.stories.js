@@ -14,6 +14,7 @@ import Button from '../components/workout/IconButton';
 import SelectionMenu from '../components/selectionMenu/selectionMenu';
 import Participants from '../components/participants/participants';
 import Timer from '../components/timer/timer'
+import WorkoutScreen from '../components/workout/workoutScreen';
 
 const store = configureStore();
 
@@ -58,3 +59,4 @@ const workoutClass = {"name":"DAGENS_PASS","timestamp":1570341600,"attendees":[{
 export const attendees = () => <Participants data={workoutClass}/>;
 
 export const timer = () => <Timer />
+export const workoutScreen = () => <WorkoutScreen />

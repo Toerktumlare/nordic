@@ -6,9 +6,10 @@ const SelectionMenuButton = ({
 }) => (
   <button
     type="button"
-    className={`ba b--black shadow-1 no-underline near-black ma2 tc pa br3 ${className} ${disabled ? '' : 'dim'}`}
+    className={`ba b--black bg-white dim shadow-1 no-underline near-black ma2 tc pa br3 ${className} ${disabled ? '' : 'dim'}`}
     onClick={onClick}
     disabled={disabled}
+    style={{ outline: 0 }}
   >
     <h1 className={`center futura ttu tracked-mega bold ${disabled ? 'light-gray' : ''}`}>
       {text}

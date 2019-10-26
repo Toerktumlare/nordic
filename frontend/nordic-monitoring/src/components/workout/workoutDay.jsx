@@ -33,7 +33,7 @@ const WorkoutDay = ({ className, workouts }) => {
   }
 
   return (
-    <div className={`mb2 ${className}`}>
+    <div className={`mb2  ${className}`}>
       {workoutValue}
     </div>
   );

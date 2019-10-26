@@ -50,7 +50,7 @@ public class AttendeeHandler {
     }
 
     @Scheduled(fixedDelay = 60000)
-    private void fetchAttendees() {
+    private void fetchParticipants() {
         get().doOnNext(sink::next).subscribe();
     }
 }
