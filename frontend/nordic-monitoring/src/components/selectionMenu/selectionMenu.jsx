@@ -2,21 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import SelectionMenuButton from './selectionMenuButton';
-import PopUpMenu from '../popupMenu';
+import Header from './header';
 
-// const inlineStyle = {
-//   selection: {
-//     flex: 4,
-//   },
-//   menu: {
-//     flex: 1,
-//   },
-// };
 
 const SelectionMenu = ({ history }) => (
   <div className="flex flex-column align-center h-100">
     <div className="flex pa3">
-      <PopUpMenu className="w-50 w-10-ns pr2" />
+      <Header />
     </div>
     <div className="flex flex-column justify-center h-100">
       <div className="flex flex-column flex-row-ns justify-center item-center-ns h-30">

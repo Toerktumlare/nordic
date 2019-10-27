@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
-const PopUpMenu = ({ className }) => {
+const Menu = ({ className, children }) => {
   const [hover, setHover] = useState(false);
 
   const onHover = () => {
@@ -28,23 +28,19 @@ const PopUpMenu = ({ className }) => {
         Menu
       </div>
       <div className={`w-100 absolute pa2 z-1 ${hover ? 'db' : 'dn'} ba b--light-gray`}>
-        <a className="db pa2 futura link dim dark-gray f7" href="#">
-          Flush
-        </a>
-        <a className="db pa2 futura link dim dark-gray f7" href="#">
-          About
-        </a>
+        {children}
       </div>
     </div>
   );
 };
 
-PopUpMenu.propTypes = {
+Menu.propTypes = {
   className: PropTypes.string,
+  children: PropTypes.node.isRequired,
 };
 
-PopUpMenu.defaultProps = {
-  className: '',
+Menu.defaultProps = {
+  className: 'w-100',
 };
 
-export default PopUpMenu;
+export default Menu;

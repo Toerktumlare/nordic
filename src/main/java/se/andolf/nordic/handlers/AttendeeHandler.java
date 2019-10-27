@@ -27,8 +27,6 @@ public class AttendeeHandler {
         this.activityResource = activityResource;
         this.replayProcessor = replayProcessor;
         sink = replayProcessor.sink();
-
-
     }
 
     public Mono<ListResponse<WorkoutClass>> get() {

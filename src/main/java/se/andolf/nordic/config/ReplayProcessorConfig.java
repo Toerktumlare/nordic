@@ -1,4 +1,4 @@
-package se.andolf.nordic.config.properties;
+package se.andolf.nordic.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -3,12 +3,17 @@ package se.andolf.nordic.handlers;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.springframework.web.reactive.function.server.ServerRequest;
+import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.ReplayProcessor;
+import se.andolf.nordic.models.Command;
+import se.andolf.nordic.models.CommandType;
 import se.andolf.nordic.models.Sheet;
 import se.andolf.nordic.models.WorkoutType;
 import se.andolf.nordic.models.response.WorkoutDay;
@@ -124,5 +129,26 @@ public class WorkoutHandler {
     @Scheduled(fixedDelay = 10000)
     private void fetchSheet() {
         get().doOnNext(sink::next).subscribe();
+    }
+
+
+    public Mono<Void> push(List<WorkoutResponse> workoutResponses) {
+        sink.next(workoutResponses).complete();
+        return Mono.empty();
+    }
+
+    public Mono<Void> run(ServerRequest request) {
+        return request.bodyToMono(Command.class).flatMap(command ->
+                resolve(command.getCommand()));
+    }
+
+    private Mono<? extends Void> resolve(CommandType command) {
+        switch (command) {
+            case CLEAR_FETCH_AND_PUSH:
+                return get()
+                        .flatMap(this::push);
+            default:
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
     }
 }
