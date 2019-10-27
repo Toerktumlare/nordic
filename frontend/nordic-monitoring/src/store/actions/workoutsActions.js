@@ -23,9 +23,8 @@ export function doFlush() {
     flush()
       .then(() => {
         dispatch(isFlushing(false));
-      }).catch((error) => {
+      }).catch(() => {
         // TODO: fix error handling
-        console.error(error);
       });
   };
 }
