@@ -18,7 +18,7 @@ const inlineStyle = {
 };
 
 const App = () => (
-  <div className="h-100-ns flex flex-column flex-row-ns pa2-ns" style={inlineStyle.container}>
+  <div className="w-100 h-100-ns flex flex-column flex-row-ns pa2-ns" style={inlineStyle.container}>
     <WorkoutScreen className="pr2-ns" />
     <div className="flex flex-column justify-around-ns content-stretch-ns pl2-ns">
       <Timer className="mb2 dn" style={inlineStyle.clock} />

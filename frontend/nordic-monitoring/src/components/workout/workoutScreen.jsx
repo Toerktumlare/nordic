@@ -43,13 +43,15 @@ class WorkoutScreen extends React.Component {
     const { className } = this.props;
     const { data } = this.state;
     return (
-      <div className={`fl w-100 bg-white flex justify-between items-center ba bw3 b--yellow ${className}`}>
+      <div className={`w-100 bg-white flex justify-center items-center ba bw3 b--yellow ${className}`}>
         {!data ? (
-          <Loader
-            type="Puff"
-            color="#00BFFF"
-            timeout={30000}
-          />
+          <div>
+            <Loader
+              type="ThreeDots"
+              color="#357edd"
+              timeout={30000}
+            />
+          </div>
         ) : (
           <Workout data={data} />
         )}
