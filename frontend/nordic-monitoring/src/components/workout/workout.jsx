@@ -10,11 +10,11 @@ import Footer from './footer';
 
 class Workout extends React.Component {
   static genWorkoutDays(weeklyWorkouts) {
-    return weeklyWorkouts.flatMap((workoutWeek) => {
+    return weeklyWorkouts.map((workoutWeek) => {
       const { name, workoutDays } = workoutWeek;
       const workoutName = WorkoutTypes[name];
 
-      return workoutDays.map((workoutDay) => {
+      const dayComponents = workoutDays.map((workoutDay) => {
         const { instructions, workouts, date } = workoutDay;
         const noInstructions = instructions.length === 0;
         return (
@@ -27,6 +27,7 @@ class Workout extends React.Component {
           </>
         );
       });
+      return dayComponents;
     });
   }
 
@@ -63,10 +64,10 @@ class Workout extends React.Component {
 
     let selectedWorkoutDay;
     if (dayComponents.length !== 0) {
-      selectedWorkoutDay = dayComponents[currentIndex];
+      selectedWorkoutDay = dayComponents[0][currentIndex];
     }
     const isLeftHidden = currentIndex === 0;
-    const isRightHidden = currentIndex === dayComponents.length - 1;
+    const isRightHidden = currentIndex === dayComponents[0].length - 1;
 
     return (
       <div className={`w-100 h-100 flex flex-column justify-between ${className}`}>
