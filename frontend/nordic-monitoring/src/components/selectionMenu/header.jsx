@@ -46,7 +46,7 @@ class Header extends React.Component {
         >
           <FlushView onClose={this.closeModal} />
         </Modal>
-        <Menu className="w-30 w-10-ns">
+        <Menu className="w-100 w-100-ns">
           <MenuItem onClick={this.openModal}>
             Refetch
           </MenuItem>

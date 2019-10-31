@@ -7,7 +7,7 @@ import Header from './header';
 
 const SelectionMenu = ({ history }) => (
   <div className="flex flex-column align-center h-100">
-    <div className="flex pa3">
+    <div className="flex pa3 absolute w-40 w-10-ns">
       <Header />
     </div>
     <div className="flex flex-column justify-center h-100">
