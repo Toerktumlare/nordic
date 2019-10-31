@@ -24,7 +24,7 @@ class WorkoutScreen extends React.Component {
 
   componentWillUnmount() {
     const { workoutEvents } = this.state;
-    workoutEvents.removeEventListener('message', this.handleWorkoutsEvent);
+    workoutEvents.close();
   }
 
   static getDerivedStateFromProps(nextProps) {
