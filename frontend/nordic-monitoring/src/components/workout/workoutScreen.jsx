@@ -12,7 +12,7 @@ class WorkoutScreen extends React.Component {
     const { data } = this.props;
 
     this.state = {
-      workoutEvents: new EventSource('/api/workouts'),
+      workoutEvents: new EventSource('/api/workouts/dagens'),
       data,
     };
   }

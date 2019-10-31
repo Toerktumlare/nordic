@@ -5,7 +5,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.server.RouterFunction;
 import org.springframework.web.reactive.function.server.ServerResponse;
-import se.andolf.nordic.handlers.WorkoutHandler;
+import se.andolf.nordic.handlers.CacheHandler;
+import se.andolf.nordic.models.Command;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.web.reactive.function.server.RequestPredicates.accept;
@@ -15,11 +16,11 @@ import static org.springframework.web.reactive.function.server.ServerResponse.ok
 @Configuration
 public class CacheRoutes {
 
-    private WorkoutHandler workoutHandler;
+    private final CacheHandler cacheHandler;
 
     @Autowired
-    public CacheRoutes(WorkoutHandler workoutHandler) {
-        this.workoutHandler = workoutHandler;
+    public CacheRoutes(CacheHandler cacheHandler) {
+        this.cacheHandler = cacheHandler;
     }
 
     @Bean
@@ -28,7 +29,7 @@ public class CacheRoutes {
                 .path("/admin/cache", builder -> builder
                     .POST("", accept(APPLICATION_JSON), request -> ok()
                             .contentType(APPLICATION_JSON)
-                            .body(workoutHandler.run(request), Void.class))
+                            .body(cacheHandler.execute(request.bodyToMono(Command.class)), Void.class))
                     .build())
                 .build();
     }

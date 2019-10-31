@@ -36,12 +36,12 @@ public class WorkoutRoutes {
     @Bean
     public RouterFunction<ServerResponse> workouts() {
         return route()
-                .path("/api/workouts", builder -> builder
-                    .GET("", accept(TEXT_EVENT_STREAM), request -> ok()
+                .path("/api", builder -> builder
+                    .GET("/workouts/{id}", accept(TEXT_EVENT_STREAM), request -> ok()
                             .contentType(MediaType.TEXT_EVENT_STREAM)
                             .header("Cache-Control", "no-transform")
-                            .body(workoutHandler.getMany(), new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
-                    .GET("", accept(APPLICATION_JSON), request -> ok()
+                            .body(workoutHandler.stream(request.pathVariable("id")), new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
+                    .GET("/workouts", accept(APPLICATION_JSON), request -> ok()
                             .body(workoutHandler.get(), new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
                     .build())
                 .build();
