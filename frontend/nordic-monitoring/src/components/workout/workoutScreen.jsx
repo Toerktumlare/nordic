@@ -49,7 +49,6 @@ class WorkoutScreen extends React.Component {
             <Loader
               type="ThreeDots"
               color="#357edd"
-              timeout={30000}
             />
           </div>
         ) : (
