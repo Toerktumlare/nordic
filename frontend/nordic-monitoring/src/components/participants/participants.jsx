@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import moment from 'moment';
@@ -16,67 +16,89 @@ const inlineStyles = {
   },
 };
 
-const Participants = ({ style, data, addParticipant }) => {
-  const [participantsEvents] = useState(new EventSource('/api/participants'));
+class Participants extends React.Component {
+  constructor(props) {
+    super(props);
 
-  let n = '';
-  let t = '';
-  let participantList = [];
+    const { data } = this.props;
 
-  useEffect(() => {
-    function handleParticipantsEvent(e) {
-      addParticipant(JSON.parse(e.data));
+    this.state = {
+      participantsEvents: new EventSource('/api/participants'),
+      data,
+    };
+  }
+
+  componentDidMount() {
+    const { participantsEvents } = this.state;
+    participantsEvents.addEventListener('message', this.handleParticipantsEvent);
+  }
+
+  componentWillUnmount() {
+    const { participantsEvents } = this.state;
+    participantsEvents.close();
+  }
+
+  static getDerivedStateFromProps(nextProps) {
+    return {
+      data: nextProps.data,
+    };
+  }
+
+  handleParticipantsEvent = (e) => {
+    const { addParticipant } = this.props;
+    addParticipant(JSON.parse(e.data));
+  }
+
+  render() {
+    const { data } = this.state;
+    const { style } = this.props;
+    const filteredData = data.filter((activity) => activity.endTime > moment().unix());
+
+    let participantList = [];
+    let n = '';
+    let t = '';
+
+    // eslint-disable-next-line react/prop-types
+    if (filteredData.length !== 0) {
+      // eslint-disable-next-line prefer-destructuring
+      const { name, startTime, participants } = filteredData[0];
+      n = name;
+      t = startTime;
+      participantList = participants;
     }
 
-    participantsEvents.addEventListener('message', handleParticipantsEvent);
+    const localDateTime = moment.unix(t).format('HH:mm');
+    const className = WorkoutTypes[n];
 
-    return () => {
-      participantsEvents.removeEventListener('message', handleParticipantsEvent);
-    };
-  }, []);
+    let participantsListLeft = participantList;
+    let participantsListCenter = [];
+    let participantsListRight = [];
 
-  const filteredData = data.filter((activity) => activity.endTime > moment().unix());
+    const participantListComponents = [];
+    if (participantList.length <= 34) {
+      participantsListLeft = participantList.splice(0, 17);
+      participantsListCenter = participantList.splice(0);
+      participantListComponents[0] = <ParticipantsList className="mr1 w-100" data={participantsListLeft} />;
+      participantListComponents[1] = <ParticipantsList className="ml1 w-100" data={participantsListCenter} />;
+    } else if ((participantList.length > 34)) {
+      participantsListLeft = participantList.splice(0, 17);
+      participantsListCenter = participantList.splice(0, 17);
+      participantsListRight = participantList.splice(0);
+      participantListComponents[0] = <ParticipantsList className="mr1 w-100" data={participantsListLeft} />;
+      participantListComponents[1] = <ParticipantsList className="ml1 mr1 w-100" data={participantsListCenter} />;
+      participantListComponents[2] = <ParticipantsList className="ml1 w-100" data={participantsListRight} />;
+    }
 
-  // eslint-disable-next-line react/prop-types
-  if (filteredData.length !== 0) {
-    // eslint-disable-next-line prefer-destructuring
-    const { name, startTime, participants } = filteredData[0];
-    n = name;
-    t = startTime;
-    participantList = participants;
-  }
-
-  const localDateTime = moment.unix(t).format('HH:mm');
-  const className = WorkoutTypes[n];
-
-  let participantsListLeft = participantList;
-  let participantsListCenter = [];
-  let participantsListRight = [];
-
-  const participantListComponents = [];
-  if (participantList.length <= 34) {
-    participantsListLeft = participantList.splice(0, 17);
-    participantsListCenter = participantList.splice(0);
-    participantListComponents[0] = <ParticipantsList className="mr1 w-100" data={participantsListLeft} />;
-    participantListComponents[1] = <ParticipantsList className="ml1 w-100" data={participantsListCenter} />;
-  } else if ((participantList.length > 34)) {
-    participantsListLeft = participantList.splice(0, 17);
-    participantsListCenter = participantList.splice(0, 17);
-    participantsListRight = participantList.splice(0);
-    participantListComponents[0] = <ParticipantsList className="mr1 w-100" data={participantsListLeft} />;
-    participantListComponents[1] = <ParticipantsList className="ml1 mr1 w-100" data={participantsListCenter} />;
-    participantListComponents[2] = <ParticipantsList className="ml1 w-100" data={participantsListRight} />;
-  }
-
-  return (
-    <div className="flex flex-column" style={style}>
-      <InfoBar className="mb2 pa1" text={`${className} - ${localDateTime}`} style={inlineStyles.infoBar} />
-      <div className="flex" style={inlineStyles.AttendeesList}>
-        {participantListComponents}
+    return (
+      <div className="flex flex-column" style={style}>
+        <InfoBar className="mb2 pa1" text={`${className} - ${localDateTime}`} style={inlineStyles.infoBar} />
+        <div className="flex" style={inlineStyles.AttendeesList}>
+          {participantListComponents}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 Participants.propTypes = {
   data: [],
