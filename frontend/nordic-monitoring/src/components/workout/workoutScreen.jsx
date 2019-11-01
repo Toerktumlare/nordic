@@ -9,10 +9,10 @@ class WorkoutScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    const { data } = this.props;
+    const { data, eventUrl } = this.props;
 
     this.state = {
-      workoutEvents: new EventSource('/api/workouts/dagens'),
+      workoutEvents: new EventSource(eventUrl),
       data,
     };
   }
@@ -40,10 +40,10 @@ class WorkoutScreen extends React.Component {
   }
 
   render() {
-    const { className } = this.props;
+    const { className, style } = this.props;
     const { data } = this.state;
     return (
-      <div className={`w-100 bg-white flex justify-center items-center ba bw3 b--yellow ${className}`}>
+      <div className={`w-100 bg-white flex justify-center items-center ba bw3 ${className}`} style={style}>
         {!data ? (
           <div>
             <Loader
@@ -63,12 +63,18 @@ WorkoutScreen.propTypes = {
   data: PropTypes.arrayOf(PropTypes.object),
   className: PropTypes.string,
   addWorkouts: PropTypes.func,
+  eventUrl: PropTypes.string,
+  style: PropTypes.shape({
+    borderColor: PropTypes.string,
+  }),
 };
 
 WorkoutScreen.defaultProps = {
   data: undefined,
   className: '',
   addWorkouts: () => {},
+  eventUrl: '',
+  style: {},
 };
 
 function mapStateToProps(state) {

@@ -13,7 +13,7 @@ const SelectionMenu = ({ history }) => (
     <div className="flex flex-column justify-center h-100">
       <div className="flex flex-column flex-row-ns justify-center item-center-ns h-30">
         <SelectionMenuButton className="flex-grow-1-ns" text="Dagens Pass" onClick={() => { history.push('/daily'); }} />
-        <SelectionMenuButton className="flex-grow-1-ns" text="Fitness" disabled />
+        <SelectionMenuButton className="flex-grow-1-ns" text="Fitness" onClick={() => { history.push('/fitness'); }} />
         <SelectionMenuButton className="flex-grow-1-ns" text="Performance" disabled />
       </div>
     </div>

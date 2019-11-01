@@ -6,7 +6,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
 import configureStore from './store/store';
 import SelectionMenu from './components/selectionMenu/selectionMenu';
-import App from './App';
+import DailyView from './components/views/dailyView';
+import FitnessView from './components/views/fitnessView';
 
 const store = configureStore();
 window.store = store;
@@ -16,7 +17,8 @@ ReactDOM.render(
     <BrowserRouter>
       <Switch>
         <Route exact path="/" component={SelectionMenu} />
-        <Route path="/daily" component={App} />
+        <Route path="/daily" component={DailyView} />
+        <Route path="/fitness" component={FitnessView} />
       </Switch>
     </BrowserRouter>
   </Provider>,
