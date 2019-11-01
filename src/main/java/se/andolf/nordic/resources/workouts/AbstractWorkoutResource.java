@@ -95,7 +95,7 @@ public abstract class AbstractWorkoutResource {
     }
 
     public Mono<Void> push(List<WorkoutResponse> workoutResponses) {
-        sink.next(workoutResponses).complete();
+        sink.next(workoutResponses);
         return Mono.empty();
     }
 
