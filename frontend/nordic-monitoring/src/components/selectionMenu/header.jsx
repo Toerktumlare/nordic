@@ -3,6 +3,7 @@ import Modal from 'react-modal';
 import Menu from '../menu';
 import MenuItem from '../menuItem';
 import FlushView from './flushView';
+import AboutView from './aboutView';
 
 const customStyles = {
   content: {
@@ -10,7 +11,7 @@ const customStyles = {
     left: '50%',
     right: 'auto',
     bottom: 'auto',
-    marginRight: '-50%',
+    marginRight: '-20%',
     transform: 'translate(-50%, -50%)',
   },
 };
@@ -21,36 +22,54 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isModalOpen: false,
+      isRefetchModalOpen: false,
+      isAboutModalOpen: false,
     };
   }
 
-  openModal = (event) => {
+  openRefetchModal = (event) => {
     event.preventDefault();
-    this.setState({ isModalOpen: true });
+    this.setState({ isRefetchModalOpen: true });
   }
 
-  closeModal = () => {
-    this.setState({ isModalOpen: false });
+  closeRefetchModal = () => {
+    this.setState({ isRefetchModalOpen: false });
+  }
+
+  openAboutModal = (event) => {
+    event.preventDefault();
+    this.setState({ isAboutModalOpen: true });
+  }
+
+  closeAboutModal = () => {
+    this.setState({ isAboutModalOpen: false });
   }
 
   render() {
-    const { isModalOpen } = this.state;
+    const { isRefetchModalOpen, isAboutModalOpen } = this.state;
     return (
       <div className="w-100">
         <Modal
-          isOpen={isModalOpen}
-          onRequestClose={this.closeModal}
+          isOpen={isRefetchModalOpen}
+          onRequestClose={this.closeRefetchModal}
           style={customStyles}
-          contentLabel="Example Modal"
+          contentLabel="Refetch modal"
         >
-          <FlushView onClose={this.closeModal} />
+          <FlushView onClose={this.closeRefetchModal} />
+        </Modal>
+        <Modal
+          isOpen={isAboutModalOpen}
+          onRequestClose={this.closeAboutModal}
+          style={customStyles}
+          contentLabel="About Modal"
+        >
+          <AboutView />
         </Modal>
         <Menu className="w-100 w-100-ns">
-          <MenuItem onClick={this.openModal}>
+          <MenuItem onClick={this.openRefetchModal}>
             Refetch
           </MenuItem>
-          <MenuItem>
+          <MenuItem onClick={this.openAboutModal}>
             About
           </MenuItem>
         </Menu>
