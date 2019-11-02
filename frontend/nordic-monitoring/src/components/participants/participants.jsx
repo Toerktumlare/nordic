@@ -20,10 +20,10 @@ class Participants extends React.Component {
   constructor(props) {
     super(props);
 
-    const { data } = this.props;
+    const { data, eventUrl } = this.props;
 
     this.state = {
-      participantsEvents: new EventSource('/api/participants'),
+      participantsEvents: new EventSource(eventUrl),
       data,
     };
   }
@@ -68,7 +68,7 @@ class Participants extends React.Component {
     }
 
     const localDateTime = moment.unix(t).format('HH:mm');
-    const className = WorkoutTypes[n];
+    const workoutClassName = WorkoutTypes[n];
 
     let participantsListLeft = participantList;
     let participantsListCenter = [];
@@ -91,7 +91,7 @@ class Participants extends React.Component {
 
     return (
       <div className="flex flex-column" style={style}>
-        <InfoBar className="mb2 pa1" text={`${className} - ${localDateTime}`} style={inlineStyles.infoBar} />
+        <InfoBar className="mb2 pa1" text={`${workoutClassName} - ${localDateTime}`} style={inlineStyles.infoBar} />
         <div className="flex" style={inlineStyles.AttendeesList}>
           {participantListComponents}
         </div>
@@ -104,12 +104,14 @@ Participants.propTypes = {
   data: [],
   style: PropTypes.shape({}),
   addParticipant: PropTypes.func,
+  eventUrl: PropTypes.string,
 };
 
 Participants.defaultProps = {
   data: [],
   style: {},
   addParticipant: () => {},
+  eventUrl: '',
 };
 
 function mapStateToProps(state) {

@@ -22,7 +22,7 @@ const FitnessView = () => (
     <WorkoutScreen eventUrl="/api/workouts/fitness" className="pr2-ns" style={{ borderColor: '#00b300' }} />
     <div className="flex flex-column justify-around-ns content-stretch-ns pl2-ns">
       <Timer className="mb2 dn" style={inlineStyle.clock} />
-      <Participants style={inlineStyle.participants} />
+      <Participants eventUrl="/api/participants/fitness" style={inlineStyle.participants} />
     </div>
   </div>
 );

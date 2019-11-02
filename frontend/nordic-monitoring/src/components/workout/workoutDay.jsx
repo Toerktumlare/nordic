@@ -11,6 +11,10 @@ const getFontSize = (workouts) => {
   if (rows < 8) return 'f4 f3-ns';
   if (rows < 9) return 'f5 f3-ns';
   if (rows < 14) return 'f5 f3-ns';
+  if (rows < 17) return 'f5 f3-ns';
+  if (rows < 17) return 'f5 f4-ns';
+  if (rows < 20) return 'f5 f4-ns';
+  if (rows < 24) return 'f5 f4-ns';
   return 'f5';
 };
 

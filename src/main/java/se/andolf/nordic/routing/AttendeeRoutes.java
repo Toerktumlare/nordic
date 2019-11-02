@@ -30,14 +30,14 @@ public class AttendeeRoutes {
     @Bean
     public RouterFunction<ServerResponse> attendees() {
         return route()
-                .path("/api/participants", builder -> builder
+                .path("/api/participants/{type}", builder -> builder
                     .GET("", accept(TEXT_EVENT_STREAM), request -> ok()
                             .contentType(TEXT_EVENT_STREAM)
                             .header("Cache-Control", "no-transform")
-                            .body(attendeeHandler.getMany(), new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {}))
+                            .body(attendeeHandler.stream(request.pathVariable("type")), new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {}))
                     .GET("", accept(APPLICATION_JSON), request -> ok()
                             .contentType(MediaType.APPLICATION_JSON_UTF8)
-                            .body(attendeeHandler.get(), new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {}))
+                            .body(attendeeHandler.get(request.pathVariable("type")), new ParameterizedTypeReference<ListResponse<WorkoutClass>>() {}))
                     .build())
                 .build();
     }

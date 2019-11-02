@@ -1,55 +1,63 @@
 package se.andolf.nordic.handlers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import reactor.core.publisher.FluxSink;
+import org.springframework.web.server.ResponseStatusException;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.core.publisher.ReplayProcessor;
-import se.andolf.nordic.models.WorkoutType;
 import se.andolf.nordic.models.response.ListResponse;
 import se.andolf.nordic.models.response.WorkoutClass;
-import se.andolf.nordic.resources.ActivityResource;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import se.andolf.nordic.resources.participants.DagensParticipantResource;
+import se.andolf.nordic.resources.participants.FitnessParticipantResource;
 
 @Component
 public class AttendeeHandler {
 
-    private final ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor;
-    private final FluxSink<ListResponse<WorkoutClass>> sink;
-    private final ActivityResource activityResource;
+
+    private final DagensParticipantResource dagensParticipantResource;
+    private final FitnessParticipantResource fitnessParticipantResource;
 
     @Autowired
-    public AttendeeHandler(@Qualifier("BrpActivityResource") ActivityResource activityResource, @Qualifier("attendeesReplayProcessor") ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor){
-        this.activityResource = activityResource;
-        this.replayProcessor = replayProcessor;
-        sink = replayProcessor.sink();
-    }
-
-    public Mono<ListResponse<WorkoutClass>> get() {
-        return activityResource.getActivities().flatMap(activities -> {
-            final List<WorkoutClass> workoutClasses = activities.getActivities().getActivity().stream()
-                    .map(activity -> WorkoutClass.builder()
-                            .name(WorkoutType.from(activity.getProduct().getNumber()))
-                            .startTime(activity.getStart().getTimepoint().getTimestamp())
-                            .endTime(activity.getEnd().getTimepoint().getTimestamp())
-                            .participants(activity.getParticipants())
-                            .build())
-                    .filter(workoutClass -> !workoutClass.getName().equals(WorkoutType.UNKNOWN))
-                    .collect(Collectors.toList());
-            return Mono.just(ListResponse.<WorkoutClass>builder().data(workoutClasses).build());
-        });
-    }
-
-    public ReplayProcessor<ListResponse<WorkoutClass>> getMany() {
-        return replayProcessor;
+    public AttendeeHandler(DagensParticipantResource dagensParticipantResource, FitnessParticipantResource fitnessParticipantResource){
+        this.dagensParticipantResource = dagensParticipantResource;
+        this.fitnessParticipantResource = fitnessParticipantResource;
     }
 
     @Scheduled(fixedDelay = 60000)
-    private void fetchParticipants() {
-        get().doOnNext(sink::next).subscribe();
+    private void pushDagensParticipants() {
+        dagensParticipantResource.get()
+                .doOnNext(dagensParticipantResource::push)
+                .subscribe();
+    }
+
+    @Scheduled(fixedDelay = 60000)
+    private void pushFitnessParticipants() {
+        fitnessParticipantResource.get()
+                .doOnNext(fitnessParticipantResource::push)
+                .subscribe();
+    }
+
+    public Flux<ListResponse<WorkoutClass>> stream(String type) {
+        switch (type) {
+            case "dagens":
+                return dagensParticipantResource.stream();
+            case "fitness":
+                return fitnessParticipantResource.stream();
+            default:
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    public Mono<ListResponse<WorkoutClass>> get(String type) {
+        switch (type) {
+            case "dagens":
+                return dagensParticipantResource.get();
+            case "fitness":
+                return fitnessParticipantResource.get();
+            default:
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
     }
 }

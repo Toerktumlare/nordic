@@ -10,12 +10,12 @@ import se.andolf.nordic.models.activities.ActivityResponse;
 import java.time.LocalDate;
 
 @Service
-public class BrpActivityResource implements ActivityResource {
+public class BrpParticipantResource implements ParticipantResource {
 
     private final WebClient webClient;
 
     @Autowired
-    public BrpActivityResource(WebClient webClient) {
+    public BrpParticipantResource(WebClient webClient) {
         this.webClient = webClient;
     }
 

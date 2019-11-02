@@ -10,7 +10,7 @@ public class FitnessResource extends AbstractWorkoutResource {
         super(workoutConfiguration, sheetResource);
     }
 
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(cron = "0 0 * * * *")
     private void fetchSheet() {
         get().doOnNext(sink::next).subscribe();
     }

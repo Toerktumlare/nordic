@@ -13,7 +13,7 @@ public class DagensResource extends AbstractWorkoutResource {
         super(config, sheetResource);
     }
 
-    @Scheduled(fixedDelay = 10000)
+    @Scheduled(cron = "0 0 * * * *")
     private void fetchSheet() {
         get().doOnNext(sink::next).subscribe();
     }

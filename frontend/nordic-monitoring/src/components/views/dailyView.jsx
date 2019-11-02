@@ -22,7 +22,7 @@ const DailyView = () => (
     <WorkoutScreen eventUrl="/api/workouts/dagens" className="pr2-ns b--yellow" />
     <div className="flex flex-column justify-around-ns content-stretch-ns pl2-ns">
       <Timer className="mb2 dn" style={inlineStyle.clock} />
-      <Participants style={inlineStyle.participants} />
+      <Participants eventUrl="/api/participants/dagens" style={inlineStyle.participants} />
     </div>
   </div>
 );
