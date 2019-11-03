@@ -1,3 +1,6 @@
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable no-trailing-spaces */
+/* eslint-disable no-unused-vars */
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Controls from './controls';
@@ -51,15 +54,14 @@ const Timer = ({ className, style }) => {
   if (seconds < 10 && seconds > -10) secondsString = `0${secondsString}`;
   if (minutes < 10) minutesString = `0${minutesString}`;
 
-  const time = `${minutesString}:${secondsString}`;
   return (
     <div className={`flex-ns flex-column items-center justify-center bg-black tc ${className}`} style={style}>
-      <div className="w-100 flex">
+      <div className="w-100 flex justify-center">
         <h3 className={`digital ma0 fw2 pt4 pl2 ${inCountdown ? 'dark-red' : 'white'}`} style={{ fontSize: '150px', visibility: inCountdown ? 'visible' : 'hidden' }}>
           -
         </h3>
-        <h3 className={`digital white ma0 fw2 pt4 pr5 ${inCountdown ? 'dark-red' : 'white'}`} style={{ fontSize: '150px' }}>
-          {time}
+        <h3 className={`digital white ma0 fw2 pt4 pr5 f1 ${inCountdown ? 'dark-red' : 'white'}`} style={{ fontSize: '150px' }}>
+          {minutesString}:{secondsString}
         </h3>
       </div>
       <Controls onPlay={start} onPause={stop} onReset={clear} running={running} />
