@@ -28,6 +28,7 @@ class AboutView extends React.Component {
 
   render() {
     const { catImg, imageLoaded } = this.state;
+
     return (
       <div className="flex flex-column items-center futura w-100">
         <h3 className="futura">About</h3>
@@ -37,10 +38,12 @@ class AboutView extends React.Component {
           </div>
           <div className={`flex-column items-center justify-center w-100 ${imageLoaded ? 'dn' : 'flex'}`} style={{ width: '300px', height: '200px' }}>
             <Loader type="Circles" color="#357edd" className="pa2" />
-            <div className="f7 mb3 mt2 i ttu">Opening portal to kitty dimension</div>
+            <div className="f7 futura mb3 mt2 i ttu">Opening portal to kitty dimension</div>
           </div>
         </div>
-        <div className="futura f7 mt4 pa1">Nordic-monitoring v1.0.0</div>
+        <div className="futura f7 mt4 pa1">
+          {`Nordic-Monitoring 1.0.${process.env.REACT_APP_VERSION}`}
+        </div>
         <div className="futura f7 pa1 mb1">Thomas Andolf - 2019 ©</div>
       </div>
     );

@@ -57,10 +57,10 @@ const Timer = ({ className, style }) => {
   return (
     <div className={`flex-ns flex-column items-center justify-center bg-black tc ${className}`} style={style}>
       <div className="w-100 flex justify-center">
-        <h3 className={`digital ma0 fw2 pt4 pl2 ${inCountdown ? 'dark-red' : 'white'}`} style={{ fontSize: '150px', visibility: inCountdown ? 'visible' : 'hidden' }}>
+        <h3 className={`digital ma0 fw2 pt4 pl2 ${inCountdown ? 'dark-red' : 'white'}`} style={{ fontSize: '9em', visibility: inCountdown ? 'visible' : 'hidden' }}>
           -
         </h3>
-        <h3 className={`digital white ma0 fw2 pt4 pr5 f1 ${inCountdown ? 'dark-red' : 'white'}`} style={{ fontSize: '150px' }}>
+        <h3 className={`digital white ma0 fw2 pt4 pr5 f1 ${inCountdown ? 'dark-red' : 'white'}`} style={{ fontSize: '9em' }}>
           {minutesString}:{secondsString}
         </h3>
       </div>
