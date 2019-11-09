@@ -1,6 +1,4 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-/* eslint-disable no-trailing-spaces */
-/* eslint-disable no-unused-vars */
 import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import Controls from './controls';
@@ -64,12 +62,12 @@ const Timer = ({ className, style }) => {
           {minutesString}:{secondsString}
         </h3>
       </div>
-      <Controls 
-        onPlay={start} 
-        onPause={stop} 
-        onReset={clear} 
-        running={running} 
-        style={{ flex: 1 }} 
+      <Controls
+        onPlay={start}
+        onPause={stop}
+        onReset={clear}
+        running={running}
+        style={{ flex: 1 }}
       />
     </div>
   );

@@ -61,7 +61,6 @@ class Participants extends React.Component {
     let t = '';
 
     const participantsPerColumn = divHeight / 25;
-    console.log(participantsPerColumn);
 
     // eslint-disable-next-line react/prop-types
     if (filteredData.length !== 0) {
