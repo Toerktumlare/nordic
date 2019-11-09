@@ -56,7 +56,7 @@ const Timer = ({ className, style }) => {
 
   return (
     <div className={`flex-ns flex-column items-center justify-center bg-black tc ${className}`} style={style}>
-      <div className="w-100 flex justify-center">
+      <div className="w-100 flex justify-center items-center" style={{ flex: 5 }}>
         <h3 className={`digital ma0 fw2 pt4 pl2 ${inCountdown ? 'dark-red' : 'white'}`} style={{ fontSize: '9em', visibility: inCountdown ? 'visible' : 'hidden' }}>
           -
         </h3>
@@ -64,7 +64,13 @@ const Timer = ({ className, style }) => {
           {minutesString}:{secondsString}
         </h3>
       </div>
-      <Controls onPlay={start} onPause={stop} onReset={clear} running={running} />
+      <Controls 
+        onPlay={start} 
+        onPause={stop} 
+        onReset={clear} 
+        running={running} 
+        style={{ flex: 1 }} 
+      />
     </div>
   );
 };
@@ -77,7 +83,7 @@ Timer.propTypes = {
 
 Timer.defaultProps = {
   className: '',
-  style: {},
+  style: { flex: 1 },
 };
 
 export default Timer;

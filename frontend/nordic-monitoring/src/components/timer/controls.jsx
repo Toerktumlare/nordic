@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './LinedButton';
+import Button from './linedButton';
 
 const Controls = ({
   className, style, onPlay, onPause, onReset, running,

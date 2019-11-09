@@ -40,10 +40,10 @@ class WorkoutScreen extends React.Component {
   }
 
   render() {
-    const { className, style } = this.props;
+    const { className, color } = this.props;
     const { data } = this.state;
     return (
-      <div className={`w-100 bg-white flex justify-center items-center ba bw3 ${className}`} style={style}>
+      <div className={`w-100 bg-white flex justify-center items-center ba bw3 ${className}`} style={{ borderColor: color }}>
         {!data ? (
           <div>
             <Loader
@@ -67,6 +67,7 @@ WorkoutScreen.propTypes = {
   style: PropTypes.shape({
     borderColor: PropTypes.string,
   }),
+  color: PropTypes.string,
 };
 
 WorkoutScreen.defaultProps = {
@@ -75,6 +76,7 @@ WorkoutScreen.defaultProps = {
   addWorkouts: () => {},
   eventUrl: '',
   style: {},
+  color: '#000000',
 };
 
 function mapStateToProps(state) {
