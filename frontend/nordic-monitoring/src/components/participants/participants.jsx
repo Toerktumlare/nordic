@@ -25,12 +25,14 @@ class Participants extends React.Component {
     this.state = {
       participantsEvents: new EventSource(eventUrl),
       data,
+      divHeight: 1,
     };
   }
 
   componentDidMount() {
     const { participantsEvents } = this.state;
     participantsEvents.addEventListener('message', this.handleParticipantsEvent);
+    this.setState({ divHeight: this.participantDiv.clientHeight });
   }
 
   componentWillUnmount() {
@@ -50,13 +52,16 @@ class Participants extends React.Component {
   }
 
   render() {
-    const { data } = this.state;
+    const { data, divHeight } = this.state;
     const { style } = this.props;
     const filteredData = data.filter((activity) => activity.endTime > moment().unix());
 
     let participantList = [];
     let n = '';
     let t = '';
+
+    const participantsPerColumn = divHeight / 25;
+    console.log(participantsPerColumn);
 
     // eslint-disable-next-line react/prop-types
     if (filteredData.length !== 0) {
@@ -75,14 +80,14 @@ class Participants extends React.Component {
     let participantsListRight = [];
 
     const participantListComponents = [];
-    if (participantList.length <= 34) {
-      participantsListLeft = participantList.splice(0, 17);
+    if (participantList.length <= (participantsPerColumn * 2)) {
+      participantsListLeft = participantList.splice(0, participantsPerColumn);
       participantsListCenter = participantList.splice(0);
       participantListComponents[0] = <ParticipantsList className="mr1 w-100" data={participantsListLeft} />;
       participantListComponents[1] = <ParticipantsList className="ml1 w-100" data={participantsListCenter} />;
-    } else if ((participantList.length > 34)) {
-      participantsListLeft = participantList.splice(0, 17);
-      participantsListCenter = participantList.splice(0, 17);
+    } else if (participantList.length > (participantsPerColumn * 2)) {
+      participantsListLeft = participantList.splice(0, participantsPerColumn);
+      participantsListCenter = participantList.splice(0, participantsPerColumn);
       participantsListRight = participantList.splice(0);
       participantListComponents[0] = <ParticipantsList className="mr1 w-100" data={participantsListLeft} />;
       participantListComponents[1] = <ParticipantsList className="ml1 mr1 w-100" data={participantsListCenter} />;
@@ -92,7 +97,7 @@ class Participants extends React.Component {
     return (
       <div className="flex flex-column" style={style}>
         <InfoBar className="mb2 pa1" text={`${workoutClassName} - ${localDateTime}`} style={inlineStyles.infoBar} />
-        <div className="flex" style={inlineStyles.AttendeesList}>
+        <div className="flex" ref={(divElement) => { this.participantDiv = divElement; }} style={inlineStyles.AttendeesList}>
           {participantListComponents}
         </div>
       </div>
