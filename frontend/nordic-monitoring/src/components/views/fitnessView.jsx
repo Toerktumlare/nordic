@@ -9,7 +9,7 @@ import SideBarSection from '../sidebarSection';
 
 const inlineStyle = {
   participants: {
-    flex: 4,
+    flex: 2,
   },
 };
 

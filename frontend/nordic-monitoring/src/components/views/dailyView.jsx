@@ -8,9 +8,6 @@ import SideBarSection from '../sidebarSection';
 import MainSection from '../mainSection';
 
 const inlineStyle = {
-  timer: {
-    flex: 1,
-  },
   participants: {
     flex: 2,
   },
