@@ -1,23 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from './linedButton';
+import LinedButton from './linedButton';
 
 const Controls = ({
   className, style, onPlay, onPause, onReset, running,
 }) => (
   <div className={`flex w-100 ${className}`} style={style}>
     {running ? (
-      <Button className="w-100" onClick={onPause} disabled={!running}>
+      <LinedButton className="w-100" onClick={onPause} disabled={!running}>
         PAUSE
-      </Button>
+      </LinedButton>
     ) : (
-      <Button className="w-100" onClick={onPlay} disabled={running}>
+      <LinedButton className="w-100" onClick={onPlay} disabled={running}>
         PLAY
-      </Button>
+      </LinedButton>
     )}
-    <Button className="w-100" onClick={onReset} disabled={running}>
+    <LinedButton className="w-100" onClick={onReset} disabled={running}>
       RESET
-    </Button>
+    </LinedButton>
   </div>
 );
 

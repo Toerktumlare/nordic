@@ -1,1 +1,1 @@
-# Nordic-Montoring app
+# Nordic-Montoring app [![Build Status](https://travis-ci.org/Tandolf/nordic.svg?branch=master)](https://travis-ci.org/Tandolf/nordic)
