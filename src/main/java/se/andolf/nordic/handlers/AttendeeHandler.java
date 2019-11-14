@@ -25,14 +25,14 @@ public class AttendeeHandler {
         this.fitnessParticipantResource = fitnessParticipantResource;
     }
 
-    @Scheduled(fixedDelay = 60000)
+    @Scheduled(fixedDelay = 30000)
     private void pushDagensParticipants() {
         dagensParticipantResource.get()
                 .doOnNext(dagensParticipantResource::push)
                 .subscribe();
     }
 
-    @Scheduled(fixedDelay = 60000)
+    @Scheduled(fixedDelay = 30000)
     private void pushFitnessParticipants() {
         fitnessParticipantResource.get()
                 .doOnNext(fitnessParticipantResource::push)
