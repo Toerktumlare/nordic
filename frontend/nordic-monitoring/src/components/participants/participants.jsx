@@ -54,7 +54,7 @@ class Participants extends React.Component {
   render() {
     const { data, divHeight } = this.state;
     const { style } = this.props;
-    const filteredData = data.filter((activity) => activity.endTime > moment().unix());
+    const filteredData = data.filter((activity) => (activity.endTime - 300) > moment().unix());
 
     let participantList = [];
     let n = '';
