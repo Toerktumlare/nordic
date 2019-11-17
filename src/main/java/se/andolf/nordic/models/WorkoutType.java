@@ -8,8 +8,20 @@ public enum WorkoutType {
     PERFORMANCE,
     UNKNOWN;
 
+    // Dagens pass morgon, 496
+    // Dagens pass lunch, 326
+    // Dagens pass kvall, 4
+    // Dagens pass kvall stort, 321
+    // Dagens pass helg, 231
+    // Fitness-pass, 312
+    // Performance morgon, 235
+    // Performance, 178
+
+
     public static WorkoutType from(String value) {
-        if("322".equals(value))
+        if("496".equals(value))
+            return WorkoutType.DAGENS_PASS;
+        else if("322".equals(value))
             return WorkoutType.DAGENS_PASS;
         else if("326".equals(value))
             return WorkoutType.DAGENS_PASS;
