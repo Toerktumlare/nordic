@@ -6,6 +6,7 @@ public enum WorkoutType {
     DAGENS_PASS_HELG,
     FITNESS,
     PERFORMANCE,
+    MASTODONT_WORKOUT,
     UNKNOWN;
 
     // Dagens pass morgon, 496
@@ -16,6 +17,7 @@ public enum WorkoutType {
     // Fitness-pass, 312
     // Performance morgon, 235
     // Performance, 178
+    // Mastodont, 381
 
 
     public static WorkoutType from(String value) {
@@ -33,6 +35,8 @@ public enum WorkoutType {
             return WorkoutType.DAGENS_PASS_HELG;
         else if("312".equals(value))
             return WorkoutType.FITNESS;
+        else if("381".equals(value))
+            return WorkoutType.MASTODONT_WORKOUT;
         return WorkoutType.UNKNOWN;
     }
 }

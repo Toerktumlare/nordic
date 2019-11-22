@@ -22,7 +22,8 @@ public class DagensParticipantResource extends AbstractParticipantResource {
         return getParticipants().flatMap(workoutClasses -> Mono.just(ListResponse.<WorkoutClass>builder()
                 .data(workoutClasses.stream()
                     .filter(workoutClass -> workoutClass.getName().equals(WorkoutType.DAGENS_PASS) ||
-                            workoutClass.getName().equals(WorkoutType.DAGENS_PASS_HELG))
+                            workoutClass.getName().equals(WorkoutType.DAGENS_PASS_HELG) ||
+                            workoutClass.getName().equals(WorkoutType.MASTODONT_WORKOUT))
                     .collect(Collectors.toList())).build()));
     }
 }
