@@ -4,6 +4,7 @@ const WorkoutTypes = {
   FITNESS: 'Fitness',
   PERFORMANCE: 'Performance',
   MASTODONT_WORKOUT: 'Nordic Mastodont Workout',
+  GRATIS_PROVA_CROSSFIT: 'Gratis prova Crossfit',
 };
 
 export default WorkoutTypes;

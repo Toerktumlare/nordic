@@ -7,6 +7,7 @@ public enum WorkoutType {
     FITNESS,
     PERFORMANCE,
     MASTODONT_WORKOUT,
+    GRATIS_PROVA_CROSSFIT,
     UNKNOWN;
 
     // Dagens pass morgon, 496
@@ -37,6 +38,8 @@ public enum WorkoutType {
             return WorkoutType.FITNESS;
         else if("381".equals(value))
             return WorkoutType.MASTODONT_WORKOUT;
+        else if("27".equals(value))
+            return WorkoutType.GRATIS_PROVA_CROSSFIT;
         return WorkoutType.UNKNOWN;
     }
 }
