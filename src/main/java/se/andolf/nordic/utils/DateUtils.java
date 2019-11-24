@@ -6,7 +6,6 @@ import java.time.temporal.IsoFields;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.WeekFields;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.IntStream;
 
 import static java.util.stream.Collectors.toList;
@@ -14,8 +13,7 @@ import static java.util.stream.Collectors.toList;
 public class DateUtils {
 
     public static int getCurrentWeek() {
-        final WeekFields weekFields = WeekFields.of(Locale.getDefault());
-        return LocalDate.now().get(weekFields.weekOfWeekBasedYear());
+        return LocalDate.now().get(WeekFields.ISO.weekOfWeekBasedYear());
     }
 
     public static List<LocalDate> getDatesForWeek(long calendarWeek) {

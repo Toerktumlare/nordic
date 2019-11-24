@@ -15,8 +15,7 @@ import java.util.Locale;
 public class NordicApplication {
 
 	public static void main(String[] args) {
-        Locale.setDefault(new Locale("en", "GB"));
-        log.info("Default Locale: " + Locale.getDefault());
+        Locale.setDefault(new Locale("sv", "SE"));
 		SpringApplication.run(NordicApplication.class, args);
 	}
 

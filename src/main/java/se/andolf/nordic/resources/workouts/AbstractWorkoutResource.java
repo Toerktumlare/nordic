@@ -100,7 +100,6 @@ public abstract class AbstractWorkoutResource {
 
     private List<String> getRanges() {
         final int currentWeek = DateUtils.getCurrentWeek();
-        log.info("Current Week: " + currentWeek);
         final int startingCell = config.getYearStartCell() + ((currentWeek - 1) * config.getOneWeakCellCount());
         int currentRow = startingCell + config.getWeekdayStartOffset();
 
