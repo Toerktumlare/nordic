@@ -1,5 +1,6 @@
 package se.andolf.nordic.resources.workouts;
 
+import lombok.extern.slf4j.Slf4j;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
 import reactor.core.publisher.Mono;
@@ -13,12 +14,10 @@ import se.andolf.nordic.utils.DateUtils;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
+@Slf4j
 public abstract class AbstractWorkoutResource {
 
     final ReplayProcessor<List<WorkoutResponse>> replayProcessor;
@@ -101,6 +100,8 @@ public abstract class AbstractWorkoutResource {
 
     private List<String> getRanges() {
         final int currentWeek = DateUtils.getCurrentWeek();
+        log.info("Current Week: " + currentWeek);
+        log.info("Default Locale: " + Locale.getDefault());
         final int startingCell = config.getYearStartCell() + ((currentWeek - 1) * config.getOneWeakCellCount());
         int currentRow = startingCell + config.getWeekdayStartOffset();
 
