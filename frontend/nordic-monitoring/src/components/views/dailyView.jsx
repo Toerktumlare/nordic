@@ -19,7 +19,7 @@ const DailyView = () => (
       <WorkoutScreen eventUrl="/api/workouts/dagens" color="#ffdb4d" />
     </MainSection>
     <SideBarSection>
-      <Timer className="mb2" />
+      <Timer className="mb2 dn" />
       <Participants eventUrl="/api/participants/dagens" style={inlineStyle.participants} />
     </SideBarSection>
   </ColoredBackground>

@@ -19,7 +19,7 @@ const FitnessView = () => (
       <WorkoutScreen eventUrl="/api/workouts/fitness" color="#00b300" />
     </MainSection>
     <SideBarSection>
-      <Timer className="mb2" />
+      <Timer className="mb2 dn" />
       <Participants eventUrl="/api/participants/fitness" style={inlineStyle.participants} />
     </SideBarSection>
   </ColoredBackground>
