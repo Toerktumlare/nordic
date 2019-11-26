@@ -22,7 +22,7 @@ class Workout extends React.Component {
             <div className="flex flex-column justify-between overflow-auto h-100 w-100">
               <Header className="pl4" name={workoutName} timestamp={date} />
               <WorkoutDay className="pl4 pr4" workouts={workouts} />
-              <Instructions className="pl4 pb2 pr4" values={instructions} hidden={noInstructions} />
+              <Instructions className="pl4 pb2 pr4 dn db-ns" values={instructions} hidden={noInstructions} />
             </div>
           </>
         );

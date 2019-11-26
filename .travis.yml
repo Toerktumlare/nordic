@@ -20,7 +20,6 @@ jobs:
     - nohup java -jar target/nordic-0.0.1-SNAPSHOT.jar &
     - python3 scripts/health.py http://localhost:8080/actuator/health
   - stage: deploy to production
-    script: "./mvnw clean package"
     deploy: &heroku
       provider: heroku
       app: nordic-monitoring
