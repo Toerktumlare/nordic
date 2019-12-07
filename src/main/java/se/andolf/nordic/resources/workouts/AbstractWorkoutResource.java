@@ -51,13 +51,14 @@ public abstract class AbstractWorkoutResource {
                     int cellIndex = 0;
                     for (LocalDate weekDate : weekDates) {
 
-                        final List<String> workouts = valuesRanges.get(cellIndex).getValues()
-                                .stream()
-                                .flatMap(Collection::stream)
-                                .map(o -> (String) o)
-                                .skip(3)
-                                .filter(s -> !s.isEmpty())
-                                .collect(Collectors.toList());
+                        final List<String> workouts = Optional.ofNullable(valuesRanges.get(cellIndex).getValues())
+                                .map(lists -> lists.stream()
+                                        .flatMap(Collection::stream)
+                                        .map(o -> (String) o)
+                                        .skip(3)
+                                        .filter(s -> !s.isEmpty())
+                                        .collect(Collectors.toList()))
+                                .orElse(Collections.emptyList());
 
                         List<String> instructions = Collections.emptyList();
                         if(valuesRanges.get(cellIndex + 1).getValues() != null) {
