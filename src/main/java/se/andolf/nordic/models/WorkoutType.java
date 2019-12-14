@@ -8,6 +8,7 @@ public enum WorkoutType {
     PERFORMANCE,
     MASTODONT_WORKOUT,
     GRATIS_PROVA_CROSSFIT,
+    FITNESS_PERFORMANCE_JOINED,
     UNKNOWN;
 
     // Dagens pass morgon, 496
@@ -19,6 +20,7 @@ public enum WorkoutType {
     // Performance morgon, 235
     // Performance, 178
     // Mastodont, 381
+    // Fitness/Performance joined
 
 
     public static WorkoutType from(String value) {
@@ -40,6 +42,8 @@ public enum WorkoutType {
             return WorkoutType.MASTODONT_WORKOUT;
         else if("27".equals(value))
             return WorkoutType.GRATIS_PROVA_CROSSFIT;
+        else if("498".equals(value))
+            return WorkoutType.FITNESS_PERFORMANCE_JOINED;
         return WorkoutType.UNKNOWN;
     }
 }
