@@ -2,11 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import moment from 'moment';
-import WorkoutDay from './workoutDay';
-import Instructions from './instructions';
-import Header from './header';
 import WorkoutTypes from '../../constants/WorkoutTypes';
 import Footer from './footer';
+import WorkoutDay from './workoutDay';
 
 class Workout extends React.Component {
   static genWorkoutDays(weeklyWorkouts) {
@@ -16,14 +14,14 @@ class Workout extends React.Component {
 
       const dayComponents = workoutDays.map((workoutDay) => {
         const { instructions, workouts, date } = workoutDay;
-        const noInstructions = instructions.length === 0;
         return (
           <>
-            <div className="flex flex-column justify-between overflow-auto h-100 w-100">
-              <Header className="pl4" name={workoutName} timestamp={date} />
-              <WorkoutDay className="pl4 pr4" workouts={workouts} />
-              <Instructions className="pl4 pb2 pr4 dn db-ns" values={instructions} hidden={noInstructions} />
-            </div>
+            <WorkoutDay
+              workoutName={workoutName}
+              timestamp={date}
+              workouts={workouts}
+              instructions={instructions}
+            />
           </>
         );
       });
@@ -78,6 +76,7 @@ class Workout extends React.Component {
           onMenu={this.handleMenuClick}
           hideLeftButton={isLeftHidden}
           hideRightButton={isRightHidden}
+          className="mt2 mb2"
         />
       </div>
     );

@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import moment from 'moment';
-import { MdRemoveCircleOutline, MdControlPoint } from 'react-icons/md';
-import Button from './IconButton';
+import TextResizeButtons from './textResizeButtons';
 
 const Header = ({ className, name, timestamp }) => {
   const dateMoment = moment.unix(timestamp);
@@ -14,14 +13,7 @@ const Header = ({ className, name, timestamp }) => {
       <h1 className="futura pt1 pb2 f5 f2-ns">
         {`${name} - ${weekday} ${formattedDate}`}
       </h1>
-      <div className="dn">
-        <Button>
-          <MdRemoveCircleOutline />
-        </Button>
-        <Button>
-          <MdControlPoint />
-        </Button>
-      </div>
+      <TextResizeButtons hidden />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Instructions = ({ className, values, hidden }) => {
   let instructions = null;
-  if (values !== undefined && !hidden) {
+  if (values !== undefined && values.length !== 0 && !hidden) {
     instructions = values.map((value) => value.split('\n')
       // eslint-disable-next-line react/no-array-index-key
       .map((object, j) => <div className="georgia pr2 pb3 pb1-sn f7" key={j}>{object}</div>));

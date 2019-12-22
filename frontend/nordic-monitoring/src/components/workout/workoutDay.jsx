@@ -1,56 +1,59 @@
-/* eslint-disable prefer-destructuring */
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { PropTypes } from 'prop-types';
+import Header from './header';
+import Workouts from './workouts';
+import Instructions from './instructions';
 
-const getFontSize = (workouts) => {
-  let rows = 0;
-  workouts.forEach((section) => {
-    rows += section.split('\n').length;
-  });
+class WorkoutDay extends React.Component {
+  constructor(props) {
+    super(props);
 
-  if (rows < 8) return 'f4 f2-ns';
-  if (rows < 9) return 'f5 f2-ns';
-  if (rows < 14) return 'f5 f2-ns';
-  if (rows < 17) return 'f5 f3-ns';
-  if (rows < 17) return 'f5 f4-ns';
-  if (rows < 20) return 'f5 f4-ns';
-  if (rows < 24) return 'f5 f4-ns';
-  return 'f5';
-};
+    const { textSize } = this.props;
 
-const WorkoutDay = ({ className, workouts }) => {
-  let [currentFontSize] = useState('f7');
-  let workoutValue = <div>No workout registered today</div>;
-
-  currentFontSize = getFontSize(workouts);
-
-  if (workouts !== 'undefined') {
-    workoutValue = workouts.map((workout) => (
-      <div className="pb3">
-        {
-          workout.split('\n')
-            // eslint-disable-next-line react/no-array-index-key
-            .map((text, j) => <div className={`georgia lh-title pb2 pb1-ns ${currentFontSize}`} key={j}>{text}</div>)
-        }
-      </div>
-    ));
+    this.state = {
+      textSize,
+    };
   }
 
-  return (
-    <div className={`mb2  ${className}`}>
-      {workoutValue}
-    </div>
-  );
+  render() {
+    const {
+      className,
+      workoutName,
+      timestamp,
+      workouts,
+      instructions,
+    } = this.props;
+
+    // eslint-disable-next-line no-unused-vars
+    const { textSize } = this.state;
+
+    return (
+      <div className={`flex flex-column justify-between overflow-auto h-100 w-100 ${className}`}>
+        <Header className="pl4" name={workoutName} timestamp={timestamp} />
+        <Workouts className="pl4 pr4" workouts={workouts} />
+        <Instructions className="pl4 pb2 pr4 dn db-ns" values={instructions} />
+      </div>
+    );
+  }
+}
+
+
+WorkoutDay.propTypes = {
+  className: PropTypes.string,
+  textSize: PropTypes.string,
+  workoutName: PropTypes.string,
+  timestamp: PropTypes.number,
+  workouts: PropTypes.arrayOf(PropTypes.string),
+  instructions: PropTypes.arrayOf(PropTypes.string),
 };
 
 WorkoutDay.defaultProps = {
   className: '',
+  textSize: '12',
+  workoutName: '',
+  timestamp: 0,
   workouts: [],
-};
-
-WorkoutDay.propTypes = {
-  className: PropTypes.string,
-  workouts: PropTypes.arrayOf(PropTypes.string),
+  instructions: [],
 };
 
 export default WorkoutDay;
