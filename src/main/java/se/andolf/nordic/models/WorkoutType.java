@@ -9,6 +9,7 @@ public enum WorkoutType {
     MASTODONT_WORKOUT,
     GRATIS_PROVA_CROSSFIT,
     FITNESS_PERFORMANCE_JOINED,
+    TEMAPASS_JULAFTON,
     UNKNOWN;
 
     // Dagens pass morgon, 496
@@ -20,7 +21,8 @@ public enum WorkoutType {
     // Performance morgon, 235
     // Performance, 178
     // Mastodont, 381
-    // Fitness/Performance joined
+    // Fitness/Performance joined 498
+    // Temapass Julafton 63
 
 
     public static WorkoutType from(String value) {
@@ -44,6 +46,8 @@ public enum WorkoutType {
             return WorkoutType.GRATIS_PROVA_CROSSFIT;
         else if("498".equals(value))
             return WorkoutType.FITNESS_PERFORMANCE_JOINED;
+        else if("63".equals(value))
+            return WorkoutType.TEMAPASS_JULAFTON;
         return WorkoutType.UNKNOWN;
     }
 }

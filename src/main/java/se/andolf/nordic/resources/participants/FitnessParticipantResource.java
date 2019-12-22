@@ -25,7 +25,8 @@ public class FitnessParticipantResource extends AbstractParticipantResource {
                                 workoutClass.getName().equals(WorkoutType.DAGENS_PASS_HELG) ||
                                 workoutClass.getName().equals(WorkoutType.MASTODONT_WORKOUT) ||
                                 workoutClass.getName().equals(WorkoutType.FITNESS_PERFORMANCE_JOINED) ||
-                                workoutClass.getName().equals(WorkoutType.GRATIS_PROVA_CROSSFIT))
+                                workoutClass.getName().equals(WorkoutType.GRATIS_PROVA_CROSSFIT) ||
+                                workoutClass.getName().equals(WorkoutType.TEMAPASS_JULAFTON))
                         .collect(Collectors.toList())).build()));
     }
 }

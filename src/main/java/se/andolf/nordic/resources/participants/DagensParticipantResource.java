@@ -24,7 +24,8 @@ public class DagensParticipantResource extends AbstractParticipantResource {
                     .filter(workoutClass -> workoutClass.getName().equals(WorkoutType.DAGENS_PASS) ||
                             workoutClass.getName().equals(WorkoutType.DAGENS_PASS_HELG) ||
                             workoutClass.getName().equals(WorkoutType.MASTODONT_WORKOUT) ||
-                            workoutClass.getName().equals(WorkoutType.GRATIS_PROVA_CROSSFIT))
+                            workoutClass.getName().equals(WorkoutType.GRATIS_PROVA_CROSSFIT) ||
+                            workoutClass.getName().equals(WorkoutType.TEMAPASS_JULAFTON))
                     .collect(Collectors.toList())).build()));
     }
 }

@@ -6,6 +6,7 @@ const WorkoutTypes = {
   MASTODONT_WORKOUT: 'Nordic Mastodont Workout',
   GRATIS_PROVA_CROSSFIT: 'Gratis prova Crossfit',
   FITNESS_PERFORMANCE_JOINED: 'Fitness/Performance',
+  TEMAPASS_JULAFTON: 'Temapass Julafton',
 };
 
 export default WorkoutTypes;
