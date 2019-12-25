@@ -2,6 +2,7 @@ package se.andolf.nordic.handlers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
 import reactor.core.publisher.Flux;
@@ -27,13 +28,13 @@ public class WorkoutHandler {
         this.performanceResource = performanceResource;
     }
 
-    public Flux<List<WorkoutResponse>> stream(String id) {
+    public Flux<ServerSentEvent<List<WorkoutResponse>>> stream(String id) {
         if (id.equals("dagens"))
-            return dagensResource.stream(id);
+            return dagensResource.stream();
         else if (id.equals("fitness"))
-            return fitnessResource.stream(id);
+            return fitnessResource.stream();
         else if (id.equals("performance"))
-            return performanceResource.stream(id);
+            return performanceResource.stream();
         else
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
     }

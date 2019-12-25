@@ -1,6 +1,7 @@
 package se.andolf.nordic.resources.workouts;
 
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.codec.ServerSentEvent;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.FluxSink;
 import reactor.core.publisher.Mono;
@@ -20,8 +21,8 @@ import java.util.stream.Collectors;
 @Slf4j
 public abstract class AbstractWorkoutResource {
 
-    final ReplayProcessor<List<WorkoutResponse>> replayProcessor;
-    final FluxSink<List<WorkoutResponse>> sink;
+    final ReplayProcessor<ServerSentEvent<List<WorkoutResponse>>> replayProcessor;
+    final FluxSink<ServerSentEvent<List<WorkoutResponse>>> sink;
     final SheetResource sheetResource;
     final WorkoutConfiguration config;
 
@@ -90,12 +91,12 @@ public abstract class AbstractWorkoutResource {
                 });
     }
 
-    public Flux<List<WorkoutResponse>> stream(String id) {
+    public Flux<ServerSentEvent<List<WorkoutResponse>>> stream() {
         return replayProcessor;
     }
 
     public Mono<Void> push(List<WorkoutResponse> workoutResponses) {
-        sink.next(workoutResponses);
+        sink.next(ServerSentEvent.<List<WorkoutResponse>>builder().data(workoutResponses).build());
         return Mono.empty();
     }
 

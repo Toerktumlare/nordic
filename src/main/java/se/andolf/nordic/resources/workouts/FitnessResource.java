@@ -1,8 +1,12 @@
 package se.andolf.nordic.resources.workouts;
 
+import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.scheduling.annotation.Scheduled;
 import se.andolf.nordic.config.properties.WorkoutConfiguration;
+import se.andolf.nordic.models.response.WorkoutResponse;
 import se.andolf.nordic.resources.SheetResource;
+
+import java.util.List;
 
 public class FitnessResource extends AbstractWorkoutResource {
 
@@ -10,8 +14,11 @@ public class FitnessResource extends AbstractWorkoutResource {
         super(workoutConfiguration, sheetResource);
     }
 
-    @Scheduled(fixedDelay = 30000)
+    @Scheduled(fixedDelay = 300000)
     private void fetchSheet() {
-        get().doOnNext(sink::next).subscribe();
+        get().doOnNext(workoutResponses -> sink.next(ServerSentEvent.<List<WorkoutResponse>>builder()
+                .data(workoutResponses)
+                .build()))
+                .subscribe();
     }
 }
