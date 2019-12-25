@@ -57,8 +57,8 @@ class Participants extends React.Component {
     const filteredData = data.filter((activity) => (activity.endTime - 300) > moment().unix());
 
     let participantList = [];
-    let n = '';
-    let t = '';
+    let workoutTypeString = 'No Classes Today';
+    let localDateTime = '';
 
     const participantsPerColumn = divHeight / 25;
 
@@ -66,13 +66,12 @@ class Participants extends React.Component {
     if (filteredData.length !== 0) {
       // eslint-disable-next-line prefer-destructuring
       const { name, startTime, participants } = filteredData[0];
-      n = name;
-      t = startTime;
+      workoutTypeString = WorkoutTypes[name];
+      localDateTime = `- ${moment.unix(startTime).format('HH:mm')}`;
       participantList = participants;
     }
 
-    const localDateTime = moment.unix(t).format('HH:mm');
-    const workoutClassName = WorkoutTypes[n];
+    const text = workoutTypeString + localDateTime;
 
     let participantsListLeft = participantList;
     let participantsListCenter = [];
@@ -95,7 +94,7 @@ class Participants extends React.Component {
 
     return (
       <div className="flex flex-column" style={style}>
-        <InfoBar className="mb2 pa1" text={`${workoutClassName} - ${localDateTime}`} style={inlineStyles.infoBar} />
+        <InfoBar className="mb2 pa1" text={text} style={inlineStyles.infoBar} />
         <div className="flex" ref={(divElement) => { this.participantDiv = divElement; }} style={inlineStyles.AttendeesList}>
           {participantListComponents}
         </div>

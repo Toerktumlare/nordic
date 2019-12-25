@@ -8,13 +8,13 @@ const Footer = ({
   className, onLeft, onRight, onMenu, hideLeftButton, hideRightButton,
 }) => (
   <footer className={`flex justify-between ${className}`}>
-    <Button onClick={onLeft} hidden={hideLeftButton}>
+    <Button className="pa2" onClick={onLeft} hidden={hideLeftButton}>
       <MdChevronLeft />
     </Button>
-    <Button onClick={onMenu}>
+    <Button className="pa2" onClick={onMenu}>
       <MdMenu />
     </Button>
-    <Button onClick={onRight} hidden={hideRightButton}>
+    <Button className="pa2" onClick={onRight} hidden={hideRightButton}>
       <MdChevronRight />
     </Button>
   </footer>

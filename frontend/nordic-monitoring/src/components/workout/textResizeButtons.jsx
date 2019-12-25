@@ -6,12 +6,12 @@ import Button from './IconButton';
 const TextResizeButtons = ({
   className, onClickPlus, onClickMinus, disabled, hidden,
 }) => (
-  <div className={`${hidden ? 'dn' : ''} ${className}`}>
-    <Button onClick={onClickMinus} disabled={disabled}>
-      <MdRemoveCircleOutline />
-    </Button>
+  <div className={`${hidden ? 'dn' : 'flex flex-column'} ${className}`}>
     <Button onClick={onClickPlus} disabled={disabled}>
       <MdControlPoint />
+    </Button>
+    <Button onClick={onClickMinus} disabled={disabled}>
+      <MdRemoveCircleOutline />
     </Button>
   </div>
 );

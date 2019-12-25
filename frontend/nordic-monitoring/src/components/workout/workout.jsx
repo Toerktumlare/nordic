@@ -76,7 +76,6 @@ class Workout extends React.Component {
           onMenu={this.handleMenuClick}
           hideLeftButton={isLeftHidden}
           hideRightButton={isRightHidden}
-          className="mt2 mb2"
         />
       </div>
     );
