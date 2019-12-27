@@ -9,7 +9,7 @@ const Header = ({ className, name, timestamp }) => {
   const formattedDate = dateMoment.format('YYYY-MM-DD');
 
   return (
-    <div className={`flex justify-between ${className}`}>
+    <div className={`${className}`}>
       <h1 className="futura pt1 pb2 f5 f2-ns">
         {`${name} - ${weekday} ${formattedDate}`}
       </h1>
