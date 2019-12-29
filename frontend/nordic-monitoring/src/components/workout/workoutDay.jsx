@@ -29,7 +29,7 @@ class WorkoutDay extends React.Component {
 
     return (
       <div className={`flex flex-column justify-between overflow-auto h-100 w-100 ${className}`}>
-        <Header className="flex pl4" name={workoutName} timestamp={timestamp} />
+        <Header className="pl4" name={workoutName} timestamp={timestamp} />
         <Workouts className="pl4 pr4" workouts={workouts} />
         <Instructions className="pl4 pb2 pr4 dn db-ns" values={instructions} />
       </div>
