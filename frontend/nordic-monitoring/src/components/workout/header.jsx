@@ -13,7 +13,7 @@ const Header = ({ className, name, timestamp }) => {
       <h1 className="futura pt1 pb2 f5 f2-ns">
         {`${name} - ${weekday} ${formattedDate}`}
       </h1>
-      <TextResizeButtons hidden />
+      <TextResizeButtons />
     </div>
   );
 };
