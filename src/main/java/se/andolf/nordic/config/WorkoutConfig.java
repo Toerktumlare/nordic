@@ -25,7 +25,7 @@ public class WorkoutConfig {
     public FitnessResource fitnessResource(SheetResource sheetResource) {
         final WorkoutConfiguration workoutConfiguration = WorkoutConfiguration.builder()
                 .workoutType(WorkoutType.FITNESS)
-                .yearStartCell(2198)
+                .yearStartCell(3030)
                 .tabName("'Trän.plan - Fitness'")
                 .build();
         return new FitnessResource(workoutConfiguration, sheetResource);
@@ -35,7 +35,7 @@ public class WorkoutConfig {
     public PerformanceResource performanceResource(SheetResource sheetResource) {
         final WorkoutConfiguration workoutConfiguration = WorkoutConfiguration.builder()
                 .workoutType(WorkoutType.PERFORMANCE)
-                .yearStartCell(4910)
+                .yearStartCell(5742)
                 .tabName("'Trän.plan - Perf'")
                 .build();
         return new PerformanceResource(workoutConfiguration, sheetResource);
