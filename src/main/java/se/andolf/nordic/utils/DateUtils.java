@@ -17,7 +17,7 @@ public class DateUtils {
     }
 
     public static List<LocalDate> getDatesForWeek(long calendarWeek) {
-        LocalDate start = LocalDate.ofYearDay(LocalDate.now().getYear(),1)
+        LocalDate start = LocalDate.ofYearDay(LocalDate.now().getYear(),LocalDate.now().getDayOfYear())
                 .with(IsoFields.WEEK_OF_WEEK_BASED_YEAR, calendarWeek)
                 .with(TemporalAdjusters.previousOrSame(DayOfWeek.MONDAY));
 
