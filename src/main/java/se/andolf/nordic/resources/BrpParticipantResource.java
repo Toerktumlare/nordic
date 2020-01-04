@@ -1,6 +1,8 @@
 package se.andolf.nordic.resources;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
@@ -8,8 +10,10 @@ import reactor.core.publisher.Mono;
 import se.andolf.nordic.models.activities.ActivityResponse;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Service
+@Log4j2
 public class BrpParticipantResource implements ParticipantResource {
 
     private final WebClient webClient;
@@ -30,6 +34,16 @@ public class BrpParticipantResource implements ParticipantResource {
                         .build())
                 .accept(MediaType.APPLICATION_JSON)
                 .exchange()
-                .flatMap(clientResponse -> clientResponse.bodyToMono(ActivityResponse.class));
+                .flatMap(clientResponse -> {
+                    final List<String> contentTypes = clientResponse.headers().header(HttpHeaders.CONTENT_TYPE);
+                    if(contentTypes.size() != 0) {
+                        if (contentTypes.get(0).contains(MediaType.APPLICATION_JSON_VALUE)) {
+                            return clientResponse.bodyToMono(ActivityResponse.class);
+                        }
+                    }x
+                    return clientResponse.bodyToMono(String.class)
+                            .doOnSuccess(responseBody -> log.error("Returned body: " + responseBody))
+                            .then(Mono.empty());
+                });
     }
 }
