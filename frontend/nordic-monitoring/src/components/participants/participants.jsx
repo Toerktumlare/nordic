@@ -67,7 +67,7 @@ class Participants extends React.Component {
       // eslint-disable-next-line prefer-destructuring
       const { name, startTime, participants } = filteredData[0];
       workoutTypeString = WorkoutTypes[name];
-      localDateTime = `- ${moment.unix(startTime).format('HH:mm')}`;
+      localDateTime = ` - ${moment.unix(startTime).format('HH:mm')}`;
       participantList = participants;
     }
 
