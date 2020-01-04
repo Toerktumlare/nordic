@@ -41,7 +41,7 @@ class AboutView extends React.Component {
             <div className="f7 futura mb3 mt2 i ttu">Opening portal to kitty dimension</div>
           </div>
         </div>
-        <div className="futura f7 mt4 pa1">Nordic-Monitoring 1.0.0</div>
+        <div className="futura f7 mt4 pa1">Nordic-Monitoring 1.0.119</div>
         <div className="futura f7 pa1 mb1">Thomas Andolf - 2019 ©</div>
       </div>
     );

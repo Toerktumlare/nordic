@@ -104,7 +104,7 @@ class Participants extends React.Component {
 }
 
 Participants.propTypes = {
-  data: [],
+  data: PropTypes.arrayOf(PropTypes.object),
   style: PropTypes.shape({}),
   addParticipant: PropTypes.func,
   eventUrl: PropTypes.string,
