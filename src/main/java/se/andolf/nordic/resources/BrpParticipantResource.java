@@ -40,7 +40,7 @@ public class BrpParticipantResource implements ParticipantResource {
                         if (contentTypes.get(0).contains(MediaType.APPLICATION_JSON_VALUE)) {
                             return clientResponse.bodyToMono(ActivityResponse.class);
                         }
-                    }x
+                    }
                     return clientResponse.bodyToMono(String.class)
                             .doOnSuccess(responseBody -> log.error("Returned body: " + responseBody))
                             .then(Mono.empty());
