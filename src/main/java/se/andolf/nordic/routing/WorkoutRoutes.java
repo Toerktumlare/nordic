@@ -38,7 +38,9 @@ public class WorkoutRoutes {
                     .GET("/workouts/{id}", accept(TEXT_EVENT_STREAM), request -> ok()
                             .contentType(MediaType.TEXT_EVENT_STREAM)
                             .header("Cache-Control", "no-transform")
-                            .body(Flux.merge(workoutHandler.stream(request.pathVariable("id")), Flux.interval(Duration.ofSeconds(15)).map(aLong -> ServerSentEvent.<List<WorkoutResponse>>builder().comment("keep alive").build())), new ParameterizedTypeReference<ServerSentEvent<List<WorkoutResponse>>>(){}))
+                            .body(Flux.merge(workoutHandler.stream(request.pathVariable("id")),
+                                    Flux.interval(Duration.ofSeconds(15)).map(aLong -> ServerSentEvent.<List<WorkoutResponse>>builder()
+                                            .comment("keep alive").build())), new ParameterizedTypeReference<ServerSentEvent<List<WorkoutResponse>>>(){}))
                     .GET("/workouts", accept(APPLICATION_JSON), request -> ok()
                             .body(workoutHandler.get(), new ParameterizedTypeReference<List<WorkoutResponse>>(){}))
                     .build())

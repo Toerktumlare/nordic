@@ -1,6 +1,7 @@
 package se.andolf.nordic.resources.participants;
 
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.http.codec.ServerSentEvent;
 import reactor.core.publisher.FluxSink;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.ReplayProcessor;
@@ -15,8 +16,8 @@ import java.util.stream.Collectors;
 public abstract class AbstractParticipantResource {
 
     private final ParticipantResource participantResource;
-    private final ReplayProcessor<ListResponse<WorkoutClass>> replayProcessor;
-    final FluxSink<ListResponse<WorkoutClass>> sink;
+    private final ReplayProcessor<ServerSentEvent<ListResponse<WorkoutClass>>> replayProcessor;
+    final FluxSink<ServerSentEvent<ListResponse<WorkoutClass>>> sink;
 
     AbstractParticipantResource(@Qualifier("BrpParticipantResource") ParticipantResource participantResource) {
         this.participantResource = participantResource;
@@ -38,12 +39,12 @@ public abstract class AbstractParticipantResource {
         });
     }
 
-    public ReplayProcessor<ListResponse<WorkoutClass>> stream() {
+    public ReplayProcessor<ServerSentEvent<ListResponse<WorkoutClass>>> stream() {
         return replayProcessor;
     }
 
     public Mono<Void> push(ListResponse<WorkoutClass> workoutClassListResponse) {
-        sink.next(workoutClassListResponse);
+        sink.next(ServerSentEvent.<ListResponse<WorkoutClass>>builder().data(workoutClassListResponse).build());
         return Mono.empty();
     }
 }

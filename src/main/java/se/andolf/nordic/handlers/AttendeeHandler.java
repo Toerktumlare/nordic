@@ -2,6 +2,7 @@ package se.andolf.nordic.handlers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ResponseStatusException;
@@ -25,21 +26,21 @@ public class AttendeeHandler {
         this.fitnessParticipantResource = fitnessParticipantResource;
     }
 
-    @Scheduled(fixedDelay = 30000)
+    @Scheduled(fixedDelay = 60000)
     private void pushDagensParticipants() {
         dagensParticipantResource.get()
                 .doOnNext(dagensParticipantResource::push)
                 .subscribe();
     }
 
-    @Scheduled(fixedDelay = 30000)
+    @Scheduled(fixedDelay = 60000)
     private void pushFitnessParticipants() {
         fitnessParticipantResource.get()
                 .doOnNext(fitnessParticipantResource::push)
                 .subscribe();
     }
 
-    public Flux<ListResponse<WorkoutClass>> stream(String type) {
+    public Flux<ServerSentEvent<ListResponse<WorkoutClass>>> stream(String type) {
         switch (type) {
             case "dagens":
                 return dagensParticipantResource.stream();
