@@ -20,7 +20,7 @@ const PerformanceView = () => (
     </MainSection>
     <SideBarSection>
       <Timer className="mb2 dn" />
-      <Participants eventUrl="/api/participants/fitness" style={inlineStyle.participants} />
+      <Participants eventUrl="/api/participants/performance" style={inlineStyle.participants} />
     </SideBarSection>
   </ColoredBackground>
 );
