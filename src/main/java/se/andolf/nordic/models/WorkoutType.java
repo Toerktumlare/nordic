@@ -12,6 +12,8 @@ public enum WorkoutType {
     TEMAPASS_JULAFTON,
     UNKNOWN;
 
+    // number parameter
+    
     // Dagens pass morgon, 496
     // Dagens pass morgon, 42
     // Dagens pass lunch, 326
@@ -19,6 +21,7 @@ public enum WorkoutType {
     // Dagens pass kvall stort, 321
     // Dagens pass helg, 231
     // Fitness-pass, 312
+    // Fitness-pass, 376
     // Performance morgon, 235
     // Performance, 178
     // Mastodont, 381
@@ -42,6 +45,8 @@ public enum WorkoutType {
         else if("231".equals(value))
             return WorkoutType.DAGENS_PASS_HELG;
         else if("312".equals(value))
+            return WorkoutType.FITNESS;
+        else if("376".equals(value))
             return WorkoutType.FITNESS;
         else if("381".equals(value))
             return WorkoutType.MASTODONT_WORKOUT;
