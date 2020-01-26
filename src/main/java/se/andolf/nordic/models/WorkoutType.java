@@ -48,6 +48,10 @@ public enum WorkoutType {
             return WorkoutType.FITNESS;
         else if("376".equals(value))
             return WorkoutType.FITNESS;
+        else if("235".equals(value))
+            return WorkoutType.PERFORMANCE;
+        else if("178".equals(value))
+            return WorkoutType.PERFORMANCE;
         else if("381".equals(value))
             return WorkoutType.MASTODONT_WORKOUT;
         else if("27".equals(value))
