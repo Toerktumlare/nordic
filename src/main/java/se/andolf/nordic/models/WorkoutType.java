@@ -22,6 +22,7 @@ public enum WorkoutType {
     // Dagens pass helg, 231
     // Fitness-pass, 312
     // Fitness-pass, 376
+    // Fitness-pass Stort, 428
     // Performance morgon, 235
     // Performance, 178
     // Mastodont, 381
@@ -47,6 +48,8 @@ public enum WorkoutType {
         else if("312".equals(value))
             return WorkoutType.FITNESS;
         else if("376".equals(value))
+            return WorkoutType.FITNESS;
+        else if("428".equals(value))
             return WorkoutType.FITNESS;
         else if("235".equals(value))
             return WorkoutType.PERFORMANCE;
