@@ -29,14 +29,16 @@ public class WorkoutHandler {
     }
 
     public Flux<ServerSentEvent<List<WorkoutResponse>>> stream(String id) {
-        if (id.equals("dagens"))
-            return dagensResource.stream();
-        else if (id.equals("fitness"))
-            return fitnessResource.stream();
-        else if (id.equals("performance"))
-            return performanceResource.stream();
-        else
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        switch (id) {
+            case "dagens":
+                return dagensResource.stream();
+            case "fitness":
+                return fitnessResource.stream();
+            case "performance":
+                return performanceResource.stream();
+            default:
+                throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
+        }
     }
 
     public Mono<List<WorkoutResponse>> get() {
