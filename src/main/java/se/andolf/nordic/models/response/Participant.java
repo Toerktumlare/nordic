@@ -7,6 +7,6 @@ import lombok.Value;
 @Builder
 public class Participant {
 
-    public String firstname;
-    public String lastname;
+    private String firstname;
+    private String lastname;
 }

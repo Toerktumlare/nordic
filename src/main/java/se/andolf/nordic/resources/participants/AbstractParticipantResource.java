@@ -32,7 +32,9 @@ public abstract class AbstractParticipantResource {
                             .name(WorkoutType.from(activity.getProduct().getNumber()))
                             .startTime(activity.getStart().getTimepoint().getTimestamp())
                             .endTime(activity.getEnd().getTimepoint().getTimestamp())
-                            .participants(activity.getParticipants())
+                            .participants(activity.getParticipants().stream()
+                                    .filter(participant -> !participant.getFirstname().equals("Anonymous"))
+                                    .collect(Collectors.toList()))
                             .build())
                     .collect(Collectors.toList());
             return Mono.just(workoutClasses);
