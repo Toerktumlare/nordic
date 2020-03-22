@@ -12,7 +12,7 @@ import se.andolf.nordic.models.response.ListResponse;
 import se.andolf.nordic.models.response.WorkoutClass;
 import se.andolf.nordic.resources.participants.DagensParticipantResource;
 import se.andolf.nordic.resources.participants.FitnessParticipantResource;
-import se.andolf.nordic.resources.participants.PerformanceParticipantResource;
+import se.andolf.nordic.resources.participants.CompetitionParticipantResource;
 
 @Component
 public class AttendeeHandler {
@@ -20,15 +20,15 @@ public class AttendeeHandler {
 
     private final DagensParticipantResource dagensParticipantResource;
     private final FitnessParticipantResource fitnessParticipantResource;
-    private final PerformanceParticipantResource performanceParticipantResource;
+    private final CompetitionParticipantResource competitionParticipantResource;
 
     @Autowired
     public AttendeeHandler(DagensParticipantResource dagensParticipantResource,
                            FitnessParticipantResource fitnessParticipantResource,
-                           PerformanceParticipantResource performanceParticipantResource){
+                           CompetitionParticipantResource competitionParticipantResource){
         this.dagensParticipantResource = dagensParticipantResource;
         this.fitnessParticipantResource = fitnessParticipantResource;
-        this.performanceParticipantResource = performanceParticipantResource;
+        this.competitionParticipantResource = competitionParticipantResource;
     }
 
     @Scheduled(fixedDelay = 60000)
@@ -47,8 +47,8 @@ public class AttendeeHandler {
 
     @Scheduled(fixedDelay = 60000)
     private void pushPerformanceParticipants() {
-        performanceParticipantResource.get()
-                .doOnNext(performanceParticipantResource::push)
+        competitionParticipantResource.get()
+                .doOnNext(competitionParticipantResource::push)
                 .subscribe();
     }
 
@@ -58,8 +58,8 @@ public class AttendeeHandler {
                 return dagensParticipantResource.stream();
             case "fitness":
                 return fitnessParticipantResource.stream();
-            case "performance":
-                return performanceParticipantResource.stream();
+            case "competition":
+                return competitionParticipantResource.stream();
             default:
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }
@@ -72,7 +72,7 @@ public class AttendeeHandler {
             case "fitness":
                 return fitnessParticipantResource.get();
             case "performance":
-                return performanceParticipantResource.get();
+                return competitionParticipantResource.get();
             default:
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }

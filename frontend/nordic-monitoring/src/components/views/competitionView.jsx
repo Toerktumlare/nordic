@@ -16,11 +16,11 @@ const inlineStyle = {
 const PerformanceView = () => (
   <ColoredBackground color="#737373">
     <MainSection>
-      <WorkoutScreen eventUrl="/api/workouts/performance" color="#0085CA" />
+      <WorkoutScreen eventUrl="/api/workouts/competition" color="#0085CA" />
     </MainSection>
     <SideBarSection>
       <Timer className="mb2 dn" />
-      <Participants eventUrl="/api/participants/performance" style={inlineStyle.participants} />
+      <Participants eventUrl="/api/participants/competition" style={inlineStyle.participants} />
     </SideBarSection>
   </ColoredBackground>
 );

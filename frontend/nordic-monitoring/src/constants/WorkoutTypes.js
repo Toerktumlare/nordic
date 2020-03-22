@@ -2,10 +2,10 @@ const WorkoutTypes = {
   DAGENS_PASS: 'Dagens Pass',
   DAGENS_PASS_HELG: 'Dagens Pass Helg',
   FITNESS: 'Fitness',
-  PERFORMANCE: 'Performance',
+  COMPETITION: 'Competition',
   MASTODONT_WORKOUT: 'Nordic Mastodont Workout',
   GRATIS_PROVA_CROSSFIT: 'Gratis prova Crossfit',
-  FITNESS_PERFORMANCE_JOINED: 'Fitness/Performance',
+  FITNESS_PERFORMANCE_JOINED: 'Fitness/Competition',
   TEMAPASS_JULAFTON: 'Temapass Julafton',
 };
 

@@ -5,10 +5,10 @@ public enum WorkoutType {
     DAGENS_PASS,
     DAGENS_PASS_HELG,
     FITNESS,
-    PERFORMANCE,
+    COMPETITION,
     MASTODONT_WORKOUT,
     GRATIS_PROVA_CROSSFIT,
-    FITNESS_PERFORMANCE_JOINED,
+    FITNESS_COMPETITION_JOINED,
     TEMAPASS_JULAFTON,
     UNKNOWN;
 
@@ -52,15 +52,15 @@ public enum WorkoutType {
         else if("428".equals(value))
             return WorkoutType.FITNESS;
         else if("235".equals(value))
-            return WorkoutType.PERFORMANCE;
+            return WorkoutType.COMPETITION;
         else if("178".equals(value))
-            return WorkoutType.PERFORMANCE;
+            return WorkoutType.COMPETITION;
         else if("381".equals(value))
             return WorkoutType.MASTODONT_WORKOUT;
         else if("27".equals(value))
             return WorkoutType.GRATIS_PROVA_CROSSFIT;
         else if("498".equals(value))
-            return WorkoutType.FITNESS_PERFORMANCE_JOINED;
+            return WorkoutType.FITNESS_COMPETITION_JOINED;
         else if("63".equals(value))
             return WorkoutType.TEMAPASS_JULAFTON;
         return WorkoutType.UNKNOWN;

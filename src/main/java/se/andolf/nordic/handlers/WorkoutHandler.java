@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 import se.andolf.nordic.models.response.WorkoutResponse;
 import se.andolf.nordic.resources.workouts.DagensResource;
 import se.andolf.nordic.resources.workouts.FitnessResource;
-import se.andolf.nordic.resources.workouts.PerformanceResource;
+import se.andolf.nordic.resources.workouts.CompetitionResource;
 
 import java.util.List;
 
@@ -19,13 +19,13 @@ public class WorkoutHandler {
 
     private final DagensResource dagensResource;
     private final FitnessResource fitnessResource;
-    private final PerformanceResource performanceResource;
+    private final CompetitionResource competitionResource;
 
     @Autowired
-    public WorkoutHandler(DagensResource dagensResource, FitnessResource fitnessResource, PerformanceResource performanceResource) {
+    public WorkoutHandler(DagensResource dagensResource, FitnessResource fitnessResource, CompetitionResource competitionResource) {
         this.dagensResource = dagensResource;
         this.fitnessResource = fitnessResource;
-        this.performanceResource = performanceResource;
+        this.competitionResource = competitionResource;
     }
 
     public Flux<ServerSentEvent<List<WorkoutResponse>>> stream(String id) {
@@ -34,8 +34,8 @@ public class WorkoutHandler {
                 return dagensResource.stream();
             case "fitness":
                 return fitnessResource.stream();
-            case "performance":
-                return performanceResource.stream();
+            case "competition":
+                return competitionResource.stream();
             default:
                 throw new ResponseStatusException(HttpStatus.BAD_REQUEST);
         }

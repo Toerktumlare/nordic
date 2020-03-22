@@ -8,7 +8,7 @@ import configureStore from './store/store';
 import SelectionMenu from './components/selectionMenu/selectionMenu';
 import DailyView from './components/views/dailyView';
 import FitnessView from './components/views/fitnessView';
-import PerformanceView from './components/views/performanceView';
+import CompetitionView from './components/views/competitionView';
 
 const store = configureStore();
 window.store = store;
@@ -20,7 +20,7 @@ ReactDOM.render(
         <Route exact path="/" component={SelectionMenu} />
         <Route path="/daily" component={DailyView} />
         <Route path="/fitness" component={FitnessView} />
-        <Route path="/performance" component={PerformanceView} />
+        <Route path="/competition" component={CompetitionView} />
       </Switch>
     </BrowserRouter>
   </Provider>,

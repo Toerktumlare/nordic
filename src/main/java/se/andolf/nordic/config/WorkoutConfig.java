@@ -7,7 +7,7 @@ import se.andolf.nordic.models.WorkoutType;
 import se.andolf.nordic.resources.SheetResource;
 import se.andolf.nordic.resources.workouts.DagensResource;
 import se.andolf.nordic.resources.workouts.FitnessResource;
-import se.andolf.nordic.resources.workouts.PerformanceResource;
+import se.andolf.nordic.resources.workouts.CompetitionResource;
 
 @Configuration
 public class WorkoutConfig {
@@ -32,12 +32,12 @@ public class WorkoutConfig {
     }
 
     @Bean
-    public PerformanceResource performanceResource(SheetResource sheetResource) {
+    public CompetitionResource competitionResource(SheetResource sheetResource) {
         final WorkoutConfiguration workoutConfiguration = WorkoutConfiguration.builder()
-                .workoutType(WorkoutType.PERFORMANCE)
+                .workoutType(WorkoutType.COMPETITION)
                 .yearStartCell(5742)
                 .tabName("'Trän.plan - Perf'")
                 .build();
-        return new PerformanceResource(workoutConfiguration, sheetResource);
+        return new CompetitionResource(workoutConfiguration, sheetResource);
     }
 }

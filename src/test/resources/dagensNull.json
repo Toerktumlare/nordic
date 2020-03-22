@@ -1,0 +1,2221 @@
+{
+  "activities": {
+    "startdate": "2020-03-11",
+    "enddate": "2020-03-11",
+    "activity": [
+      {
+        "id": 517965,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583902800,
+            "datetime": "2020-03-11 06:00",
+            "date": "2020-03-11",
+            "time": "06:00"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583906400,
+            "datetime": "2020-03-11 07:00",
+            "date": "2020-03-11",
+            "time": "07:00"
+          }
+        },
+        "product": {
+          "id": 42,
+          "description": "",
+          "descriptiontranslations": [],
+          "name": "Dagens Pass morgon",
+          "nametranslations": [],
+          "number": "42",
+          "lastupdate": "2019-06-04 09:35",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 58,
+            "name": "Oscar Andersson",
+            "type": "Personal",
+            "employee": {
+              "id": 2748,
+              "name": "Oscar Andersson"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 1,
+            "name": "Yta 1 & 2",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583901900,
+            "datetime": "2020-03-11 05:45",
+            "date": "2020-03-11",
+            "time": "05:45"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583902740,
+            "datetime": "2020-03-11 05:59",
+            "date": "2020-03-11",
+            "time": "05:59"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 1,
+        "bookableslots": 1,
+        "totalslots": 18,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351032,
+            "personid": 1514,
+            "firstname": "Kamilla",
+            "lastname": "Rahimi"
+          },
+          {
+            "id": 351035,
+            "personid": 3855,
+            "firstname": "Robin",
+            "lastname": "Jones"
+          },
+          {
+            "id": 351043,
+            "personid": 3645,
+            "firstname": "Viktor",
+            "lastname": "Bjälkenfalk"
+          },
+          {
+            "id": 351044,
+            "personid": 2353,
+            "firstname": "Hannah",
+            "lastname": "Ahl"
+          },
+          {
+            "id": 351049,
+            "personid": 3354,
+            "firstname": "David",
+            "lastname": "Heeroma"
+          },
+          {
+            "id": 351051,
+            "personid": 2733,
+            "firstname": "Emma-Lisa",
+            "lastname": "Lindblad"
+          },
+          {
+            "id": 351056,
+            "personid": 879,
+            "firstname": "Mikael",
+            "lastname": "Wahlberg"
+          },
+          {
+            "id": 351075,
+            "personid": 3058,
+            "firstname": "Sophia",
+            "lastname": "Rössner"
+          },
+          {
+            "id": 351088,
+            "personid": 3882,
+            "firstname": "Estelle",
+            "lastname": "Deshayes"
+          },
+          {
+            "id": 351105,
+            "personid": 457,
+            "firstname": "Rikard",
+            "lastname": "Jonasson"
+          },
+          {
+            "id": 351106,
+            "personid": 594,
+            "firstname": "Anna-Lena",
+            "lastname": "Pettersson"
+          },
+          {
+            "id": 351107,
+            "personid": 3248,
+            "firstname": "Martin",
+            "lastname": "Österberg"
+          },
+          {
+            "id": 351162,
+            "personid": 3249,
+            "firstname": "Niki",
+            "lastname": "Valinger"
+          },
+          {
+            "id": 351598,
+            "personid": 3911,
+            "firstname": "Elin",
+            "lastname": "Josefsson"
+          },
+          {
+            "id": 351665,
+            "personid": 3571,
+            "firstname": "Johan",
+            "lastname": "Forsman"
+          },
+          {
+            "id": 351690,
+            "personid": 2449,
+            "firstname": "Katarina",
+            "lastname": "Brygiewicz"
+          },
+          {
+            "id": 351709,
+            "personid": 3302,
+            "firstname": "Jonas Martin",
+            "lastname": "Lundquist"
+          }
+        ],
+        "waitinglistsize": 2
+      },
+      {
+        "id": 519110,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583903400,
+            "datetime": "2020-03-11 06:10",
+            "date": "2020-03-11",
+            "time": "06:10"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583907000,
+            "datetime": "2020-03-11 07:10",
+            "date": "2020-03-11",
+            "time": "07:10"
+          }
+        },
+        "product": {
+          "id": 313,
+          "description": "",
+          "descriptiontranslations": [],
+          "name": "Fitness-pass",
+          "nametranslations": [],
+          "number": "312",
+          "lastupdate": "2018-02-16 12:17",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 41,
+            "name": "Jakob Asterblom",
+            "type": "Personal",
+            "employee": {
+              "id": 1900,
+              "name": "Jakob Asterblom"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 30,
+            "name": "Yta 3",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583902500,
+            "datetime": "2020-03-11 05:55",
+            "date": "2020-03-11",
+            "time": "05:55"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583892600,
+            "datetime": "2020-03-11 03:10",
+            "date": "2020-03-11",
+            "time": "03:10"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 4,
+        "bookableslots": 4,
+        "totalslots": 12,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351037,
+            "personid": 434,
+            "firstname": "Susanne",
+            "lastname": "Berngrim"
+          },
+          {
+            "id": 351040,
+            "personid": 3404,
+            "firstname": "Giorgia",
+            "lastname": "Grosso"
+          },
+          {
+            "id": 351316,
+            "personid": 3738,
+            "firstname": "Samuel",
+            "lastname": "Sundberg"
+          },
+          {
+            "id": 351393,
+            "personid": 536,
+            "firstname": "Håkan",
+            "lastname": "Hellström"
+          },
+          {
+            "id": 351491,
+            "personid": 3766,
+            "firstname": "Ruth-Anita",
+            "lastname": "Fredriksen"
+          },
+          {
+            "id": 351554,
+            "personid": 3818,
+            "firstname": "Robin",
+            "lastname": "Hedström"
+          },
+          {
+            "id": 351578,
+            "personid": 292,
+            "firstname": "Jenny Linnéa",
+            "lastname": "Jacobsen"
+          },
+          {
+            "id": 351714,
+            "personid": 3790,
+            "firstname": "Rasmus",
+            "lastname": "Mellerup"
+          }
+        ],
+        "waitinglistsize": 0
+      },
+      {
+        "id": 517990,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583906400,
+            "datetime": "2020-03-11 07:00",
+            "date": "2020-03-11",
+            "time": "07:00"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583910000,
+            "datetime": "2020-03-11 08:00",
+            "date": "2020-03-11",
+            "time": "08:00"
+          }
+        },
+        "product": {
+          "id": 42,
+          "description": "",
+          "descriptiontranslations": [],
+          "name": "Dagens Pass morgon",
+          "nametranslations": [],
+          "number": "42",
+          "lastupdate": "2019-06-04 09:35",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 58,
+            "name": "Oscar Andersson",
+            "type": "Personal",
+            "employee": {
+              "id": 2748,
+              "name": "Oscar Andersson"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 1,
+            "name": "Yta 1 & 2",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583905500,
+            "datetime": "2020-03-11 06:45",
+            "date": "2020-03-11",
+            "time": "06:45"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583906340,
+            "datetime": "2020-03-11 06:59",
+            "date": "2020-03-11",
+            "time": "06:59"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 7,
+        "bookableslots": 7,
+        "totalslots": 18,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351141,
+            "personid": 4035,
+            "firstname": "Sofie",
+            "lastname": "Batalov"
+          },
+          {
+            "id": 351330,
+            "personid": 2109,
+            "firstname": "Alexander Mikael",
+            "lastname": "Johansson"
+          },
+          {
+            "id": 351359,
+            "personid": 3363,
+            "firstname": "Anna",
+            "lastname": "Blom"
+          },
+          {
+            "id": 351467,
+            "personid": 3765,
+            "firstname": "Mikael",
+            "lastname": "Biberg"
+          },
+          {
+            "id": 351512,
+            "personid": 1952,
+            "firstname": "Martin",
+            "lastname": "Petrén"
+          },
+          {
+            "id": 351640,
+            "personid": 927,
+            "firstname": "Henrik",
+            "lastname": "Spjutsell"
+          },
+          {
+            "id": 351668,
+            "personid": 3786,
+            "firstname": "Joel",
+            "lastname": "Eliasson"
+          },
+          {
+            "id": 351686,
+            "personid": 2590,
+            "firstname": "Fredrik",
+            "lastname": "Vidåkra"
+          },
+          {
+            "id": 351704,
+            "personid": 4067,
+            "firstname": "Jakob",
+            "lastname": "Olsson"
+          },
+          {
+            "id": 351727,
+            "personid": 4132,
+            "firstname": "Nicole",
+            "lastname": "Guliyeva"
+          },
+          {
+            "id": 351728,
+            "personid": 2998,
+            "firstname": "Emma",
+            "lastname": "Hasselgren"
+          }
+        ],
+        "waitinglistsize": 0
+      },
+      {
+        "id": 519228,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583907000,
+            "datetime": "2020-03-11 07:10",
+            "date": "2020-03-11",
+            "time": "07:10"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583910600,
+            "datetime": "2020-03-11 08:10",
+            "date": "2020-03-11",
+            "time": "08:10"
+          }
+        },
+        "product": {
+          "id": 313,
+          "description": "",
+          "descriptiontranslations": [],
+          "name": "Fitness-pass",
+          "nametranslations": [],
+          "number": "312",
+          "lastupdate": "2018-02-16 12:17",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 41,
+            "name": "Jakob Asterblom",
+            "type": "Personal",
+            "employee": {
+              "id": 1900,
+              "name": "Jakob Asterblom"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 30,
+            "name": "Yta 3",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583906100,
+            "datetime": "2020-03-11 06:55",
+            "date": "2020-03-11",
+            "time": "06:55"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583896200,
+            "datetime": "2020-03-11 04:10",
+            "date": "2020-03-11",
+            "time": "04:10"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 10,
+        "bookableslots": 10,
+        "totalslots": 12,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351703,
+            "personid": 3910,
+            "firstname": "Vendela",
+            "lastname": "Persson"
+          },
+          {
+            "id": 351718,
+            "personid": 350,
+            "firstname": "Tobias",
+            "lastname": "Berglund"
+          }
+        ],
+        "waitinglistsize": 0
+      },
+      {
+        "id": 518342,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583922600,
+            "datetime": "2020-03-11 11:30",
+            "date": "2020-03-11",
+            "time": "11:30"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583926200,
+            "datetime": "2020-03-11 12:30",
+            "date": "2020-03-11",
+            "time": "12:30"
+          }
+        },
+        "product": {
+          "id": 327,
+          "description": "",
+          "descriptiontranslations": [],
+          "name": "Dagens pass lunch",
+          "nametranslations": [],
+          "number": "326",
+          "lastupdate": "2017-08-22 08:27",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 31,
+            "name": "Calvin Keyser-Allen",
+            "type": "Personal",
+            "employee": {
+              "id": 1352,
+              "name": "Calvin Lee Keyser-Allen"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 1,
+            "name": "Yta 1 & 2",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583921700,
+            "datetime": "2020-03-11 11:15",
+            "date": "2020-03-11",
+            "time": "11:15"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583911800,
+            "datetime": "2020-03-11 08:30",
+            "date": "2020-03-11",
+            "time": "08:30"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 7,
+        "bookableslots": 7,
+        "totalslots": 18,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 350653,
+            "personid": null,
+            "firstname": "Sebastian",
+            "lastname": "Johansson"
+          },
+          {
+            "id": 351284,
+            "personid": 2239,
+            "firstname": "Magnus",
+            "lastname": "Karlsson"
+          },
+          {
+            "id": 351719,
+            "personid": 2995,
+            "firstname": "David",
+            "lastname": "Stigson"
+          },
+          {
+            "id": 351721,
+            "personid": 1955,
+            "firstname": "Fredrik",
+            "lastname": "Gran"
+          },
+          {
+            "id": 351741,
+            "personid": 3613,
+            "firstname": "Emil Robert",
+            "lastname": "Käll"
+          },
+          {
+            "id": 351767,
+            "personid": 3298,
+            "firstname": "Tomas",
+            "lastname": "Tobé"
+          },
+          {
+            "id": 351772,
+            "personid": 1380,
+            "firstname": "Paula",
+            "lastname": "Martinsson"
+          },
+          {
+            "id": 351773,
+            "personid": 3885,
+            "firstname": "Karin",
+            "lastname": "Ström"
+          },
+          {
+            "id": 351779,
+            "personid": 3921,
+            "firstname": "Martin",
+            "lastname": "Äng"
+          },
+          {
+            "id": 351781,
+            "personid": 2540,
+            "firstname": "Violaine",
+            "lastname": "Lulin"
+          },
+          {
+            "id": 351783,
+            "personid": 3840,
+            "firstname": "Lisa",
+            "lastname": "Schjelde"
+          }
+        ],
+        "waitinglistsize": 0
+      },
+      {
+        "id": 553507,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583935200,
+            "datetime": "2020-03-11 15:00",
+            "date": "2020-03-11",
+            "time": "15:00"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583938800,
+            "datetime": "2020-03-11 16:00",
+            "date": "2020-03-11",
+            "time": "16:00"
+          }
+        },
+        "product": {
+          "id": 543,
+          "description": "Passet rörelsekapacitet handlar om att skapa bättre fysiska förutsättningar för att kunna utöva de aktiviteter du vill. Vi gör övningar som förbättrar specifika leders rörelseförmåga samt vävnaders tolerans för belastning. Passet innehåller även övningar för att skapa variation och utforska nya rörelsemöjligheter. En annan viktig del är också att inspirera och tipsa om bra övningar att kunna göra hemma eller innan/efter dina vanliga pass på Nordic.",
+          "descriptiontranslations": [],
+          "name": "Rörelsekapacitet",
+          "nametranslations": [],
+          "number": "542",
+          "lastupdate": "2020-02-20 12:12",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 14,
+            "name": "Nils Wallfält",
+            "type": "Personal",
+            "employee": {
+              "id": 6,
+              "name": "Nils Wallfält"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 1,
+            "name": "Yta 1 & 2",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583934300,
+            "datetime": "2020-03-11 14:45",
+            "date": "2020-03-11",
+            "time": "14:45"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583924400,
+            "datetime": "2020-03-11 12:00",
+            "date": "2020-03-11",
+            "time": "12:00"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 3,
+        "bookableslots": 3,
+        "totalslots": 12,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351092,
+            "personid": 537,
+            "firstname": "Rosa",
+            "lastname": "Hellström"
+          },
+          {
+            "id": 351133,
+            "personid": 3490,
+            "firstname": "Senja",
+            "lastname": "Nordström"
+          },
+          {
+            "id": 351571,
+            "personid": 536,
+            "firstname": "Håkan",
+            "lastname": "Hellström"
+          },
+          {
+            "id": 351610,
+            "personid": 3940,
+            "firstname": "Niklas",
+            "lastname": "Lindefelt"
+          },
+          {
+            "id": 351720,
+            "personid": 4048,
+            "firstname": "Evelina",
+            "lastname": "Nordström"
+          },
+          {
+            "id": 351763,
+            "personid": 3581,
+            "firstname": "Daniel",
+            "lastname": "Sandsjö"
+          },
+          {
+            "id": 351765,
+            "personid": 4067,
+            "firstname": "Jakob",
+            "lastname": "Olsson"
+          },
+          {
+            "id": 351797,
+            "personid": 3047,
+            "firstname": "Frida",
+            "lastname": "Fogelberg"
+          },
+          {
+            "id": 351798,
+            "personid": 3864,
+            "firstname": "Wilma",
+            "lastname": "Hultman"
+          }
+        ],
+        "waitinglistsize": 0
+      },
+      {
+        "id": 518216,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583940600,
+            "datetime": "2020-03-11 16:30",
+            "date": "2020-03-11",
+            "time": "16:30"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583944200,
+            "datetime": "2020-03-11 17:30",
+            "date": "2020-03-11",
+            "time": "17:30"
+          }
+        },
+        "product": {
+          "id": 4,
+          "description": "",
+          "descriptiontranslations": [],
+          "name": "Dagens pass kväll",
+          "nametranslations": [],
+          "number": "4",
+          "lastupdate": "2017-05-16 08:31",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 31,
+            "name": "Calvin Keyser-Allen",
+            "type": "Personal",
+            "employee": {
+              "id": 1352,
+              "name": "Calvin Lee Keyser-Allen"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 1,
+            "name": "Yta 1 & 2",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583939700,
+            "datetime": "2020-03-11 16:15",
+            "date": "2020-03-11",
+            "time": "16:15"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583929800,
+            "datetime": "2020-03-11 13:30",
+            "date": "2020-03-11",
+            "time": "13:30"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 1,
+        "bookableslots": 1,
+        "totalslots": 14,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351155,
+            "personid": 95,
+            "firstname": "Marie",
+            "lastname": "Lärksäter"
+          },
+          {
+            "id": 351211,
+            "personid": 2577,
+            "firstname": "Asgeir",
+            "lastname": "Lundblad"
+          },
+          {
+            "id": 351251,
+            "personid": 3071,
+            "firstname": "Lovisa",
+            "lastname": "Bergstedt"
+          },
+          {
+            "id": 351266,
+            "personid": 309,
+            "firstname": "Suzie",
+            "lastname": "Rydh"
+          },
+          {
+            "id": 351518,
+            "personid": 3473,
+            "firstname": "Fanny Margareta Josefina",
+            "lastname": "Widén"
+          },
+          {
+            "id": 351564,
+            "personid": 1085,
+            "firstname": "Ullrika",
+            "lastname": "Auer"
+          },
+          {
+            "id": 351692,
+            "personid": 3186,
+            "firstname": "Stefan",
+            "lastname": "Widen"
+          },
+          {
+            "id": 351694,
+            "personid": 2684,
+            "firstname": "Caroline",
+            "lastname": "Söderman"
+          },
+          {
+            "id": 351695,
+            "personid": 1798,
+            "firstname": "Beatrice",
+            "lastname": "Björnsdotter"
+          },
+          {
+            "id": 351743,
+            "personid": 3068,
+            "firstname": "Erik",
+            "lastname": "Ruck"
+          },
+          {
+            "id": 351764,
+            "personid": 3581,
+            "firstname": "Daniel",
+            "lastname": "Sandsjö"
+          },
+          {
+            "id": 351794,
+            "personid": 2082,
+            "firstname": "Robin",
+            "lastname": "Bergström"
+          },
+          {
+            "id": 351803,
+            "personid": 1268,
+            "firstname": "Magnus",
+            "lastname": "Widell"
+          }
+        ],
+        "waitinglistsize": 0
+      },
+      {
+        "id": 519591,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583942400,
+            "datetime": "2020-03-11 17:00",
+            "date": "2020-03-11",
+            "time": "17:00"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583946000,
+            "datetime": "2020-03-11 18:00",
+            "date": "2020-03-11",
+            "time": "18:00"
+          }
+        },
+        "product": {
+          "id": 377,
+          "description": null,
+          "descriptiontranslations": [],
+          "name": "Fitness-Pass",
+          "nametranslations": [],
+          "number": "376",
+          "lastupdate": "2020-02-28 13:56",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 41,
+            "name": "Jakob Asterblom",
+            "type": "Personal",
+            "employee": {
+              "id": 1900,
+              "name": "Jakob Asterblom"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 30,
+            "name": "Yta 3",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583941500,
+            "datetime": "2020-03-11 16:45",
+            "date": "2020-03-11",
+            "time": "16:45"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583931600,
+            "datetime": "2020-03-11 14:00",
+            "date": "2020-03-11",
+            "time": "14:00"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 0,
+        "bookableslots": 0,
+        "totalslots": 12,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351030,
+            "personid": 568,
+            "firstname": "Stefan",
+            "lastname": "Berngrim"
+          },
+          {
+            "id": 351038,
+            "personid": 736,
+            "firstname": "Axel",
+            "lastname": "Hellström"
+          },
+          {
+            "id": 351050,
+            "personid": 2291,
+            "firstname": "Tobias",
+            "lastname": "Palmér"
+          },
+          {
+            "id": 351059,
+            "personid": 3991,
+            "firstname": "Christian",
+            "lastname": "Appel"
+          },
+          {
+            "id": 351083,
+            "personid": 1475,
+            "firstname": "Per",
+            "lastname": "Axelsson"
+          },
+          {
+            "id": 351128,
+            "personid": 3737,
+            "firstname": "David",
+            "lastname": "Brolin"
+          },
+          {
+            "id": 351137,
+            "personid": 1498,
+            "firstname": "Anders",
+            "lastname": "Thomasson"
+          },
+          {
+            "id": 351146,
+            "personid": 2240,
+            "firstname": "Jonathan",
+            "lastname": "Fredriksson"
+          },
+          {
+            "id": 351263,
+            "personid": 586,
+            "firstname": "Emilio",
+            "lastname": "Dauvin"
+          },
+          {
+            "id": 351290,
+            "personid": 1556,
+            "firstname": "Helena",
+            "lastname": "Gudasic"
+          },
+          {
+            "id": 351674,
+            "personid": 2839,
+            "firstname": "Sofie",
+            "lastname": "Eliasson"
+          },
+          {
+            "id": 351808,
+            "personid": 1003,
+            "firstname": "Patrik",
+            "lastname": "Düring"
+          }
+        ],
+        "waitinglistsize": 2
+      },
+      {
+        "id": 559534,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583944200,
+            "datetime": "2020-03-11 17:30",
+            "date": "2020-03-11",
+            "time": "17:30"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583947800,
+            "datetime": "2020-03-11 18:30",
+            "date": "2020-03-11",
+            "time": "18:30"
+          }
+        },
+        "product": {
+          "id": 4,
+          "description": "",
+          "descriptiontranslations": [],
+          "name": "Dagens pass kväll",
+          "nametranslations": [],
+          "number": "4",
+          "lastupdate": "2017-05-16 08:31",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 31,
+            "name": "Calvin Keyser-Allen",
+            "type": "Personal",
+            "employee": {
+              "id": 1352,
+              "name": "Calvin Lee Keyser-Allen"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 1,
+            "name": "Yta 1 & 2",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583943300,
+            "datetime": "2020-03-11 17:15",
+            "date": "2020-03-11",
+            "time": "17:15"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583933400,
+            "datetime": "2020-03-11 14:30",
+            "date": "2020-03-11",
+            "time": "14:30"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 0,
+        "bookableslots": 0,
+        "totalslots": 14,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351230,
+            "personid": 2830,
+            "firstname": "Sofia",
+            "lastname": "Nygren"
+          },
+          {
+            "id": 351300,
+            "personid": 3700,
+            "firstname": "Emelie",
+            "lastname": "Hjort"
+          },
+          {
+            "id": 351370,
+            "personid": 1831,
+            "firstname": "Matias",
+            "lastname": "Garzón"
+          },
+          {
+            "id": 351379,
+            "personid": 2419,
+            "firstname": "Cristelle",
+            "lastname": "Rodin"
+          },
+          {
+            "id": 351403,
+            "personid": 792,
+            "firstname": "Anders",
+            "lastname": "Lidberg"
+          },
+          {
+            "id": 351423,
+            "personid": 3992,
+            "firstname": "Erina",
+            "lastname": "By"
+          },
+          {
+            "id": 351538,
+            "personid": 4076,
+            "firstname": "Cristoffer",
+            "lastname": "Särevall"
+          },
+          {
+            "id": 351541,
+            "personid": 4077,
+            "firstname": "Sofie",
+            "lastname": "Khullar"
+          },
+          {
+            "id": 351628,
+            "personid": 1339,
+            "firstname": "Alexander",
+            "lastname": "Butler"
+          },
+          {
+            "id": 351722,
+            "personid": 1162,
+            "firstname": "Patrik",
+            "lastname": "Soror"
+          },
+          {
+            "id": 351745,
+            "personid": 2997,
+            "firstname": "Åsa",
+            "lastname": "Danielsson"
+          },
+          {
+            "id": 351754,
+            "personid": 2971,
+            "firstname": "Anders",
+            "lastname": "Danielsson"
+          },
+          {
+            "id": 351787,
+            "personid": 3767,
+            "firstname": "Isabelle",
+            "lastname": "Lindblad"
+          },
+          {
+            "id": 351801,
+            "personid": 2667,
+            "firstname": "Axel",
+            "lastname": "Rosander"
+          }
+        ],
+        "waitinglistsize": 1
+      },
+      {
+        "id": 519641,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583946000,
+            "datetime": "2020-03-11 18:00",
+            "date": "2020-03-11",
+            "time": "18:00"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583949600,
+            "datetime": "2020-03-11 19:00",
+            "date": "2020-03-11",
+            "time": "19:00"
+          }
+        },
+        "product": {
+          "id": 377,
+          "description": null,
+          "descriptiontranslations": [],
+          "name": "Fitness-Pass",
+          "nametranslations": [],
+          "number": "376",
+          "lastupdate": "2020-02-28 13:56",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 41,
+            "name": "Jakob Asterblom",
+            "type": "Personal",
+            "employee": {
+              "id": 1900,
+              "name": "Jakob Asterblom"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 30,
+            "name": "Yta 3",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583945100,
+            "datetime": "2020-03-11 17:45",
+            "date": "2020-03-11",
+            "time": "17:45"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583935200,
+            "datetime": "2020-03-11 15:00",
+            "date": "2020-03-11",
+            "time": "15:00"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 0,
+        "bookableslots": 0,
+        "totalslots": 12,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351031,
+            "personid": 546,
+            "firstname": "Karin",
+            "lastname": "Lindgren"
+          },
+          {
+            "id": 351086,
+            "personid": 1299,
+            "firstname": "Jimmy",
+            "lastname": "Baraka"
+          },
+          {
+            "id": 351089,
+            "personid": 1450,
+            "firstname": "Johan",
+            "lastname": "Björklund"
+          },
+          {
+            "id": 351090,
+            "personid": 1449,
+            "firstname": "Robine",
+            "lastname": "Hedlund"
+          },
+          {
+            "id": 351278,
+            "personid": 1278,
+            "firstname": "Tim",
+            "lastname": "Wiberg"
+          },
+          {
+            "id": 351280,
+            "personid": 2649,
+            "firstname": "Sara",
+            "lastname": "Wenger"
+          },
+          {
+            "id": 351347,
+            "personid": 2491,
+            "firstname": "Niklas",
+            "lastname": "Dagander"
+          },
+          {
+            "id": 351383,
+            "personid": 2173,
+            "firstname": "Carina",
+            "lastname": "Ölund"
+          },
+          {
+            "id": 351398,
+            "personid": 389,
+            "firstname": "Anne",
+            "lastname": "Lamminpää"
+          },
+          {
+            "id": 351778,
+            "personid": 3313,
+            "firstname": "Niclas",
+            "lastname": "Ånmark"
+          },
+          {
+            "id": 351799,
+            "personid": 2300,
+            "firstname": "Viktor",
+            "lastname": "Lundberg"
+          },
+          {
+            "id": 351802,
+            "personid": 1145,
+            "firstname": "Markus",
+            "lastname": "Andreasson"
+          }
+        ],
+        "waitinglistsize": 0
+      },
+      {
+        "id": 518266,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583947800,
+            "datetime": "2020-03-11 18:30",
+            "date": "2020-03-11",
+            "time": "18:30"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583951400,
+            "datetime": "2020-03-11 19:30",
+            "date": "2020-03-11",
+            "time": "19:30"
+          }
+        },
+        "product": {
+          "id": 4,
+          "description": "",
+          "descriptiontranslations": [],
+          "name": "Dagens pass kväll",
+          "nametranslations": [],
+          "number": "4",
+          "lastupdate": "2017-05-16 08:31",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 13,
+            "name": "Jenny Jacobsen",
+            "type": "Personal",
+            "employee": {
+              "id": 292,
+              "name": "Jenny Linnéa Jacobsen"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 1,
+            "name": "Yta 1 & 2",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583946900,
+            "datetime": "2020-03-11 18:15",
+            "date": "2020-03-11",
+            "time": "18:15"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583937000,
+            "datetime": "2020-03-11 15:30",
+            "date": "2020-03-11",
+            "time": "15:30"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 5,
+        "bookableslots": 5,
+        "totalslots": 14,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351078,
+            "personid": 3728,
+            "firstname": "Nina",
+            "lastname": "Küsel"
+          },
+          {
+            "id": 351771,
+            "personid": 3791,
+            "firstname": "Marko",
+            "lastname": "Dombi"
+          },
+          {
+            "id": 351792,
+            "personid": 3401,
+            "firstname": "Konstantinos",
+            "lastname": "Kontzolokis"
+          },
+          {
+            "id": 351793,
+            "personid": 3865,
+            "firstname": "Marc",
+            "lastname": "Barrué"
+          },
+          {
+            "id": 351805,
+            "personid": 3701,
+            "firstname": "Manuel",
+            "lastname": "Chlalyan Karamanyan"
+          },
+          {
+            "id": 351813,
+            "personid": 861,
+            "firstname": "Carl",
+            "lastname": "Gunnarsson"
+          },
+          {
+            "id": 351814,
+            "personid": 3142,
+            "firstname": "Oscar",
+            "lastname": "Hellstadius"
+          },
+          {
+            "id": 351815,
+            "personid": 3012,
+            "firstname": "Sara Isabel",
+            "lastname": "Ruiz Contreras"
+          },
+          {
+            "id": 351818,
+            "personid": 359,
+            "firstname": "Therese",
+            "lastname": "Medeby"
+          }
+        ],
+        "waitinglistsize": 0
+      },
+      {
+        "id": 519691,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583949600,
+            "datetime": "2020-03-11 19:00",
+            "date": "2020-03-11",
+            "time": "19:00"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583953200,
+            "datetime": "2020-03-11 20:00",
+            "date": "2020-03-11",
+            "time": "20:00"
+          }
+        },
+        "product": {
+          "id": 377,
+          "description": null,
+          "descriptiontranslations": [],
+          "name": "Fitness-Pass",
+          "nametranslations": [],
+          "number": "376",
+          "lastupdate": "2020-02-28 13:56",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 41,
+            "name": "Jakob Asterblom",
+            "type": "Personal",
+            "employee": {
+              "id": 1900,
+              "name": "Jakob Asterblom"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 30,
+            "name": "Yta 3",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583948700,
+            "datetime": "2020-03-11 18:45",
+            "date": "2020-03-11",
+            "time": "18:45"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583938800,
+            "datetime": "2020-03-11 16:00",
+            "date": "2020-03-11",
+            "time": "16:00"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 8,
+        "bookableslots": 8,
+        "totalslots": 12,
+        "slotsreservedfordropin": 0,
+        "cancelled": false,
+        "participants": [
+          {
+            "id": 351447,
+            "personid": 2011,
+            "firstname": "Henrik",
+            "lastname": "Axelsson"
+          },
+          {
+            "id": 351705,
+            "personid": 3960,
+            "firstname": "Romel",
+            "lastname": "Belcher"
+          },
+          {
+            "id": 351706,
+            "personid": 1671,
+            "firstname": "Magnus",
+            "lastname": "Larsson"
+          },
+          {
+            "id": 351817,
+            "personid": 900,
+            "firstname": "Emil",
+            "lastname": "Andersson"
+          }
+        ],
+        "waitinglistsize": 0
+      },
+      {
+        "id": 518291,
+        "businessunit": {
+          "id": 1,
+          "name": "CrossFit Nordic Gym"
+        },
+        "start": {
+          "timepoint": {
+            "timestamp": 1583951400,
+            "datetime": "2020-03-11 19:30",
+            "date": "2020-03-11",
+            "time": "19:30"
+          }
+        },
+        "end": {
+          "timepoint": {
+            "timestamp": 1583955000,
+            "datetime": "2020-03-11 20:30",
+            "date": "2020-03-11",
+            "time": "20:30"
+          }
+        },
+        "product": {
+          "id": 4,
+          "description": "",
+          "descriptiontranslations": [],
+          "name": "Dagens pass kväll",
+          "nametranslations": [],
+          "number": "4",
+          "lastupdate": "2017-05-16 08:31",
+          "bookablefrominternet": "true",
+          "cssclass": "",
+          "group": {
+            "id": 4,
+            "name": "Gruppaktiviteter",
+            "nametranslations": []
+          },
+          "productlabels": [],
+          "standardprice": {
+            "priceincvat": 0,
+            "priceexvat": 0
+          },
+          "prices": [],
+          "producttype": "groupActivity",
+          "timeresolution": [],
+          "timeresolutionfromschedulestart": [],
+          "resourcerequirements": [],
+          "isvaluecardproducttype": "",
+          "requiresautogiro": "",
+          "requiresrecurringcardpayment": "",
+          "requiresmembership": "",
+          "givesmembership": "",
+          "signupfeeproduct": {},
+          "onlyUseAsPackagePart": "false",
+          "subscriptionlength": "",
+          "businessunits": [
+            {
+              "id": 1,
+              "name": "CrossFit Nordic Gym"
+            }
+          ]
+        },
+        "resources": [
+          {
+            "id": 13,
+            "name": "Jenny Jacobsen",
+            "type": "Personal",
+            "employee": {
+              "id": 292,
+              "name": "Jenny Linnéa Jacobsen"
+            },
+            "issubstitute": false
+          },
+          {
+            "id": 1,
+            "name": "Yta 1 & 2",
+            "type": "Lokal"
+          }
+        ],
+        "bookableearliest": {
+          "timepoint": {
+            "timestamp": 1583478000,
+            "datetime": "2020-03-06 08:00",
+            "date": "2020-03-06",
+            "time": "08:00"
+          }
+        },
+        "bookablelatest": {
+          "timepoint": {
+            "timestamp": 1583950500,
+            "datetime": "2020-03-11 19:15",
+            "date": "2020-03-11",
+            "time": "19:15"
+          }
+        },
+        "debookablelatest": {
+          "timepoint": {
+            "timestamp": 1583940600,
+            "datetime": "2020-03-11 16:30",
+            "date": "2020-03-11",
+            "time": "16:30"
+          }
+        },
+        "externalmessage": null,
+        "internalmessage": null,
+        "freeslots": 14,
+        "bookableslots": 14,
+        "totalslots": 14,
+        "slotsreservedfordropin": 0,
+        "cancelled": true,
+        "participants": [],
+        "waitinglistsize": 0
+      }
+    ]
+  }
+}

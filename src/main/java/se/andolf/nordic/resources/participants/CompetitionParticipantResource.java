@@ -11,17 +11,17 @@ import se.andolf.nordic.resources.ParticipantResource;
 import java.util.stream.Collectors;
 
 @Component
-public class PerformanceParticipantResource extends AbstractParticipantResource {
+public class CompetitionParticipantResource extends AbstractParticipantResource {
 
     @Autowired
-    public PerformanceParticipantResource(ParticipantResource participantResource) {
+    public CompetitionParticipantResource(ParticipantResource participantResource) {
         super(participantResource);
     }
 
     public Mono<ListResponse<WorkoutClass>> get() {
         return getParticipants().flatMap(workoutClasses -> Mono.just(ListResponse.<WorkoutClass>builder()
                 .data(workoutClasses.stream()
-                        .filter(workoutClass -> workoutClass.getName().equals(WorkoutType.PERFORMANCE)||
+                        .filter(workoutClass -> workoutClass.getName().equals(WorkoutType.COMPETITION)||
                                 workoutClass.getName().equals(WorkoutType.DAGENS_PASS_HELG) ||
                                 workoutClass.getName().equals(WorkoutType.MASTODONT_WORKOUT) ||
                                 workoutClass.getName().equals(WorkoutType.FITNESS_PERFORMANCE_JOINED) ||

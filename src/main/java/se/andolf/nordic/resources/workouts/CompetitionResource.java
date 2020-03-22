@@ -8,9 +8,9 @@ import se.andolf.nordic.resources.SheetResource;
 
 import java.util.List;
 
-public class PerformanceResource extends AbstractWorkoutResource {
+public class CompetitionResource extends AbstractWorkoutResource {
 
-    public PerformanceResource(WorkoutConfiguration workoutConfiguration, SheetResource sheetResource) {
+    public CompetitionResource(WorkoutConfiguration workoutConfiguration, SheetResource sheetResource) {
         super(workoutConfiguration, sheetResource);
     }
 
