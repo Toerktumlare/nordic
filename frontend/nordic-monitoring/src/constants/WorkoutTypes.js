@@ -5,7 +5,7 @@ const WorkoutTypes = {
   COMPETITION: 'Competition',
   MASTODONT_WORKOUT: 'Nordic Mastodont Workout',
   GRATIS_PROVA_CROSSFIT: 'Gratis prova Crossfit',
-  FITNESS_PERFORMANCE_JOINED: 'Fitness/Competition',
+  FITNESS_COMPETITION_JOINED: 'Fitness/Competition',
   TEMAPASS_JULAFTON: 'Temapass Julafton',
 };
 
