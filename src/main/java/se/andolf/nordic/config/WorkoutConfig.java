@@ -37,6 +37,7 @@ public class WorkoutConfig {
                 .workoutType(WorkoutType.COMPETITION)
                 .yearStartCell(5742)
                 .tabName("'Trän.plan - Perf'")
+                .endColumn("L")
                 .build();
         return new CompetitionResource(workoutConfiguration, sheetResource);
     }
