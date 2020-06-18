@@ -36,7 +36,7 @@ public class WorkoutConfig {
         final WorkoutConfiguration workoutConfiguration = WorkoutConfiguration.builder()
                 .workoutType(WorkoutType.COMPETITION)
                 .yearStartCell(5742)
-                .tabName("'Trän.plan - Comp")
+                .tabName("'Trän.plan - Comp'")
                 .endColumn("L")
                 .build();
         return new CompetitionResource(workoutConfiguration, sheetResource);
