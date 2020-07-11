@@ -7,6 +7,7 @@ import reactor.core.publisher.Mono;
 import reactor.core.publisher.ReplayProcessor;
 import se.andolf.nordic.models.WorkoutType;
 import se.andolf.nordic.models.response.ListResponse;
+import se.andolf.nordic.models.response.Participant;
 import se.andolf.nordic.models.response.WorkoutClass;
 import se.andolf.nordic.resources.ParticipantResource;
 
@@ -33,12 +34,18 @@ public abstract class AbstractParticipantResource {
                             .startTime(activity.getStart().getTimepoint().getTimestamp())
                             .endTime(activity.getEnd().getTimepoint().getTimestamp())
                             .participants(activity.getParticipants().stream()
-                                    .filter(participant -> !participant.getFirstname().equals("Anonymous"))
+                                    .filter(this::filterFaultyParticipants)
                                     .collect(Collectors.toList()))
                             .build())
                     .collect(Collectors.toList());
             return Mono.just(workoutClasses);
         });
+    }
+
+    private boolean filterFaultyParticipants(Participant participant) {
+        if(participant.getFirstname() == null || participant.getLastname() == null)
+            return false;
+        return !participant.getFirstname().equals("Anonymous");
     }
 
     public ReplayProcessor<ServerSentEvent<ListResponse<WorkoutClass>>> stream() {
