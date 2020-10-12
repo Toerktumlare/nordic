@@ -11,7 +11,7 @@ public class WorkoutConfiguration {
     WorkoutType workoutType;
     String tabName;
     @Builder.Default
-    int yearStartCell = 3814;
+    int yearStartCell = 5;
     @Builder.Default
     int oneWeakCellCount = 16;
     @Builder.Default
