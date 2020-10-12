@@ -8,20 +8,20 @@ import se.andolf.nordic.models.WorkoutType;
 @Builder
 public class WorkoutConfiguration {
 
-    private WorkoutType workoutType;
-    private String tabName;
+    WorkoutType workoutType;
+    String tabName;
     @Builder.Default
-    private int yearStartCell = 3814;
+    int yearStartCell = 3814;
     @Builder.Default
-    private int oneWeakCellCount = 16;
+    int oneWeakCellCount = 16;
     @Builder.Default
-    private String startColumn = "A";
+    String startColumn = "A";
     @Builder.Default
-    private String endColumn = "J";
+    String endColumn = "J";
     @Builder.Default
-    private int weekLength = 7;
+    int weekLength = 7;
     @Builder.Default
-    private int weekdayStartOffset = 2;
+    int weekdayStartOffset = 2;
     @Builder.Default
-    private String sheetId = "12lWiSpQypDa2l3QB6hhFcvalH9DmUvTJzWrDBm7N8-c";
+    String sheetId = "12lWiSpQypDa2l3QB6hhFcvalH9DmUvTJzWrDBm7N8-c";
 }
