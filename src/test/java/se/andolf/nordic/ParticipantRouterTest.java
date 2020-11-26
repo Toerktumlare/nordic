@@ -1,12 +1,13 @@
 package se.andolf.nordic;
 
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 public class ParticipantRouterTest {
 
 
-    @Test @Ignore
+    @Test
+    @Disabled
     public void exampleTest() {
 
     }

@@ -56,6 +56,7 @@ public class SheetConfig {
             final HttpRequestInitializer httpRequestInitializer = new HttpCredentialsAdapter(credentials);
             return new Sheets.Builder(GoogleNetHttpTransport.newTrustedTransport(),
                     JacksonFactory.getDefaultInstance(), httpRequestInitializer)
+                    .setApplicationName("nordic-montoring")
                     .setSheetsRequestInitializer(new SheetsRequestInitializer("AIzaSyDeNtz65wuxX6WT-vFxQrI2DscSv6ElacQ"))
                     .build();
         } catch (GeneralSecurityException | IOException e) {
