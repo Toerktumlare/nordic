@@ -1,11 +1,11 @@
 module.exports = {
-  parser: "babel-eslint",
+  parser: 'babel-eslint',
   env: {
     browser: true,
     es6: true,
   },
   extends: [
-    'airbnb'
+    'airbnb',
   ],
   globals: {
     Atomics: 'readonly',
