@@ -81,7 +81,6 @@ class WorkoutDay extends React.Component {
   }
 }
 
-
 WorkoutDay.propTypes = {
   className: PropTypes.string,
   workoutName: PropTypes.string,

@@ -70,7 +70,6 @@ const Timer = ({ className, style }) => {
   );
 };
 
-
 Timer.propTypes = {
   className: PropTypes.string,
   style: PropTypes.shape({}),

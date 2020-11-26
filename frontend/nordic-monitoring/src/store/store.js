@@ -3,7 +3,6 @@ import thunk from 'redux-thunk';
 import workoutsReducer from './reducers/workoutsReducer';
 import participantsReducer from './reducers/participantsReducer';
 
-
 export const rootReducer = combineReducers({
   workouts: workoutsReducer,
   attendees: participantsReducer,
