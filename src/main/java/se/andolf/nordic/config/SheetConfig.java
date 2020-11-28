@@ -2,14 +2,11 @@ package se.andolf.nordic.config;
 
 import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
 import com.google.api.client.http.HttpRequestInitializer;
-import com.google.api.client.http.HttpTransport;
-import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.SheetsRequestInitializer;
 import com.google.api.services.sheets.v4.SheetsScopes;
 import com.google.auth.http.HttpCredentialsAdapter;
-import com.google.auth.http.HttpTransportFactory;
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.auth.oauth2.ServiceAccountCredentials;
 import org.springframework.beans.factory.BeanCreationException;
@@ -28,7 +25,7 @@ import java.util.Collections;
 @Configuration
 public class SheetConfig {
 
-    private SheetConnectionProperties sheetConnectionProperties;
+    private final SheetConnectionProperties sheetConnectionProperties;
 
     @Autowired
     public SheetConfig(SheetConnectionProperties sheetConnectionProperties) {
@@ -61,13 +58,6 @@ public class SheetConfig {
                     .build();
         } catch (GeneralSecurityException | IOException e) {
             throw new BeanCreationException("Could not create Sheets bean", e);
-        }
-    }
-
-    private class DefaultHttpTransportFactory implements HttpTransportFactory {
-
-        public HttpTransport create() {
-            return new NetHttpTransport();
         }
     }
 }

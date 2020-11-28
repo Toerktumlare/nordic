@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 @Slf4j
 public abstract class AbstractWorkoutResource {
 
+    // TODO: Refactor away replayprocessor
     final ReplayProcessor<ServerSentEvent<List<WorkoutResponse>>> replayProcessor;
     final FluxSink<ServerSentEvent<List<WorkoutResponse>>> sink;
     final SheetResource sheetResource;

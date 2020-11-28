@@ -17,6 +17,8 @@ import java.util.stream.Collectors;
 public abstract class AbstractParticipantResource {
 
     private final ParticipantResource participantResource;
+
+    // TODO: Refactor away replayprocessor
     private final ReplayProcessor<ServerSentEvent<ListResponse<WorkoutClass>>> replayProcessor;
     final FluxSink<ServerSentEvent<ListResponse<WorkoutClass>>> sink;
 

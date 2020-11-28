@@ -6,7 +6,7 @@ import org.springframework.core.io.ClassPathResource;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class FileUtils {
@@ -24,13 +24,13 @@ public class FileUtils {
 
     public static List<String> readAsList(String filename) {
         try {
-            return IOUtils.readLines(new ClassPathResource(filename).getInputStream(), Charset.forName("UTF-8"));
+            return IOUtils.readLines(new ClassPathResource(filename).getInputStream(), StandardCharsets.UTF_8);
         } catch (IOException e) {
             throw new IllegalArgumentException(e);
         }
     }
 
     public static InputStream readAsString(String value) {
-        return new ByteArrayInputStream(value.getBytes(Charset.forName("UTF-8")));
+        return new ByteArrayInputStream(value.getBytes(StandardCharsets.UTF_8));
     }
 }

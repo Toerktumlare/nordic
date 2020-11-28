@@ -33,6 +33,7 @@ public class BrpParticipantResource implements ParticipantResource {
                         .queryParam("businessunitids", "1")
                         .build())
                 .accept(MediaType.APPLICATION_JSON)
+                // TODO: refactor to Mono#exchangeToMono, or even retrieve
                 .exchange()
                 .flatMap(clientResponse -> {
                     final List<String> contentTypes = clientResponse.headers().header(HttpHeaders.CONTENT_TYPE);
