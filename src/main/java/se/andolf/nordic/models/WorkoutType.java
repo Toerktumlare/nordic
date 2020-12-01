@@ -4,7 +4,9 @@ public enum WorkoutType {
 
     DAGENS_PASS,
     DAGENS_PASS_HELG,
+    DAGENS_PASS_LUNCH,
     FITNESS,
+    FITNESS_LUNCH,
     COMPETITION,
     MASTODONT_WORKOUT,
     GRATIS_PROVA_CROSSFIT,
@@ -22,13 +24,13 @@ public enum WorkoutType {
     // Dagens pass helg, 231
     // Fitness-pass, 312
     // Fitness-pass, 376
+    // Fitness-pass lunch, 563
     // Fitness-pass Stort, 428
     // Performance morgon, 235
     // Performance, 178
     // Mastodont, 381
     // Fitness/Performance joined 498
     // Temapass Julafton 63
-
 
     public static WorkoutType from(String value) {
         if("496".equals(value))
@@ -38,7 +40,7 @@ public enum WorkoutType {
         else if("322".equals(value))
             return WorkoutType.DAGENS_PASS;
         else if("326".equals(value))
-            return WorkoutType.DAGENS_PASS;
+            return WorkoutType.DAGENS_PASS_LUNCH;
         else if("4".equals(value))
             return WorkoutType.DAGENS_PASS;
         else if("321".equals(value))
@@ -51,6 +53,8 @@ public enum WorkoutType {
             return WorkoutType.FITNESS;
         else if("428".equals(value))
             return WorkoutType.FITNESS;
+        else if("563".equals(value))
+            return WorkoutType.FITNESS_LUNCH;
         else if("235".equals(value))
             return WorkoutType.COMPETITION;
         else if("178".equals(value))
