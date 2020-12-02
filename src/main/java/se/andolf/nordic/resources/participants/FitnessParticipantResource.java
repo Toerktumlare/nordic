@@ -22,6 +22,7 @@ public class FitnessParticipantResource extends AbstractParticipantResource {
         return getParticipants().flatMap(workoutClasses -> Mono.just(ListResponse.<WorkoutClass>builder()
                 .data(workoutClasses.stream()
                         .filter(workoutClass -> workoutClass.getName().equals(WorkoutType.FITNESS)||
+                                workoutClass.getName().equals(WorkoutType.FITNESS_LUNCH) ||
                                 workoutClass.getName().equals(WorkoutType.DAGENS_PASS_HELG) ||
                                 workoutClass.getName().equals(WorkoutType.MASTODONT_WORKOUT) ||
                                 workoutClass.getName().equals(WorkoutType.FITNESS_COMPETITION_JOINED) ||
