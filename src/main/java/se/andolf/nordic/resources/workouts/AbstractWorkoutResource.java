@@ -15,6 +15,7 @@ import se.andolf.nordic.utils.DateUtils;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -102,8 +103,10 @@ public abstract class AbstractWorkoutResource {
     }
 
     private List<String> getRanges() {
+        final LocalDate referenceDate = LocalDate.parse(config.getReferenceDate());
+        final int weeksPassed = (int) ChronoUnit.WEEKS.between(referenceDate, LocalDate.now());
         final int currentWeek = DateUtils.getCurrentWeek();
-        final int startingCell = config.getYearStartCell() + ((currentWeek - 1) * config.getOneWeakCellCount());
+        final int startingCell = config.getYearStartCell() + ((weeksPassed + currentWeek) * config.getOneWeakCellCount());
         int currentRow = startingCell + config.getWeekdayStartOffset();
 
         final List<String> ranges = new ArrayList<>();

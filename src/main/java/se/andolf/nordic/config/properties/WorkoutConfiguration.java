@@ -11,7 +11,7 @@ public class WorkoutConfiguration {
     WorkoutType workoutType;
     String tabName;
     @Builder.Default
-    int yearStartCell = 853;
+    int yearStartCell = 5;
     @Builder.Default
     int oneWeakCellCount = 16;
     @Builder.Default
@@ -24,4 +24,6 @@ public class WorkoutConfiguration {
     int weekdayStartOffset = 2;
     @Builder.Default
     String sheetId = "12lWiSpQypDa2l3QB6hhFcvalH9DmUvTJzWrDBm7N8-c";
+    @Builder.Default
+    String referenceDate = "2020-01-01";
 }
