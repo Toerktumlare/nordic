@@ -105,8 +105,7 @@ public abstract class AbstractWorkoutResource {
     private List<String> getRanges() {
         final LocalDate referenceDate = LocalDate.parse(config.getReferenceDate());
         final int weeksPassed = (int) ChronoUnit.WEEKS.between(referenceDate, LocalDate.now());
-        final int currentWeek = DateUtils.getCurrentWeek();
-        final int startingCell = config.getYearStartCell() + ((weeksPassed + currentWeek -1) * config.getOneWeakCellCount());
+        final int startingCell = config.getYearStartCell() + (weeksPassed * config.getOneWeakCellCount());
         int currentRow = startingCell + config.getWeekdayStartOffset();
 
         final List<String> ranges = new ArrayList<>();
@@ -119,5 +118,4 @@ public abstract class AbstractWorkoutResource {
 
         return ranges;
     }
-
 }
