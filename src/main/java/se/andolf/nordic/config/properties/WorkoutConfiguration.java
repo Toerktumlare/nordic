@@ -25,5 +25,5 @@ public class WorkoutConfiguration {
     @Builder.Default
     String sheetId = "12lWiSpQypDa2l3QB6hhFcvalH9DmUvTJzWrDBm7N8-c";
     @Builder.Default
-    String referenceDate = "2020-01-01";
+    String referenceDate = "2020-01-06";
 }
