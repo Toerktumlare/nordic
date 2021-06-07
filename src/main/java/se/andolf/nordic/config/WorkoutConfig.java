@@ -26,6 +26,7 @@ public class WorkoutConfig {
         final WorkoutConfiguration workoutConfiguration = WorkoutConfiguration.builder()
                 .workoutType(WorkoutType.FITNESS)
                 .tabName("'Trän.plan - Fitness'")
+                .endColumn("K")
                 .build();
         return new FitnessResource(workoutConfiguration, sheetResource);
     }
