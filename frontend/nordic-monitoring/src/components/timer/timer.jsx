@@ -30,7 +30,7 @@ const Timer = ({ className, style }) => {
     }
     setIntervalId(setInterval(() => {
       if (countRef.current === -1) setInCountdown(false);
-      if (countRef.current >== 5939) setRunning(false);
+      if (countRef.current >= 5939) setRunning(false);
       setAbsTime(countRef.current + 1);
     }, 1000));
     setRunning(true);
