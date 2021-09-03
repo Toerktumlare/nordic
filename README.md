@@ -32,6 +32,6 @@ backend is dependent on google sheet API and has also an integration against BRP
 [BRP systems activities API](https://dok.brpsystems.se/display/API/activities)
 
 ```
-https://crossfitnordic.brpsystems.com/brponline/api/ver2/activities.json?apikey=<apikey>&businessunitids=1&startdate=2019-11-09&enddate=2019-11-09
+curl "https://crossfitnordic.brpsystems.com/brponline/api/ver2/activities.json?apikey=<apikey>&businessunitids=1&startdate=2019-11-09&enddate=2019-11-09"
 ```
 
