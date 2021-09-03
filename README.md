@@ -24,7 +24,7 @@ After you build the application, it is served on localhost:8080 but if you want 
 ./frontend/nordic-monitoring/yarn start 
 ```
 
-And the react application will be avaliable at localhot:3000.
+And the react application will be avaliable at localhot:3000
 
 ## Integrations
 backend is dependent on google sheet API and has also an integration against BRP systems for fetching workout class participants.
