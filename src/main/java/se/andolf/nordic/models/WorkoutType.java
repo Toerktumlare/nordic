@@ -20,7 +20,7 @@ public enum WorkoutType {
     // Dagens pass morgon, 42
     // Dagens pass lunch, 326
     // Dagens pass lunch 554
-    // Dagens pass kvall, 4
+    // Dagens pass kvall, 14
     // Dagens pass kvall stort, 321
     // Dagens pass helg, 231
     // Fitness-pass, 312
@@ -44,7 +44,7 @@ public enum WorkoutType {
             return WorkoutType.DAGENS_PASS_LUNCH;
         else if("554".equals(value))
             return WorkoutType.DAGENS_PASS_LUNCH;
-        else if("4".equals(value))
+        else if("14".equals(value))
             return WorkoutType.DAGENS_PASS;
         else if("321".equals(value))
             return WorkoutType.DAGENS_PASS;
