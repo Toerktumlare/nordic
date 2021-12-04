@@ -2,9 +2,7 @@ package se.andolf.nordic.resources.participants;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.codec.ServerSentEvent;
-import reactor.core.publisher.FluxSink;
-import reactor.core.publisher.Mono;
-import reactor.core.publisher.ReplayProcessor;
+import reactor.core.publisher.*;
 import se.andolf.nordic.models.WorkoutType;
 import se.andolf.nordic.models.response.ListResponse;
 import se.andolf.nordic.models.response.Participant;
@@ -18,14 +16,11 @@ public abstract class AbstractParticipantResource {
 
     private final ParticipantResource participantResource;
 
-    // TODO: Refactor away replayprocessor
-    private final ReplayProcessor<ServerSentEvent<ListResponse<WorkoutClass>>> replayProcessor;
-    final FluxSink<ServerSentEvent<ListResponse<WorkoutClass>>> sink;
+    private final Sinks.Many<ServerSentEvent<ListResponse<WorkoutClass>>> replaySink;
 
     AbstractParticipantResource(@Qualifier("BrpParticipantResource") ParticipantResource participantResource) {
         this.participantResource = participantResource;
-        this.replayProcessor = ReplayProcessor.cacheLast();
-        sink = replayProcessor.sink();
+        this.replaySink = Sinks.many().replay().latest();
     }
 
     public Mono<List<WorkoutClass>> getParticipants() {
@@ -50,12 +45,12 @@ public abstract class AbstractParticipantResource {
         return !participant.getFirstname().equals("Anonymous");
     }
 
-    public ReplayProcessor<ServerSentEvent<ListResponse<WorkoutClass>>> stream() {
-        return replayProcessor;
+    public Flux<ServerSentEvent<ListResponse<WorkoutClass>>> stream() {
+        return replaySink.asFlux();
     }
 
     public Mono<Void> push(ListResponse<WorkoutClass> workoutClassListResponse) {
-        sink.next(ServerSentEvent.<ListResponse<WorkoutClass>>builder().data(workoutClassListResponse).build());
+        replaySink.emitNext(ServerSentEvent.<ListResponse<WorkoutClass>>builder().data(workoutClassListResponse).build(), Sinks.EmitFailureHandler.FAIL_FAST);
         return Mono.empty();
     }
 }
