@@ -13,9 +13,5 @@ public class ParticipantRouterTest {
     @Disabled
     public void exampleTest() {
 
-        final LocalDate firstDay = LocalDate.of(2020, 1, 1);
-        long between = ChronoUnit.WEEKS.between(firstDay, LocalDate.now());
-
-        System.out.println(between);
     }
 }
