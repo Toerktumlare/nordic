@@ -95,6 +95,10 @@
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
                 <version>1.10.3</version>
+                <configuration>
+                    <workingDirectory>frontend/nordic-monitoring</workingDirectory>
+                    <installDirectory>target</installDirectory>
+                </configuration>
                 <executions>
                     <execution>
                         <id>install node and npm</id>
@@ -124,10 +128,6 @@
                         </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <workingDirectory>frontend/nordic-monitoring</workingDirectory>
-                    <installDirectory>target</installDirectory>
-                </configuration>
             </plugin>
             <plugin>
                 <artifactId>maven-antrun-plugin</artifactId>
