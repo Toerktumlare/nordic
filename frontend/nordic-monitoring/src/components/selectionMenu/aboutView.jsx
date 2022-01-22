@@ -1,5 +1,5 @@
 import React from 'react';
-import Loader from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 import catApi from '../../api/catResource';
 
 class AboutView extends React.Component {
@@ -24,7 +24,7 @@ class AboutView extends React.Component {
 
   handleImageLoaded = () => {
     this.setState({ imageLoaded: true });
-  }
+  };
 
   render() {
     const { catImg, imageLoaded } = this.state;
@@ -37,7 +37,7 @@ class AboutView extends React.Component {
             <img src={catImg} alt="cat" heigth="300" width="300" onLoad={this.handleImageLoaded} className="ph4" />
           </div>
           <div className={`flex-column items-center justify-center w-100 ${imageLoaded ? 'dn' : 'flex'}`} style={{ width: '300px', height: '200px' }}>
-            <Loader type="Circles" color="#357edd" className="pa2" />
+            <ThreeDots color="#357edd" className="pa2" />
             <div className="f7 futura mb3 mt2 i ttu">Opening portal to kitty dimension</div>
           </div>
         </div>

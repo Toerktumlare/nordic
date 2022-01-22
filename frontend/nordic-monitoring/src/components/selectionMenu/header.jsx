@@ -30,20 +30,20 @@ class Header extends React.Component {
   openRefetchModal = (event) => {
     event.preventDefault();
     this.setState({ isRefetchModalOpen: true });
-  }
+  };
 
   closeRefetchModal = () => {
     this.setState({ isRefetchModalOpen: false });
-  }
+  };
 
   openAboutModal = (event) => {
     event.preventDefault();
     this.setState({ isAboutModalOpen: true });
-  }
+  };
 
   closeAboutModal = () => {
     this.setState({ isAboutModalOpen: false });
-  }
+  };
 
   render() {
     const { isRefetchModalOpen, isAboutModalOpen } = this.state;

@@ -49,7 +49,7 @@ class Participants extends React.Component {
   handleParticipantsEvent = (e) => {
     const { addParticipant } = this.props;
     addParticipant(JSON.parse(e.data));
-  }
+  };
 
   render() {
     const { data, divHeight } = this.state;

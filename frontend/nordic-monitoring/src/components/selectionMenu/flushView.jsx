@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Loader from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 import { doFlush } from '../../store/actions/workoutsActions';
 
 class FlushView extends React.Component {
@@ -26,13 +26,7 @@ class FlushView extends React.Component {
     const { onFlush } = this.props;
     onFlush();
     this.setState({ closeModal: true });
-  }
-
-  onHandleNo = (event) => {
-    event.preventDefault();
-    const { onClose } = this.props;
-    onClose();
-  }
+  };
 
   render() {
     const { isFlushing, closeModal } = this.state;
@@ -47,10 +41,9 @@ class FlushView extends React.Component {
         <h3 className="pv4 ph5">Reset and refetch all workouts?</h3>
         <div className="flex justify-around">
           <a className={`f6 no-underline br-pill ph5 pv2 mb2 dib white bg-dark-blue ${isFlushing ? 'o-50' : 'grow'}`} href="" onClick={onClose}>No</a>
-          <a className="f6 grow no-underline br-pill ph5 pv2 mb2 dib white bg-dark-blue" href="" onClick={this.onHandleFlush}>
+          <a className="f6 grow no-underline br-pill ph5 pv2 mb2 dib white bg-dark-blue" href="" onClick={() => this.onHandleFlush}>
             {isFlushing ? (
-              <Loader
-                type="ThreeDots"
+              <ThreeDots
                 color="#FFFFFF"
                 width={20}
                 height={13}

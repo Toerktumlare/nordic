@@ -49,7 +49,7 @@ class WorkoutDay extends React.Component {
       return;
     }
     this.setState({ index: index -= 1 });
-  }
+  };
 
   onClickMinus = () => {
     let { index } = this.state;
@@ -58,7 +58,7 @@ class WorkoutDay extends React.Component {
       return;
     }
     this.setState({ index: index += 1 });
-  }
+  };
 
   render() {
     const {

@@ -15,14 +15,12 @@ class Workout extends React.Component {
       const dayComponents = workoutDays.map((workoutDay) => {
         const { instructions, workouts, date } = workoutDay;
         return (
-          <>
-            <WorkoutDay
-              workoutName={workoutName}
-              timestamp={date}
-              workouts={workouts}
-              instructions={instructions}
-            />
-          </>
+          <WorkoutDay
+            workoutName={workoutName}
+            timestamp={date}
+            workouts={workouts}
+            instructions={instructions}
+          />
         );
       });
       return dayComponents;
@@ -42,18 +40,18 @@ class Workout extends React.Component {
   handleForwardClick = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({ currentIndex: prevState.currentIndex + 1 }));
-  }
+  };
 
   handleBackwardClick = (e) => {
     e.preventDefault();
     this.setState((prevState) => ({ currentIndex: prevState.currentIndex - 1 }));
-  }
+  };
 
   handleMenuClick = (e) => {
     e.preventDefault();
     const { history } = this.props;
     history.push('/');
-  }
+  };
 
   render() {
     const { className, data } = this.props;

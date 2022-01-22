@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Loader from 'react-loader-spinner';
+import { ThreeDots } from 'react-loader-spinner';
 import Workout from './workout';
 import { setWorkouts } from '../../store/actions/workoutsActions';
 
@@ -37,7 +37,7 @@ class WorkoutScreen extends React.Component {
     const { addWorkouts } = this.props;
     const data = JSON.parse(e.data);
     addWorkouts(data);
-  }
+  };
 
   render() {
     const { className, color } = this.props;
@@ -46,8 +46,7 @@ class WorkoutScreen extends React.Component {
       <div className={`w-100 bg-white flex justify-center items-center ba bw3 ${className}`} style={{ borderColor: color }}>
         {!data ? (
           <div>
-            <Loader
-              type="ThreeDots"
+            <ThreeDots
               color="#357edd"
             />
           </div>
